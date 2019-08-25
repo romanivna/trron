@@ -33,7 +33,7 @@
 .benefits-item-img.hover {
     position: relative;
     pointer-events: none;
-    animation: jump 2s linear;
+    animation: jump 1.5s linear;
 }
 
 @keyframes jump {
@@ -41,19 +41,19 @@
         top: 0;
     }
     10% {
-        top: -50px;
+        top: -25px;
     }
     20% {
         top: 0;
     }
     30% {
-        top: -30px;
+        top: -15px;
     }
     40% {
         top: 0;
     }
     50% {
-        top: -10px;
+        top: -5px;
     }
     60% {
         top: 0;

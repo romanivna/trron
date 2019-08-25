@@ -8,7 +8,7 @@
                 item.classList.add('hover');
                 setTimeout(function () {
                     item.classList.remove('hover')
-                }, 2000)
+                }, 1500)
             }
 
         })
