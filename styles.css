@@ -1,9 +1,15 @@
 @import "css/benefits.css";
+@import "css/footer.css";
 
 @font-face {
     font-family: "OpenSans";
     src: url("assets/fonts/opensans.ttf") format("truetype"),
     url("assets/fonts/opensans.woff") format("woff");
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 html,
@@ -19,4 +25,5 @@ body {
     width: 100%;
     padding: 0 10px;
     margin: auto;
+    box-sizing: border-box;
 }
