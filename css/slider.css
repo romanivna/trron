@@ -192,4 +192,10 @@
         font-size: 1rem;
     }
 
+    .slider-item.right{
+        margin: 10% 10% 0% 0%;
+    
+    }
+
 }
+
