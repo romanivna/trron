@@ -94,8 +94,6 @@ function showText(){
 
 }
 
-let sliderInterval = setInterval(sliderNext, 6000)
-
 function hideText(){
     let timeCount = 50;
     const itemTextArr = document.querySelectorAll('.slider-item-content p, .slider-item-content a');
@@ -103,7 +101,6 @@ function hideText(){
         itemTextArr[i].classList.remove('center')
     }
 }
-
 
 function sliderNext() {
     const leftImg = document.querySelector('.slider-item-background.left');
@@ -117,7 +114,7 @@ function sliderNext() {
     const rightImgIndex =  getNextIndex(rightImg, 'right');
     sliderContainer.appendChild(generatediv('right', rightImgIndex,  arrayOfSliderProd[rightImgIndex]));
     hideText();
-    setTimeout(showText ,300)
+    setTimeout(showText ,300);
 }
 
 function getNextIndex (el, direction) {
@@ -126,7 +123,6 @@ function getNextIndex (el, direction) {
     return arrayOfSliderProd[currentIndex+1] ? currentIndex+1 : 0
     }
     return arrayOfSliderProd[currentIndex-1] ? currentIndex-1 : arrayOfSliderProd.length-1
-
 }
 
 function sliderPrevious() {
@@ -141,7 +137,25 @@ function sliderPrevious() {
     const leftImgIndex =  getNextIndex(leftImg, 'left');
     sliderContainer.appendChild(generatediv('left', leftImgIndex,  arrayOfSliderProd[leftImgIndex]));
     hideText();
-    setTimeout(showText ,300)
+    setTimeout(showText ,300);
 
 }
 sliderPrevious();
+let mainsliderInterval = setInterval(sliderNext, 6000);
+let clearSlideTimeout = setTimeout(1);
+
+document.querySelector('#mainSliderButtonLeft').addEventListener('click', function(){
+    clearInterval(mainsliderInterval);
+    clearTimeout(clearSlideTimeout);
+    clearSlideTimeout = setTimeout(function(){
+        mainsliderInterval = setInterval(sliderNext, 6000);
+    },5000)
+});
+document.querySelector('#mainSliderButtonRight').addEventListener('click', function(){
+    clearInterval(mainsliderInterval);
+    clearTimeout(clearSlideTimeout);
+    clearSlideTimeout = setTimeout(function(){
+        mainsliderInterval = setInterval(sliderNext, 6000);
+    },5000)
+});
+
