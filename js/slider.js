@@ -95,7 +95,6 @@ function showText() {
 }
 
 function hideText() {
-    let timeCount = 50;
     const itemTextArr = document.querySelectorAll('.slider-item-content p, .slider-item-content a');
     for (let i = itemTextArr.length - 1; i >= 0; i--) {
         itemTextArr[i].classList.remove('center')
