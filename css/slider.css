@@ -19,7 +19,7 @@
 
 .slider-item-buttons button{
     border: none;
-    background-color: lightgrey;
+    background-color: #d3d3d3;
     transition: .3s;
     border-radius: 3px;
     font-size: 1.7rem;
@@ -39,7 +39,7 @@
 }
 
 .slider-item-buttons button:hover{
-    color: white;
+    color: #ffffff;
     background-color: #ff8c00;
     transition: .3s;
     opacity: 1;
@@ -81,7 +81,7 @@
 
 .slider-item{
     position: relative;
-    color: white;
+    color: #ffffff;
     text-shadow: 0px 0px 1px black;
     display: flex;
     width: 100%;
@@ -141,7 +141,7 @@
     font-size: 1.14rem;
     font-weight: 600;
     text-align: center;
-    color: white;
+    color: #ffffff;
     position: relative;
     right: -100%;
     opacity: .3;
@@ -157,7 +157,7 @@
 }
 
 .slider-item-content-button:hover {
-    background-color: rgb(252, 165, 60);
+    background-color: #fca53c;
     transition: .3s;
 }
 
