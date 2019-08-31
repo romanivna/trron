@@ -605,6 +605,10 @@
         width: 100%;
         left: 0;
     }
+    .heder-mid-right-basket-quantity{
+        right: 90px;
+        left: auto;
+    }
     .header-nav-catalog, .header-nav-menu {
         width: 150px;
     }
