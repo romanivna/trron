@@ -630,6 +630,7 @@
     .header-nav-catalog:hover .header-nav-catalog-list {
         display: block;
         opacity: 1;
+        z-index: 1;
         visibility: visible;
         transition: .5s;
     }
