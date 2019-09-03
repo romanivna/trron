@@ -6,6 +6,44 @@ fetch('./jsons/slider.json').then(response=>response.json()).then(data=>{
 }
 );
 
+function createSlider() {
+    const slideProdArr = arrayOfSliderProd.length - 1;
+    window.slider = document.querySelector('.slider-content-wrapper');
+    slider.appendChild(generateSlide('slider-content--left', slideProdArr, arrayOfSliderProd[slideProdArr]));
+    slider.appendChild(generateSlide('slider-content--current', 0, arrayOfSliderProd[0]));
+    slider.appendChild(generateSlide('slider-content--right', 1, arrayOfSliderProd[1]));
+}
+
+let changSlideinterval = setInterval(changSlide, 6000);
+
+function changSlide(direction) {
+    clearInterval(changSlideinterval);
+    changSlideinterval = setInterval(changSlide, 6000);
+    const leftImg = document.querySelector('.slider-content--left');
+    const curentImg = document.querySelector('.slider-content--current');
+    const rightImg = document.querySelector('.slider-content--right');
+    if (direction === 'left') {
+        leftImg.remove();
+        curentImg.classList.replace('slider-content--current', 'slider-content--left');
+        rightImg.classList.replace('slider-content--right', 'slider-content--current');
+        slider.appendChild(generateSlide('slider-content--right', getNextIndex(rightImg, 'right'), arrayOfSliderProd[getNextIndex(rightImg, 'right')]));
+    } else {
+        rightImg.remove();
+        curentImg.classList.replace('slider-content--current', 'slider-content--right');
+        leftImg.classList.replace('slider-content--left', 'slider-content--current');
+        slider.appendChild(generateSlide('slider-content--left', getNextIndex(leftImg, 'left'), arrayOfSliderProd[getNextIndex(leftImg, 'left')]));
+    }
+    setTimeout(textMoveIn, 400);
+}
+
+function getNextIndex(el, direction) {
+    const currentIndex = +el.getAttribute('data-index');
+    if (direction === 'right') {
+        return arrayOfSliderProd[currentIndex + 1] ? currentIndex + 1 : 0
+    }
+    return arrayOfSliderProd[currentIndex - 1] ? currentIndex - 1 : arrayOfSliderProd.length - 1
+}
+
 function generateSlide(slidePositionClass, currentSlideIndex, slideDataObj) {
     const slideContent = document.createElement('div');
     slideContent.setAttribute('class', 'slider-content');
@@ -38,14 +76,6 @@ function generateSlide(slidePositionClass, currentSlideIndex, slideDataObj) {
     return slideContent
 }
 
-function createSlider() {
-    const slideProdArr = arrayOfSliderProd.length - 1;
-    window.slider = document.querySelector('.slider-content-wrapper');
-    slider.appendChild(generateSlide('slider-content--left', slideProdArr, arrayOfSliderProd[slideProdArr]));
-    slider.appendChild(generateSlide('slider-content--current', 0, arrayOfSliderProd[0]));
-    slider.appendChild(generateSlide('slider-content--right', 1, arrayOfSliderProd[1]));
-}
-
 function textMoveIn() {
     let timeoutValue = 50;
     const text = document.querySelector('.slider-content--current .slider-content-text').childNodes;
@@ -55,34 +85,4 @@ function textMoveIn() {
         }, timeoutValue)
         timeoutValue += 50;
     }
-}
-
-function getNextIndex(el, direction) {
-    const currentIndex = +el.getAttribute('data-index');
-    if (direction === 'right') {
-        return arrayOfSliderProd[currentIndex + 1] ? currentIndex + 1 : 0
-    }
-    return arrayOfSliderProd[currentIndex - 1] ? currentIndex - 1 : arrayOfSliderProd.length - 1
-}
-
-let changSlideinterval = setInterval(changSlide, 6000);
-
-function changSlide(direction) {
-    clearInterval(changSlideinterval);
-    changSlideinterval = setInterval(changSlide, 6000);
-    const leftImg = document.querySelector('.slider-content--left');
-    const curentImg = document.querySelector('.slider-content--current');
-    const rightImg = document.querySelector('.slider-content--right');
-    if (direction === 'left') {
-        leftImg.remove();
-        curentImg.classList.replace('slider-content--current', 'slider-content--left');
-        rightImg.classList.replace('slider-content--right', 'slider-content--current');
-        slider.appendChild(generateSlide('slider-content--right', getNextIndex(rightImg, 'right'), arrayOfSliderProd[getNextIndex(rightImg, 'right')]));
-    } else {
-        rightImg.remove();
-        curentImg.classList.replace('slider-content--current', 'slider-content--right');
-        leftImg.classList.replace('slider-content--left', 'slider-content--current');
-        slider.appendChild(generateSlide('slider-content--left', getNextIndex(leftImg, 'left'), arrayOfSliderProd[getNextIndex(leftImg, 'left')]));
-    }
-    setTimeout(textMoveIn, 400);
 }
