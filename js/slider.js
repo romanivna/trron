@@ -1,5 +1,5 @@
 let arrayOfSliderProd;
-fetch('./json/slider.json').then(respons => respons.json()).then(data => {arrayOfSliderProd = data; createSlider(); changSlide()});
+fetch('./jsons/slider.json').then(respons => respons.json()).then(data => {arrayOfSliderProd = data; createSlider(); changSlide()});
 
 function generateSlide(slidePositionClass, currentSlideIndex, slideDataObj){
     const slideContent = document.createElement('div');
