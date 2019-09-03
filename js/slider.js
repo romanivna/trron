@@ -1,119 +1,55 @@
-const arrayOfSliderProd = [{
-    imgSrc: 'img/slider/1.jpg',
-    title: 'Sassicaia',
-    subtitle: 'Вино и не только',
-    description: 'Возможно, самые известные итальянские напитки',
-    buttonUrl: 'https://winebutik.com.ua/drinks/category/wines/brand/sassicaia',
-    buttonColor: 'red',
-    position: 'center'
-}, {
-    imgSrc: 'img/slider/2.jpg',
-    title: 'Виски Macallan',
-    subtitle: 'Яркие оттенки традиций',
-    description: 'Лучший подарок на юбилей',
-    buttonUrl: 'https://winebutik.com.ua/drinks/category/whiskey/brand/macallan',
-    buttonColor: 'red',
-    position: 'center'
-}, {
-    imgSrc: 'img/slider/3.jpg',
-    title: 'Хрустальные декантеры ',
-    subtitle: 'Riedel',
-    description: 'Больше, чем графин для вина',
-    buttonUrl: 'https://winebutik.com.ua/brand/riedel',
-    buttonColor: 'blue',
-    position: 'right'
-}, {
-    imgSrc: 'img/slider/4.jpg',
-    title: 'Вино Provetto',
-    subtitle: 'Проветто Спуманте Бьянко Брют',
-    description: 'Глубинный и насыщенный вкус ',
-    buttonUrl: 'https://winebutik.com.ua/drinks/category/wines/brand/sassicaia',
-    buttonColor: 'blue',
-    position: 'right'
-}]
+let arrayOfSliderProd;
+fetch('./json/slider.json').then(respons => respons.json()).then(data => {arrayOfSliderProd = data; createSlider(); changSlide()});
 
-function generatediv(ppclass, index, obj) {
-    const backgroundDiv = document.createElement('div');
-    backgroundDiv.setAttribute('class', 'slider-item-background');
-    backgroundDiv.setAttribute('style', `background-image:url(${obj.imgSrc})`);
-    backgroundDiv.setAttribute('data-index', index);
-    backgroundDiv.classList.add(ppclass);
-    //position of slide (left current right)
-    const sliderItem = document.createElement('div');
-    sliderItem.setAttribute('class', 'slider-item');
-    sliderItem.classList.add(obj.position)
-    // contents position in slide ( center right)
-    const sliderItemContent = document.createElement('div');
-    sliderItemContent.setAttribute('class', 'slider-item-content');
-    const sliderItemContentTextTitle = document.createElement('p');
-    sliderItemContentTextTitle.setAttribute('class', 'slider-item-content-text-title')
-    sliderItemContentTextTitle.innerText = `${obj.title}`;
-    //title
-    const sliderItemContentTextSubtitle = document.createElement('p');
-    sliderItemContentTextSubtitle.setAttribute('class', 'slider-item-content-text-subtitle')
-    sliderItemContentTextSubtitle.innerText = `${obj.subtitle}`;
-    //subtitle
-    const sliderItemContentTextDescr = document.createElement('p');
-    sliderItemContentTextDescr.setAttribute('class', 'slider-item-content-text-descr');
-    sliderItemContentTextDescr.innerText = `${obj.description}`;
-    //description
-    const sliderItemContentButton = document.createElement('a');
-    sliderItemContentButton.setAttribute('class', 'slider-item-content-button')
-    sliderItemContentButton.setAttribute('href', obj.buttonUrl)
-    sliderItemContentButton.classList.add(obj.buttonColor)
-    //buttonColor
-    sliderItemContentButton.innerText = 'ПОПРОБОВАТЬ';
-
-    sliderItemContent.appendChild(sliderItemContentTextTitle);
-    sliderItemContent.appendChild(sliderItemContentTextSubtitle);
-    sliderItemContent.appendChild(sliderItemContentTextDescr);
-    sliderItemContent.appendChild(sliderItemContentButton);
-
-    sliderItem.appendChild(sliderItemContent)
-
-    backgroundDiv.appendChild(sliderItem)
-    return backgroundDiv
+function generateSlide(slidePositionClass, currentSlideIndex, slideDataObj){
+    const slideContent = document.createElement('div');
+    slideContent.setAttribute('class', 'slider-content');
+    slideContent.setAttribute('data-index', currentSlideIndex);
+    slideContent.setAttribute('style', `background-image:url(${slideDataObj.imgSrc})`);
+    slideContent.classList.add(slidePositionClass);
+    slideContent.classList.add(slideDataObj.position);
+    const sliderText = document.createElement('div');
+    sliderText.setAttribute('class', 'slider-content-text');
+    const titleText = document.createElement('p');
+    titleText.setAttribute('class', 'slider-content-text-title');
+    titleText.innerText = slideDataObj.title
+    const subTitleText = document.createElement('p');
+    subTitleText.setAttribute('class', 'slider-content-text-subtitle');
+    subTitleText.innerText = slideDataObj.subtitle
+    const descriptionText = document.createElement('p');
+    descriptionText.setAttribute('class', 'slider-content-text-description');
+    descriptionText.innerText = slideDataObj.description
+    const linkText = document.createElement('a');
+    linkText.setAttribute('href',`${slideDataObj.buttonUrl}`);
+    linkText.setAttribute('target', "_blank");
+    linkText.setAttribute('class', 'slider-content-text-link');
+    linkText.classList.add(slideDataObj.buttonColor)
+    linkText.innerText = 'TRY IT'
+    sliderText.appendChild(titleText);
+    sliderText.appendChild(subTitleText);
+    sliderText.appendChild(descriptionText)
+    sliderText.appendChild(linkText);
+    slideContent.appendChild(sliderText);
+    return slideContent
 }
-;
-(function() {
-    window.sliderContainer = document.querySelector('.slider-item-container');
-    sliderContainer.appendChild(generatediv('left', 3, arrayOfSliderProd[3]));
-    sliderContainer.appendChild(generatediv('current', 0, arrayOfSliderProd[0]));
-    sliderContainer.appendChild(generatediv('right', 1, arrayOfSliderProd[1]));
-}
-)()
 
-function showText() {
-    let timeCount = 50;
-    const itemTextArr = document.querySelectorAll('.slider-item-content p, .slider-item-content a');
-    for (let i = itemTextArr.length - 1; i >= 0; i--) {
-        setTimeout(function() {
-            itemTextArr[i].classList.add('center')
-        }, timeCount);
-        timeCount += 50;
+function createSlider(){
+    window.slider = document.querySelector('.slider-content-wrapper');
+    slider.appendChild(generateSlide('slider-content--left', arrayOfSliderProd.length-1, arrayOfSliderProd[arrayOfSliderProd.length-1]));
+    slider.appendChild(generateSlide('slider-content--current', 0, arrayOfSliderProd[0]))
+    slider.appendChild(generateSlide('slider-content--right', 1, arrayOfSliderProd[1]))
+}
+
+function textMoveIn(){
+    let timeoutValue= 50;
+    const text = document.querySelector('.slider-content--current .slider-content-text').childNodes;
+    for(let i=text.length-1; i>=0; i--){
+        setTimeout(function(){
+            text[i].classList.toggle('slider-content-text--visible');
+        }
+        ,timeoutValue)
+        timeoutValue += 50;
     }
-}
-
-function hideText() {
-    const itemTextArr = document.querySelectorAll('.slider-item-content p, .slider-item-content a');
-    for (let i = itemTextArr.length - 1; i >= 0; i--) {
-        itemTextArr[i].classList.remove('center')
-    }
-}
-
-function sliderNext() {
-    const leftImg = document.querySelector('.slider-item-background.left');
-    leftImg.remove();
-    const curentImg = document.querySelector('.slider-item-background.current');
-    curentImg.classList.add('left');
-    curentImg.classList.remove('current');
-    const rightImg = document.querySelector('.slider-item-background.right');
-    rightImg.classList.add('current');
-    rightImg.classList.remove('right');
-    const rightImgIndex = getNextIndex(rightImg, 'right');
-    sliderContainer.appendChild(generatediv('right', rightImgIndex, arrayOfSliderProd[rightImgIndex]));
-    hideText();
-    setTimeout(showText, 300);
 }
 
 function getNextIndex(el, direction) {
@@ -124,29 +60,26 @@ function getNextIndex(el, direction) {
     return arrayOfSliderProd[currentIndex - 1] ? currentIndex - 1 : arrayOfSliderProd.length - 1
 }
 
-function sliderPrevious() {
-    const rightImg = document.querySelector('.slider-item-background.right');
-    rightImg.remove();
-    const curentImg = document.querySelector('.slider-item-background.current');
-    curentImg.classList.add('right');
-    curentImg.classList.remove('current');
-    const leftImg = document.querySelector('.slider-item-background.left');
-    leftImg.classList.add('current');
-    leftImg.classList.remove('left');
-    const leftImgIndex = getNextIndex(leftImg, 'left');
-    sliderContainer.appendChild(generatediv('left', leftImgIndex, arrayOfSliderProd[leftImgIndex]));
-    hideText();
-    setTimeout(showText, 300);
+let changSlideinterval = setInterval(changSlide, 6000);
 
+function changSlide(direction){
+    clearInterval(changSlideinterval);
+    changSlideinterval = setInterval(changSlide, 6000);
+    const leftImg = document.querySelector('.slider-content--left');
+    const curentImg = document.querySelector('.slider-content--current');
+    const rightImg = document.querySelector('.slider-content--right');
+    if(direction === 'left'){
+        leftImg.remove();
+        curentImg.classList.replace('slider-content--current', 'slider-content--left');
+        rightImg.classList.replace('slider-content--right', 'slider-content--current');
+        slider.appendChild(generateSlide('slider-content--right', getNextIndex(rightImg, 'right'), 
+            arrayOfSliderProd[getNextIndex(rightImg, 'right')]));
+    }else{
+        rightImg.remove();
+        curentImg.classList.replace('slider-content--current', 'slider-content--right');
+        leftImg.classList.replace('slider-content--left', 'slider-content--current');
+        slider.appendChild(generateSlide('slider-content--left', getNextIndex(leftImg, 'left'), 
+            arrayOfSliderProd[getNextIndex(leftImg, 'left')]));
+        }
+    setTimeout(textMoveIn, 400);
 }
-sliderPrevious();
-let mainsliderInterval = setInterval(sliderNext, 6000);
-
-document.querySelector('#mainSliderButtonLeft').addEventListener('click', function() {
-    clearInterval(mainsliderInterval);
-    mainsliderInterval = setInterval(sliderNext, 6000);
-});
-document.querySelector('#mainSliderButtonRight').addEventListener('click', function() {
-    clearInterval(mainsliderInterval);
-    mainsliderInterval = setInterval(sliderNext, 6000);
-});
