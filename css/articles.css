@@ -9,6 +9,7 @@
 }
 
 .articles-container {
+    z-index: -1;
     position: relative;
     width: 31.5%;
 }
