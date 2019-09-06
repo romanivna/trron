@@ -5,7 +5,7 @@
 @import "css/footer.css";
 @import "css/articles.css";
 @import "css/header.css";
-@import "css.article.css";
+@import "css/article.css";
 @font-face {
   font-family: "OpenSans";
   src: url("assets/fonts/opensans.ttf") format("truetype"),
