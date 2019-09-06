@@ -1,9 +1,11 @@
 @import "css/benefits.css";
+
 @import "css/slider.css";
 
 @import "css/footer.css";
 
 @import "css/header.css";
+
 @font-face {
   font-family: "OpenSans";
   src: url("assets/fonts/opensans.ttf") format("truetype"),
@@ -28,4 +30,5 @@ body {
   width: 100%;
   padding: 0 10px;
   margin: auto;
+  box-sizing: border-box;
 }
