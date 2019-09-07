@@ -221,6 +221,7 @@
 }
 
 .header-wrapper--grey{
+    z-index: 1;
     background-color: #DFDFDF;
 }
 
