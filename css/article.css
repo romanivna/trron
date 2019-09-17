@@ -1,11 +1,13 @@
 nav {
   box-sizing: border-box;
 }
+
 .nav-links-wrapper {
   padding: 20px 0;
 }
+
 .nav-links:hover {
-  transition: .3s;
+  transition: 0.3s;
   color: #ff8c00;
 }
 
@@ -32,7 +34,7 @@ nav {
 }
 
 .article-links-heading {
-  font-size: 15px;
+  font-size: 1.07rem;
   font-weight: 600;
   color: #000;
   display: block;
@@ -43,7 +45,7 @@ nav {
 }
 
 .article-links {
-  font-size: 15px;
+  font-size: 1.07rem;
   color: #666;
   display: block;
   border-bottom: 1px solid #f3f3f3;
@@ -52,7 +54,7 @@ nav {
 }
 
 .article-links:hover {
-  transition: .3s;
+  transition: 0.3s;
   color: #ff8c00;
 }
 
@@ -64,10 +66,12 @@ nav {
   .article-wrapper {
     flex-direction: row;
   }
+
   .article-content {
     width: 70%;
     order: 2;
   }
+
   .article-links-wrapper {
     width: 30%;
     order: 1;
@@ -75,6 +79,7 @@ nav {
     box-sizing: border-box;
     text-align: left;
   }
+
   .article-links-heading {
     margin-bottom: 40px;
   }
