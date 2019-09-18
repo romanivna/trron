@@ -60,7 +60,7 @@
   box-shadow: 0 0 7px 0 #858585;
   opacity: 0;
   visibility: hidden;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .header-top-list li {
@@ -147,7 +147,7 @@
 
 .header-mid-basket-quantity {
   position: absolute;
-  font-size: 0.8em;
+  font-size: 0.8rem;
   top: 5px;
   width: 15px;
   height: 15px;
@@ -192,7 +192,7 @@
   background-color: #fff;
   opacity: 0;
   visibility: hidden;
-  transition: 0.3s;
+  transition: .3s;
   cursor: auto;
 }
 
@@ -200,7 +200,7 @@
   opacity: 1;
   top: 50px;
   visibility: visible;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .header-wrapper--grey {
@@ -268,13 +268,13 @@
   z-index: 1;
   opacity: 0;
   visibility: hidden;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .header-nav-menu:hover .header-nav-menu-list {
   opacity: 1;
   visibility: visible;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .header-nav-menu-list a:hover {
@@ -333,7 +333,7 @@
   opacity: 0;
   top: -50px;
   visibility: hidden;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .header-nav-scroll--show {
@@ -341,7 +341,7 @@
   opacity: 1;
   top: 0;
   visibility: visible;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .header-nav-scroll-user {
@@ -372,7 +372,7 @@
   opacity: 0;
   top: 60px;
   visibility: hidden;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .header-nav-scroll-user-list a {
@@ -387,7 +387,7 @@
   opacity: 1;
   top: 50px;
   visibility: visible;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .header-nav-scroll-search {
@@ -417,7 +417,7 @@
   opacity: 0;
   top: 60px;
   visibility: hidden;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .header-nav-scroll-search:hover .header-nav-scroll-search-list {
@@ -426,7 +426,7 @@
   opacity: 1;
   top: 50px;
   visibility: visible;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .header-nav-scroll-basket {
@@ -454,14 +454,14 @@
   opacity: 1;
   top: 50px;
   visibility: visible;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .header-nav-scroll-user-list a:hover {
   color: #fca53c;
 }
 
-@media screen and (min-width: 880px) {
+@media screen and (min-width: 881px) {
   .header-mid-search-input {
     width: 250px;
   }
@@ -550,7 +550,7 @@
     box-shadow: 0 0 7px 0 #858585;
     opacity: 0;
     visibility: hidden;
-    transition: 0.3s;
+    transition: .3s;
   }
 
   .header-nav-catalog-list-list li {
@@ -567,7 +567,7 @@
     box-shadow: 0 0 7px 0 #858585;
     opacity: 1;
     visibility: visible;
-    transition: 0.3s;
+    transition: .3s;
   }
 
   .header-top-button:hover .header-top-list,
@@ -575,7 +575,7 @@
     opacity: 1;
     top: 50px;
     visibility: visible;
-    transition: 0.3s;
+    transition: .3s;
   }
 }
 
@@ -593,7 +593,7 @@
     opacity: 1;
     top: 50px;
     visibility: visible;
-    transition: 0.3s;
+    transition: .3s;
   }
 
   .header-mid-basket-sum {
@@ -653,7 +653,7 @@
     overflow-x: scroll;
     opacity: 0;
     visibility: hidden;
-    transition: 0.3s;
+    transition: .3s;
     position: fixed;
   }
 
@@ -662,7 +662,7 @@
     opacity: 1;
     z-index: 1;
     visibility: visible;
-    transition: 0.3s;
+    transition: .3s;
   }
 
   .header-nav-catalog-list-list {
@@ -742,10 +742,10 @@
   }
 
   .header-nav-menu-list {
-    transition: 0.3s;
+    transition: .3s;
   }
 
   .header-nav-menu:hover .header-nav-menu-list {
-    transition: 0.3s;
+    transition: .3s;
   }
 }

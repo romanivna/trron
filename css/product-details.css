@@ -1,0 +1,136 @@
+.product-details-conteiner {
+  margin: 40px 0;
+  border: 1px;
+  border-style: solid;
+  border-color: #dfdfdf;
+  display: flex;
+  cursor: default;
+}
+.product-details-conteiner a:hover {
+  color: #ffb65e;
+}
+
+.product-details-conteiner a {
+  cursor: pointer;
+}
+
+.product-details {
+  width: fit-content;
+}
+
+.details-button {
+  text-transform: uppercase;
+  padding: 10px 20px;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: #dfdfdf;
+}
+
+.product-details-value {
+  display: flex;
+  padding: 40px 20px;
+  color: #888;
+  width: 100%;
+  border-width: 0 0 0 1px;
+  border-style: solid;
+  border-color: #dfdfdf;
+}
+
+.product-details-value--big--video {
+  margin: auto;
+  width: 100%;
+  height: 600px;
+}
+
+.details-notes--italic {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.details-notes--margin {
+  margin-bottom: 10px;
+}
+
+.product-details-value--big--none {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .product-details-value--big--video {
+    margin: auto;
+    width: 100%;
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .product-details-value--big--video {
+    margin: auto;
+    width: 100%;
+    height: 400px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .details-button-active--big {
+    background-color: #ffb65e;
+    color: #fff;
+  }
+
+  .product-details-value--smoll {
+    display: none;
+  }
+
+  .product-details {
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .product-details-value--smoll--none {
+    display: none;
+  }
+
+  .product-details-value--smoll {
+    text-align: justify;
+    color: #888;
+    padding: 10px 0;
+    font-weight: bold;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: #dfdfdf;
+  }
+
+  .product-details-value {
+    display: none;
+  }
+
+  .details-button {
+    text-transform: uppercase;
+    padding: 10px 0;
+    color: #000;
+    cursor: pointer;
+    font-weight: bold;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: #dfdfdf;
+  }
+
+  .details-button-active--smoll {
+    background-color: #fff;
+    color: #ffb65e;
+  }
+
+  .product-details {
+    width: 100%;
+    padding: 0 10px;
+  }
+  .product-details-value--smoll--video {
+    margin: auto;
+    width: 100%;
+    height: 315px;
+  }
+}

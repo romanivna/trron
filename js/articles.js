@@ -1,9 +1,7 @@
-fetch("jsons/articles.json")
-  .then(response => {
-    return response.json();
-  })
-  .then(data => {
-    // Work with JSON data here
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var data = JSON.parse(this.responseText);
     const articlesCounter = data["articles"].length;
     const firstArticle = Math.floor(Math.random() * articlesCounter);
     const secondArticle = Math.floor(Math.random() * articlesCounter);
@@ -59,5 +57,7 @@ fetch("jsons/articles.json")
       articlesContainer.appendChild(articlesDescription);
       articles.appendChild(articlesContainer);
     }
-  })
-  .catch(err => {});
+  }
+};
+xmlhttp.open("GET", "jsons/articles.json", true);
+xmlhttp.send();
