@@ -1,9 +1,7 @@
-fetch("jsons/articles.json")
-  .then(response => {
-    return response.json();
-  })
-  .then(data => {
-    // Work with JSON data here
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var data = JSON.parse(this.responseText);
     const articlesCounter = data["articles"].length;
     const firstArticle = Math.floor(Math.random() * articlesCounter);
     const secondArticle = Math.floor(Math.random() * articlesCounter);
@@ -19,7 +17,7 @@ fetch("jsons/articles.json")
       articlesContainer.classList.add("articles-container");
 
       let imgLink = document.createElement("a");
-      imgLink.href = "article.html?" + data["articles"][articleIndex].id;
+      imgLink.href = "articles.html?" + data["articles"][articleIndex].id;
 
       let articlesImgContainer = document.createElement("div");
       articlesImgContainer.classList.add("articles-img-container");
@@ -54,10 +52,12 @@ fetch("jsons/articles.json")
       articlesDescriptionId.classList.add("articles-description-id");
       articlesDescriptionId.innerHTML = "more details";
       articlesDescriptionId.href =
-        "article.html?" + data["articles"][articleIndex].id;
+        "articles.html?" + data["articles"][articleIndex].id;
       articlesDescription.appendChild(articlesDescriptionId);
       articlesContainer.appendChild(articlesDescription);
       articles.appendChild(articlesContainer);
     }
-  })
-  .catch(err => {});
+  }
+};
+xmlhttp.open("GET", "jsons/articles.json", true);
+xmlhttp.send();
