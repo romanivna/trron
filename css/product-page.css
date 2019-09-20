@@ -1,5 +1,6 @@
 .product-page--wrapper {
   padding: 20px 0;
+  cursor: default;
 }
 
 .product-page {
@@ -29,7 +30,7 @@
 }
 
 .product-page-name {
-  font-size: 2em;
+  font-size: 2rem;
   text-transform: capitalize;
   margin: 0;
 }
@@ -41,8 +42,9 @@
   border-width: 1px;
   margin: 20px 0;
 }
+
 .product-page-price {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 .product-page-stock {
@@ -56,7 +58,7 @@
   align-content: center;
 }
 
-.product-page-button-conteiner {
+.product-page-button-container {
   display: flex;
   justify-content: left;
   align-items: center;
@@ -144,8 +146,8 @@
 .product-properties--brand,
 .product-properties--manufacturer,
 .product-properties--sort {
-  color: goldenrod;
-  text-transform: uppercase;
+  color: #fca53c;
+  text-transform: capitalize;
   padding-left: 10px;
 }
 

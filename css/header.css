@@ -3,6 +3,7 @@
 }
 
 .header-top {
+  cursor: default;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -407,6 +408,7 @@
 }
 
 .header-nav-scroll-search-list {
+  width: 300px;
   position: absolute;
   display: flex;
   top: 50px;
@@ -422,7 +424,7 @@
 }
 
 .header-nav-scroll-search:hover .header-nav-scroll-search-list {
-  width: 250px;
+  width: 300px;
   display: flex;
   z-index: 1;
   opacity: 1;

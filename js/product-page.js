@@ -2,13 +2,14 @@ const product = location.search.substr(1).split("_");
 const productCategory = product[0];
 const productId = product[1];
 
-fetch("jsons/" + productCategory + ".json")
-  .then(response => {
-    return response.json();
-  })
-  .then(data => {
-    // Work with JSON data here
-
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function () {
+  if (this.readyState == 4 && this.status == 200) {
+    var data = JSON.parse(this.responseText);
+    if (data[productCategory].length < productId) {
+      eror404();
+      return;
+    }
     document.getElementsByClassName("product-page-img")[0].src =
       data["drinks"][productId].image;
     document.getElementsByClassName("product-page-img")[0].title =
@@ -83,12 +84,22 @@ fetch("jsons/" + productCategory + ".json")
     )[0].innerHTML = data["drinks"][productId].alcohol;
     document.getElementsByClassName("product-properties--volume")[0].innerHTML =
       data["drinks"][productId].volume;
-  })
 
-  .catch(err => {
-    document.getElementsByClassName("product-page")[0].innerHTML =
-      "Page not found";
-    document
-      .getElementsByClassName("product-page")[0]
-      .classList.add("product-page-name", "product-page-warning");
-  });
+  } else if (this.status == 404) {
+    eror404();
+    return;
+  }
+}
+xmlhttp.open("GET", "jsons/" + productCategory + ".json", true);
+xmlhttp.send();
+
+const eror404 = function () {
+  document.getElementsByClassName("product-page")[0].innerHTML =
+    "Page not found";
+  document
+    .getElementsByClassName("product-page")[0]
+    .classList.add("product-page-name");
+  document
+    .getElementsByClassName("product-page")[0]
+    .classList.add("product-page-warning");
+}
