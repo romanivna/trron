@@ -16,7 +16,7 @@ xmlhttp.onreadystatechange = function() {
     return;
   }
 };
-xmlhttp.open("GET", "jsons/" + productCategory + ".json", true);
+xmlhttp.open("GET", "../jsons/" + productCategory + ".json", true);
 xmlhttp.send();
 
 const eror404 = function() {
