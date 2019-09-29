@@ -11,7 +11,8 @@ xmlhttp.onreadystatechange = function () {
       }
     }
     clickButton(drink);
-    if (windowWidth() > 769) {
+    const PRODUCT_DETAILS_CHANGES_POSITION_WHEN_WIDTH = 1000;
+    if (windowWidth() > PRODUCT_DETAILS_CHANGES_POSITION_WHEN_WIDTH) {
       let activeFirstButton = document.getElementsByClassName("details-description")[0];
       activeFirstButton.click();
     }

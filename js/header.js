@@ -10,8 +10,11 @@ window.addEventListener('scroll', function () {
 const pageScrolledOrChangedWidth = function () {
     const scroll = pageYOffset;
     const width = document.getElementsByClassName("header-wrapper--grey")[0].offsetWidth;
-
-    if (scroll > 157 & width > 880) {
+    const HEIGHT_MENU_TYPE_1 = 157;
+    const HEIGHT_MENU_TYPE_2 = 247;
+    const MINIMUM_WIDTH_FOR_COMPUTER_VERSION = 880;
+    const MENU_DRECTORY_CHANGES_POSITION_WHEN_WIDTH = 1000;
+    if (scroll > HEIGHT_MENU_TYPE_1 & width > MINIMUM_WIDTH_FOR_COMPUTER_VERSION) {
         // Attaches the navigation menu to the top of the screen
         document.getElementsByClassName("header-wrapper--grey")[0].classList.add("header-wrapper--grey--fixed");
         // Changes the position 
@@ -22,7 +25,7 @@ const pageScrolledOrChangedWidth = function () {
         document.getElementsByClassName("header-nav-scroll")[0].classList.add("header-nav-scroll--show");
         // Кeduces the menu button (takes the name of the "menu")
         document.getElementsByClassName("header-nav-menu-name")[0].classList.add("header-nav-menu-name--none");
-    } else if (scroll > 247 & width < 880) {
+    } else if (scroll > HEIGHT_MENU_TYPE_2 & width < MINIMUM_WIDTH_FOR_COMPUTER_VERSION) {
         document.getElementsByClassName("header-wrapper--grey")[0].classList.add("header-wrapper--grey--fixed");
         document.getElementsByClassName("header-nav-catalog")[0].classList.add("header-nav-catalog--static");
         document.getElementsByClassName("header-nav-catalog-list-list")[0].classList.add("header-nav-catalog-list-list--scroll");
@@ -36,7 +39,7 @@ const pageScrolledOrChangedWidth = function () {
         document.getElementsByClassName("header-nav-catalog")[0].classList.remove("header-nav-catalog--static");
         document.getElementsByClassName("header-nav-catalog-list-list")[0].classList.remove("header-nav-catalog-list-list--scroll");
     }
-    if (width < 1000) {
+    if (width < MENU_DRECTORY_CHANGES_POSITION_WHEN_WIDTH) {
         document.getElementsByClassName("header-nav-catalog")[0].classList.add("header-nav-catalog--static");
         document.getElementsByClassName("header-nav-catalog-list-list")[0].classList.add("header-nav-catalog-list-list--scroll");
     }
@@ -45,7 +48,8 @@ pageScrolledOrChangedWidth();
 document.getElementsByClassName("header-nav-menu")[0].addEventListener('click', closelist);
 document.getElementsByClassName("header-mid-search")[0].addEventListener('click', function () {
     const width = document.getElementsByClassName("header-wrapper--grey")[0].offsetWidth;
-    if (width < 450) {
+    const MAXIMUM_WIDTH_FOR_MOBILE_VERSIONS = 450;
+    if (width < MAXIMUM_WIDTH_FOR_MOBILE_VERSIONS) {
         document.getElementsByClassName("header-mid-search-list")[0].classList.toggle("header-mid-search-list--mobile");
         closelist();
     }
