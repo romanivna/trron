@@ -10,6 +10,7 @@ xmlhttp.onreadystatechange = function () {
       eror404();
       return;
     }
+    breadcrumb(data)
     buildProductPage(data);
   } else if (this.status == 404) {
     eror404();
@@ -30,6 +31,10 @@ const eror404 = function () {
     .getElementsByClassName("product-page")[0]
     .classList.add("product-page-warning");
 };
+
+const breadcrumb = function (data) {
+  document.getElementsByClassName("breadcrumb-category")[0].innerHTML = data["drinks"][productId].category;
+}
 
 const buildProductPage = function (data) {
   document.getElementsByClassName("product-page-img")[0].src =

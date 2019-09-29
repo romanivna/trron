@@ -74,8 +74,3 @@ function closelist() {
 // clears the input when the page is restarted
 document.getElementsByClassName("header-mid-search-input")[0].value = "";
 document.getElementsByClassName("header-mid-search-input")[1].value = "";
-
-
-
-
-
