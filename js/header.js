@@ -1,13 +1,21 @@
 // Attaches the navigation menu at the top of the display
 // 157 and 247 height between the top of the display and the navigation menu, with different display widths
+
+window.addEventListener('resize', function () {
+    pageScrolledOrChangedWidth();
+});
 window.addEventListener('scroll', function () {
+    pageScrolledOrChangedWidth();
+});
+const pageScrolledOrChangedWidth = function () {
     const scroll = pageYOffset;
     const width = document.getElementsByClassName("header-wrapper--grey")[0].offsetWidth;
+
     if (scroll > 157 & width > 880) {
         // Attaches the navigation menu to the top of the screen
         document.getElementsByClassName("header-wrapper--grey")[0].classList.add("header-wrapper--grey--fixed");
         // Changes the position 
-        document.getElementsByClassName("header-nav-catalog")[0].classList.add("header-nav-catalog--unset");
+        document.getElementsByClassName("header-nav-catalog")[0].classList.add("header-nav-catalog--static");
         // Fix marggin 
         document.getElementsByClassName("header-nav-catalog-list-list")[0].classList.add("header-nav-catalog-list-list--scroll");
         // Displays the button navigation (search, user, shopping cart) in the navigation bar
@@ -16,36 +24,54 @@ window.addEventListener('scroll', function () {
         document.getElementsByClassName("header-nav-menu-name")[0].classList.add("header-nav-menu-name--none");
     } else if (scroll > 247 & width < 880) {
         document.getElementsByClassName("header-wrapper--grey")[0].classList.add("header-wrapper--grey--fixed");
-        document.getElementsByClassName("header-nav-catalog")[0].classList.add("header-nav-catalog--unset");
+        document.getElementsByClassName("header-nav-catalog")[0].classList.add("header-nav-catalog--static");
         document.getElementsByClassName("header-nav-catalog-list-list")[0].classList.add("header-nav-catalog-list-list--scroll");
-        document.getElementsByClassName("conteiner-stop-link")[0].classList.add("conteiner-stop-link--index");
+        document.getElementsByClassName("container-stop-link")[0].classList.add("container-stop-link--index");
         document.getElementsByClassName("header-nav-menu-name")[0].classList.remove("header-nav-menu-name--none");
         document.getElementsByClassName("header-nav-scroll")[0].classList.remove("header-nav-scroll--show");
     } else {
         document.getElementsByClassName("header-wrapper--grey")[0].classList.remove("header-wrapper--grey--fixed");
         document.getElementsByClassName("header-nav-menu-name")[0].classList.remove("header-nav-menu-name--none");
         document.getElementsByClassName("header-nav-scroll")[0].classList.remove("header-nav-scroll--show");
-        document.getElementsByClassName("header-nav-catalog")[0].classList.remove("header-nav-catalog--unset");
+        document.getElementsByClassName("header-nav-catalog")[0].classList.remove("header-nav-catalog--static");
         document.getElementsByClassName("header-nav-catalog-list-list")[0].classList.remove("header-nav-catalog-list-list--scroll");
     }
-});
+    if (width < 1000) {
+        document.getElementsByClassName("header-nav-catalog")[0].classList.add("header-nav-catalog--static");
+        document.getElementsByClassName("header-nav-catalog-list-list")[0].classList.add("header-nav-catalog-list-list--scroll");
+    }
+}
+pageScrolledOrChangedWidth();
 document.getElementsByClassName("header-nav-menu")[0].addEventListener('click', closelist);
-document.getElementsByClassName("header-mid-search-icon")[0].addEventListener('click', closelist);
+document.getElementsByClassName("header-mid-search")[0].addEventListener('click', function () {
+    const width = document.getElementsByClassName("header-wrapper--grey")[0].offsetWidth;
+    if (width < 450) {
+        document.getElementsByClassName("header-mid-search-list")[0].classList.toggle("header-mid-search-list--mobile");
+        closelist();
+    }
+});
 document.getElementsByClassName("header-nav-catalog")[0].addEventListener('click', closelist);
 document.getElementsByClassName("header-mid-basket")[0].addEventListener('click', closelist);
 document.getElementsByClassName("header-top-button")[0].addEventListener('click', function () {
     document.getElementsByClassName("header-top-list")[0].classList.toggle("header-top-list--click");
     closelist();
 });
-document.getElementsByClassName("conteiner-stop-link")[0].addEventListener('click', function () {
-    document.getElementsByClassName("conteiner-stop-link")[0].classList.remove("conteiner-stop-link--block");
+document.getElementsByClassName("container-stop-link")[0].addEventListener('click', function () {
+    document.getElementsByClassName("container-stop-link")[0].classList.remove("container-stop-link--block");
     document.getElementsByClassName("header-top-list")[0].classList.remove("header-top-list--click");
+    document.getElementsByClassName("header-mid-search-list")[0].classList.remove("header-mid-search-list--mobile");
+
 });
 // function creates a container that prevents linking or button presses when closing drop down
 function closelist() {
-    document.getElementsByClassName("conteiner-stop-link")[0].classList.toggle("conteiner-stop-link--block");
+    document.getElementsByClassName("container-stop-link")[0].classList.toggle("container-stop-link--block");
 };
 
 // clears the input when the page is restarted
 document.getElementsByClassName("header-mid-search-input")[0].value = "";
 document.getElementsByClassName("header-mid-search-input")[1].value = "";
+
+
+
+
+

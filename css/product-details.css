@@ -1,4 +1,4 @@
-.product-details-conteiner {
+.product-details-container {
   margin: 40px 0;
   border: 1px;
   border-style: solid;
@@ -6,16 +6,12 @@
   display: flex;
   cursor: default;
 }
-.product-details-conteiner a:hover {
+.product-details-container a:hover {
   color: #ffb65e;
 }
 
-.product-details-conteiner a {
+.product-details-container a {
   cursor: pointer;
-}
-
-.product-details {
-  width: fit-content;
 }
 
 .details-button {
@@ -39,7 +35,7 @@
   border-color: #dfdfdf;
 }
 
-.product-details-value--big--video {
+.product-details-value--row--video {
   margin: auto;
   width: 100%;
   height: 600px;
@@ -54,12 +50,12 @@
   margin-bottom: 10px;
 }
 
-.product-details-value--big--none {
+.product-details-value--row--none {
   display: none;
 }
 
 @media screen and (max-width: 1000px) {
-  .product-details-value--big--video {
+  .product-details-value--row--video {
     margin: auto;
     width: 100%;
     height: 500px;
@@ -67,7 +63,7 @@
 }
 
 @media screen and (max-width: 900px) {
-  .product-details-value--big--video {
+  .product-details-value--row--video {
     margin: auto;
     width: 100%;
     height: 400px;
@@ -75,12 +71,12 @@
 }
 
 @media screen and (min-width: 768px) {
-  .details-button-active--big {
+  .details-button-active--row {
     background-color: #ffb65e;
     color: #fff;
   }
 
-  .product-details-value--smoll {
+  .product-details-value--column {
     display: none;
   }
 
@@ -90,11 +86,11 @@
 }
 
 @media screen and (max-width: 768px) {
-  .product-details-value--smoll--none {
+  .product-details-value--column--none {
     display: none;
   }
 
-  .product-details-value--smoll {
+  .product-details-value--column {
     text-align: justify;
     color: #888;
     padding: 10px 0;
@@ -119,7 +115,7 @@
     border-color: #dfdfdf;
   }
 
-  .details-button-active--smoll {
+  .details-button-active--column {
     background-color: #fff;
     color: #ffb65e;
   }
@@ -128,7 +124,7 @@
     width: 100%;
     padding: 0 10px;
   }
-  .product-details-value--smoll--video {
+  .product-details-value--column--video {
     margin: auto;
     width: 100%;
     height: 315px;
