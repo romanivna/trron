@@ -7,7 +7,7 @@ window.addEventListener('scroll', function () {
         // Attaches the navigation menu to the top of the screen
         document.getElementsByClassName("header-wrapper--grey")[0].classList.add("header-wrapper--grey--fixed");
         // Changes the position 
-        document.getElementsByClassName("header-nav-catalog")[0].classList.add("header-nav-catalog--unset");
+        document.getElementsByClassName("header-nav-catalog")[0].classList.add("header-nav-catalog--static");
         // Fix marggin 
         document.getElementsByClassName("header-nav-catalog-list-list")[0].classList.add("header-nav-catalog-list-list--scroll");
         // Displays the button navigation (search, user, shopping cart) in the navigation bar
@@ -16,7 +16,7 @@ window.addEventListener('scroll', function () {
         document.getElementsByClassName("header-nav-menu-name")[0].classList.add("header-nav-menu-name--none");
     } else if (scroll > 247 & width < 880) {
         document.getElementsByClassName("header-wrapper--grey")[0].classList.add("header-wrapper--grey--fixed");
-        document.getElementsByClassName("header-nav-catalog")[0].classList.add("header-nav-catalog--unset");
+        document.getElementsByClassName("header-nav-catalog")[0].classList.add("header-nav-catalog--static");
         document.getElementsByClassName("header-nav-catalog-list-list")[0].classList.add("header-nav-catalog-list-list--scroll");
         document.getElementsByClassName("conteiner-stop-link")[0].classList.add("conteiner-stop-link--index");
         document.getElementsByClassName("header-nav-menu-name")[0].classList.remove("header-nav-menu-name--none");
@@ -25,7 +25,7 @@ window.addEventListener('scroll', function () {
         document.getElementsByClassName("header-wrapper--grey")[0].classList.remove("header-wrapper--grey--fixed");
         document.getElementsByClassName("header-nav-menu-name")[0].classList.remove("header-nav-menu-name--none");
         document.getElementsByClassName("header-nav-scroll")[0].classList.remove("header-nav-scroll--show");
-        document.getElementsByClassName("header-nav-catalog")[0].classList.remove("header-nav-catalog--unset");
+        document.getElementsByClassName("header-nav-catalog")[0].classList.remove("header-nav-catalog--static");
         document.getElementsByClassName("header-nav-catalog-list-list")[0].classList.remove("header-nav-catalog-list-list--scroll");
     }
 });
