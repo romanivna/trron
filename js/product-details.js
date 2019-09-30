@@ -4,13 +4,15 @@ xmlhttp.onreadystatechange = function () {
     var data = JSON.parse(this.responseText);
     var drink = data[productCategory][productId].additionalDescription;
     for (key in drink) {
-      if (drink[key] === "") {
-      } else {
-        buildDetailButton(drink);
-        bildDetailvaluecontainers(drink);
+      if (drink.hasOwnProperty(key)) {
+        if (!drink[key]) {
+        } else {
+          buildDetailButton(drink);
+          bildDetailvaluecontainers(drink);
+        }
       }
     }
-    clickButton(drink);
+    addClickEventListenerToButtons(drink);
     const PRODUCT_DETAILS_CHANGES_POSITION_WHEN_WIDTH = 1000;
     if (windowWidth() > PRODUCT_DETAILS_CHANGES_POSITION_WHEN_WIDTH) {
       let activeFirstButton = document.getElementsByClassName("details-description")[0];
@@ -35,88 +37,91 @@ const bildDetailvaluecontainers = function (drink) {
   var containerRow = document.getElementsByClassName(
     "product-details-value"
   )[0];
-  if (typeof drink[key] == "object" && Array.isArray(drink[key]) != true) {
-    containerIfValueObject(drink[key], containerColumn, containerRow)
+  if (typeof drink[key] == "object" && !Array.isArray(drink[key])) {
+    if (drink.hasOwnProperty(key)) {
+      ifValueObject(drink[key], containerColumn, containerRow)
+    }
   } else if (Array.isArray(drink[key])) {
-    containerIfValueArray(drink[key], containerColumn, containerRow)
+    ifValueArray(drink[key], containerColumn, containerRow)
   } else {
-    containerIfValueLine(drink[key], containerColumn, containerRow);
+    ifValueString(drink[key], containerColumn, containerRow);
   }
 };
 
-const containerIfValueObject = function (value, containerColumn, containerRow) {
+const ifValueObject = function (value, containerColumn, containerRow) {
   let drinkKey = value;
   let valuecontainerColumn = document.createElement("div");
   let valuecontainerRow = document.createElement("div");
-  for (key2 in drinkKey) {
-    if (drinkKey.hasOwnProperty(key2)) {
-      buildValueKey(key2, valuecontainerColumn)
-      buildValueKey(key2, valuecontainerRow)
-      if (Array.isArray(drinkKey[key2])) {
-        forrEachArrayValue(drinkKey[key2], valuecontainerColumn, valuecontainerRow);
+  let key = "";
+  for (key in drinkKey) {
+    if (drinkKey.hasOwnProperty(key)) {
+      showKey(key, valuecontainerColumn)
+      showKey(key, valuecontainerRow)
+      if (Array.isArray(drinkKey[key])) {
+        forEachArrayElement(drinkKey[key], valuecontainerColumn, valuecontainerRow);
       } else {
-        buildArrayValue(drinkKey[key2], valuecontainerColumn)
-        buildArrayValue(drinkKey[key2], valuecontainerRow)
+        showArrayElement(drinkKey[key], valuecontainerColumn)
+        showArrayElement(drinkKey[key], valuecontainerRow)
       }
     }
   }
-  containerColumn.appendChild(containerAddClass(valuecontainerColumn, "column"));
-  containerRow.appendChild(containerAddClass(valuecontainerRow, "row"));
+  containerColumn.appendChild(addPlacementClassesToElement(valuecontainerColumn, "column"));
+  containerRow.appendChild(addPlacementClassesToElement(valuecontainerRow, "row"));
 }
 
-const containerIfValueArray = function (a, containerColumn, containerRow) {
+const ifValueArray = function (value, containerColumn, containerRow) {
   let valuecontainerColumn = document.createElement("div");
   let valuecontainerRow = document.createElement("div");
-  forrEachArrayValue(a, valuecontainerColumn, valuecontainerRow);
-  containerColumn.appendChild(containerAddClass(valuecontainerColumn, "column"));
-  containerRow.appendChild(containerAddClass(valuecontainerRow, "row"));
+  forEachArrayElement(value, valuecontainerColumn, valuecontainerRow);
+  containerColumn.appendChild(addPlacementClassesToElement(valuecontainerColumn, "column"));
+  containerRow.appendChild(addPlacementClassesToElement(valuecontainerRow, "row"));
 }
 
-const forrEachArrayValue = function (a, valuecontainerColumn, valuecontainerRow) {
-  a.forEach(function (element) {
-    buildArrayValue(element, valuecontainerColumn)
-    buildArrayValue(element, valuecontainerRow)
+const forEachArrayElement = function (value, valuecontainerColumn, valuecontainerRow) {
+  value.forEach(function (element) {
+    showArrayElement(element, valuecontainerColumn)
+    showArrayElement(element, valuecontainerRow)
   })
 }
 
-const containerIfValueLine = function (a, containerColumn, containerRow) {
-  buildValueLine(a, containerColumn, "column");
-  buildValueLine(a, containerRow, "row");
+const ifValueString = function (value, containerColumn, containerRow) {
+  showStringValue(value, containerColumn, "column");
+  showStringValue(value, containerRow, "row");
 }
 
-const buildValueLine = function (a, container, position) {
+const showStringValue = function (value, container, position) {
   let valuecontainerRow = document.createElement("div");
-  valuecontainerRow.innerHTML = a;
-  container.appendChild(containerAddClass(valuecontainerRow, position));
+  valuecontainerRow.innerHTML = value;
+  container.appendChild(addPlacementClassesToElement(valuecontainerRow, position));
 }
 
-const buildValueKey = function (key, container) {
+const showKey = function (key, container) {
   let specialistrow = document.createElement("div");
   specialistrow.innerHTML = key;
   specialistrow.classList.add("details-notes--italic");
   container.appendChild(specialistrow);
 }
 
-const buildArrayValue = function (value, container) {
+const showArrayElement = function (value, container) {
   let textrow = document.createElement("div");
   textrow.innerHTML = value;
   textrow.classList.add("details-notes--margin");
   container.appendChild(textrow);
 }
 
-const containerAddClass = function (elem, placing) {
+const addPlacementClassesToElement = function (elem, placing) {
   elem.classList.add("product-details-value--" + placing);
   elem.classList.add("product-details-value--" + placing + "--none");
   elem.classList.add("product-details-value--" + placing + "--" + key);
   return elem;
 }
 
-const clickButton = function () {
+const addClickEventListenerToButtons = function () {
   let productDetails = document.getElementsByClassName("details-button");
   productDetails = [].map.call(productDetails, function (item) {
     item.addEventListener("click", function () {
-      const SIZE_FOR_product_details_IN_column = 769;
-      if (windowWidth() > SIZE_FOR_product_details_IN_column) {
+      const SIZE_FOR_PRODUCT_DETAILS_IN_COLUMN = 769;
+      if (windowWidth() > SIZE_FOR_PRODUCT_DETAILS_IN_COLUMN) {
         removeClass();
         this.classList.add("details-button-active--row");
         let valuecontainer = document

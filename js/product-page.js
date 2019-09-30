@@ -1,3 +1,6 @@
+// location.search = location.search + "_" + "querystring";
+// let ss = location + "/newURL"
+
 const product = location.search.substr(1).split("_");
 const productCategory = product[0];
 const productId = product[1];
@@ -10,7 +13,13 @@ xmlhttp.onreadystatechange = function () {
       eror404();
       return;
     }
-    breadcrumb(data)
+    changeUrl(data)
+
+    addPointTooBreadcrumbMap(product[0], "#");
+    addPointTooBreadcrumbMap(data["drinks"][productId].category, "#");
+    addPointTooBreadcrumbMap(data["drinks"][productId].name), "none";
+    console.log(breadcrumbMap);
+    breadcrumb(breadcrumbMap);
     buildProductPage(data);
   } else if (this.status == 404) {
     eror404();
@@ -32,8 +41,11 @@ const eror404 = function () {
     .classList.add("product-page-warning");
 };
 
-const breadcrumb = function (data) {
-  document.getElementsByClassName("breadcrumb-category")[0].innerHTML = data["drinks"][productId].category;
+const changeUrl = function (data) {
+  let drinkName = data["drinks"][productId].name;
+  drinkName = drinkName.replace(/ /g, "-");
+  let newLocstion = "?" + product[0] + "_" + product[1] + "_" + drinkName;
+  window.history.pushState("object or string", "Page Title", newLocstion);
 }
 
 const buildProductPage = function (data) {
