@@ -7,6 +7,13 @@ window.addEventListener('resize', function () {
 window.addEventListener('scroll', function () {
     pageScrolledOrChangedWidth();
 });
+
+const fixMenuAppearsWhenThePageIsReduced = function () {
+    let menu = document.getElementsByClassName("header-nav-catalog-list")[0];
+    let menuConteiner = menu.parentElement;
+    menuConteiner.removeChild(menu);
+    menuConteiner.appendChild(menu);
+}
 const pageScrolledOrChangedWidth = function () {
     const scroll = pageYOffset;
     const width = document.getElementsByClassName("header-wrapper--grey")[0].offsetWidth;
@@ -27,6 +34,7 @@ const pageScrolledOrChangedWidth = function () {
         document.getElementsByClassName("header-nav-menu-name")[0].classList.add("header-nav-menu-name--none");
         document.getElementsByClassName("header-wrapper")[0].classList.add("header-wrapper--fixedMenu");
     } else if (scroll > HEIGHT_MENU_TYPE_2 & width < MINIMUM_WIDTH_FOR_COMPUTER_VERSION) {
+        fixMenuAppearsWhenThePageIsReduced()
         document.getElementsByClassName("header-wrapper--grey")[0].classList.add("header-wrapper--grey--fixed");
         document.getElementsByClassName("header-nav-catalog")[0].classList.add("header-nav-catalog--static");
         document.getElementsByClassName("header-nav-catalog-list-list")[0].classList.add("header-nav-catalog-list-list--scroll");
@@ -35,6 +43,7 @@ const pageScrolledOrChangedWidth = function () {
         document.getElementsByClassName("header-nav-scroll")[0].classList.remove("header-nav-scroll--show");
         document.getElementsByClassName("header-wrapper")[0].classList.add("header-wrapper--fixedMenu");
     } else {
+        fixMenuAppearsWhenThePageIsReduced()
         document.getElementsByClassName("header-wrapper--grey")[0].classList.remove("header-wrapper--grey--fixed");
         document.getElementsByClassName("header-nav-menu-name")[0].classList.remove("header-nav-menu-name--none");
         document.getElementsByClassName("header-nav-scroll")[0].classList.remove("header-nav-scroll--show");
