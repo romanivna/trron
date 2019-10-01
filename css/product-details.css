@@ -11,6 +11,10 @@
   cursor: pointer;
 }
 
+.product-details-container a:hover {
+  color: #ffb65e;
+}
+
 .details-button {
   text-transform: uppercase;
   padding: 10px 20px;

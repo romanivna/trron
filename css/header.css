@@ -621,11 +621,6 @@ body {
     left: auto;
   }
 
-  .header-nav {
-    margin-top: 20px;
-    justify-content: space-between;
-  }
-
   .header-nav-menu-button {
     width: 150px;
   }
@@ -641,6 +636,7 @@ body {
 
   .header-nav-catalog {
     width: 150px;
+    margin-left: auto;
   }
 
   .header-nav-catalog-button {
