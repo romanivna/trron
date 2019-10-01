@@ -40,7 +40,7 @@ function makeArticle() {
   articleContent.appendChild(text);
   document.querySelector(".nav-links-add").innerHTML =
     "» " +
-    '<a href="blog.html#' +
+    '<a href="blog.html?' +
     articleObj[0].categorie +
     '" class="nav-links">' +
     " " +
