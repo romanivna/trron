@@ -13,15 +13,16 @@ xmlhttp.onreadystatechange = function () {
       }
     }
     addClickEventListenerToButtons(drink);
-    const PRODUCT_DETAILS_CHANGES_POSITION_WHEN_WIDTH = 1000;
-    if (windowWidth() > PRODUCT_DETAILS_CHANGES_POSITION_WHEN_WIDTH) {
-      let activeFirstButton = document.getElementsByClassName("details-description")[0];
-      activeFirstButton.click();
-    }
+    activateFirstButton()
   }
 };
 xmlhttp.open("GET", "../jsons/" + productCategory + ".json", true);
 xmlhttp.send();
+
+const activateFirstButton = function () {
+  document.getElementsByClassName("details-description")[0].classList.add("details-button-active--row");
+  document.getElementsByClassName("product-details-value--row")[0].classList.toggle("product-details-value--row--none");
+}
 
 const buildDetailButton = function (drink) {
   var productDetails = document.getElementsByClassName("product-details")[0];

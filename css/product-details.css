@@ -6,9 +6,6 @@
   display: flex;
   cursor: default;
 }
-.product-details-container a:hover {
-  color: #ffb65e;
-}
 
 .product-details-container a {
   cursor: pointer;
@@ -82,6 +79,11 @@
 
   .product-details {
     height: 400px;
+  }
+
+  .details-button:hover {
+    background-color: #ffb65e;
+    color: #fff;
   }
 }
 

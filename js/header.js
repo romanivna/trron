@@ -25,6 +25,7 @@ const pageScrolledOrChangedWidth = function () {
         document.getElementsByClassName("header-nav-scroll")[0].classList.add("header-nav-scroll--show");
         // Кeduces the menu button (takes the name of the "menu")
         document.getElementsByClassName("header-nav-menu-name")[0].classList.add("header-nav-menu-name--none");
+        document.getElementsByClassName("header-wrapper")[0].classList.add("header-wrapper--fixedMenu");
     } else if (scroll > HEIGHT_MENU_TYPE_2 & width < MINIMUM_WIDTH_FOR_COMPUTER_VERSION) {
         document.getElementsByClassName("header-wrapper--grey")[0].classList.add("header-wrapper--grey--fixed");
         document.getElementsByClassName("header-nav-catalog")[0].classList.add("header-nav-catalog--static");
@@ -32,12 +33,14 @@ const pageScrolledOrChangedWidth = function () {
         document.getElementsByClassName("container-stop-link")[0].classList.add("container-stop-link--index");
         document.getElementsByClassName("header-nav-menu-name")[0].classList.remove("header-nav-menu-name--none");
         document.getElementsByClassName("header-nav-scroll")[0].classList.remove("header-nav-scroll--show");
+        document.getElementsByClassName("header-wrapper")[0].classList.add("header-wrapper--fixedMenu");
     } else {
         document.getElementsByClassName("header-wrapper--grey")[0].classList.remove("header-wrapper--grey--fixed");
         document.getElementsByClassName("header-nav-menu-name")[0].classList.remove("header-nav-menu-name--none");
         document.getElementsByClassName("header-nav-scroll")[0].classList.remove("header-nav-scroll--show");
         document.getElementsByClassName("header-nav-catalog")[0].classList.remove("header-nav-catalog--static");
         document.getElementsByClassName("header-nav-catalog-list-list")[0].classList.remove("header-nav-catalog-list-list--scroll");
+        document.getElementsByClassName("header-wrapper")[0].classList.remove("header-wrapper--fixedMenu");
     }
     if (width < MENU_DRECTORY_CHANGES_POSITION_WHEN_WIDTH) {
         document.getElementsByClassName("header-nav-catalog")[0].classList.add("header-nav-catalog--static");

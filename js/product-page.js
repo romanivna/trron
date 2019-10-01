@@ -18,8 +18,8 @@ xmlhttp.onreadystatechange = function () {
     addPointTooBreadcrumbMap(product[0], "#");
     addPointTooBreadcrumbMap(data["drinks"][productId].category, "#");
     addPointTooBreadcrumbMap(data["drinks"][productId].name), "none";
-    console.log(breadcrumbMap);
     breadcrumb(breadcrumbMap);
+
     buildProductPage(data);
   } else if (this.status == 404) {
     eror404();

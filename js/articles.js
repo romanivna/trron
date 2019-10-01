@@ -6,8 +6,6 @@ xmlhttp.onreadystatechange = function () {
     const firstArticle = Math.floor(Math.random() * articlesCounter);
     const secondArticle = Math.floor(Math.random() * articlesCounter);
     const thirdArticle = Math.floor(Math.random() * articlesCounter);
-
-    const width = screen.width;
     const articles = document.getElementsByClassName("articles")[0];
     bildArticle(firstArticle);
     bildArticle(secondArticle);
