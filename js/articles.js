@@ -5,7 +5,7 @@
       const data = JSON.parse(xhr.response).articles;
       for (let i = 0; i < 3; i++) {
         const randomArticleObj = ~~(Math.random() * (data.length - 1));
-        bildArticle(data[randomArticleObj]);
+        buildArticle(data[randomArticleObj]);
       }
     }
   };
@@ -13,7 +13,7 @@
   xhr.send();
 })();
 
-function bildArticle(articleObject) {
+function buildArticle(articleObject) {
   const articles = document.querySelector(".articles");
   let articlesContainer = document.createElement("div");
   articlesContainer.classList.add("articles-container");
