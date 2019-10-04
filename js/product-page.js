@@ -87,10 +87,10 @@
       "product-page-characteritics-text"
     )[0].innerHTML = data["drinks"][productId].description;
 
-    showcharacteristics(data);
+    showCharacteristics(data);
   };
 
-  const showcharacteristics = function(data) {
+  const showCharacteristics = function(data) {
     productCharacteristics = data["drinks"][productId].characteristics;
     for (key in productCharacteristics) {
       if (productCharacteristics.hasOwnProperty(key)) {
@@ -100,16 +100,16 @@
         if (productCharacteristics[key].link === true) {
           let container = document.createElement("div");
           container.classList.add("characteritics-container");
-          showCteristicName(productCharacteristics[key].name, container);
+          showPropertyName(productCharacteristics[key].name, container);
 
           if (Array.isArray(productCharacteristics[key].value)) {
             productCharacteristics[key].value.forEach(function(element) {
-              showCteristicValueBatton(element, container);
-              showCteristicValueSeparator(container);
+              showPropertyValueButton(element, container);
+              showPropertyValueSeparator(container);
             });
             characteristicsConteiner.appendChild(container);
           } else {
-            showCteristicValueBatton(
+            showPropertyValueButton(
               productCharacteristics[key].value,
               container
             );
@@ -118,33 +118,33 @@
         } else {
           let container = document.createElement("div");
           container.classList.add("characteritics-container");
-          showCteristicName(productCharacteristics[key].name, container);
-          showCteristicValue(productCharacteristics[key].value, container);
+          showPropertyName(productCharacteristics[key].name, container);
+          showPropertyValue(productCharacteristics[key].value, container);
           characteristicsConteiner.appendChild(container);
         }
       }
     }
   };
-  const showCteristicName = function(name, container) {
+  const showPropertyName = function(name, container) {
     let characteriticsName = document.createElement("span");
     characteriticsName.innerHTML = name + ": ";
     characteriticsName.classList.add("product-characteritics");
     container.appendChild(characteriticsName);
   };
-  const showCteristicValueBatton = function(value, container) {
+  const showPropertyValueButton = function(value, container) {
     let characteristicValue = document.createElement("a");
     characteristicValue.innerHTML = value;
     characteristicValue.href = "#" + value;
     characteristicValue.classList.add("product-characteritics--valueLink");
     container.appendChild(characteristicValue);
   };
-  const showCteristicValue = function(value, container) {
+  const showPropertyValue = function(value, container) {
     let characteristicValue = document.createElement("span");
     characteristicValue.innerHTML = value;
     characteristicValue.classList.add("product-characteritics--value");
     container.appendChild(characteristicValue);
   };
-  const showCteristicValueSeparator = function(container) {
+  const showPropertyValueSeparator = function(container) {
     let separator = document.createElement("span");
     separator.innerHTML = ",";
     container.appendChild(separator);

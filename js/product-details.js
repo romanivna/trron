@@ -18,7 +18,7 @@
           if (!drink[key]) {
           } else {
             buildDetailButton();
-            buildDetailvalueContainers(drink);
+            buildDetailValueContainers(drink);
           }
         }
       }
@@ -103,12 +103,12 @@
 
   const showComments = function(data, containerRow, containerColumn) {
     data[productId].forEach(function(element) {
-      bildComments(element, containerRow);
-      bildComments(element, containerColumn);
+      buildComments(element, containerRow);
+      buildComments(element, containerColumn);
     });
   };
 
-  const bildComments = function(element, container) {
+  const buildComments = function(element, container) {
     let comment = document.createElement("div");
     comment.classList.add("product-details-comment-container");
     let commentName = document.createElement("div");
@@ -155,7 +155,7 @@
     container.appendChild(newCommentConteiner);
   };
 
-  const buildDetailvalueContainers = function(drink) {
+  const buildDetailValueContainers = function(drink) {
     var containerColumn = document.getElementsByClassName("product-details")[0];
     var containerRow = document.getElementsByClassName(
       "product-details-value"
@@ -263,7 +263,7 @@
       item.addEventListener("click", function() {
         const SIZE_FOR_PRODUCT_DETAILS_IN_COLUMN = 769;
         if (windowWidth() > SIZE_FOR_PRODUCT_DETAILS_IN_COLUMN) {
-          removeClass();
+          toggleActiveTab();
           this.classList.add("details-button-active--row");
           let valuecontainer = document
             .getElementsByClassName(
@@ -282,7 +282,7 @@
     });
   };
 
-  const removeClass = function() {
+  const toggleActiveTab = function() {
     const productDetails = document.getElementsByClassName("product-details")[0]
       .children;
     for (i = 0; i < productDetails.length; i++) {
@@ -327,6 +327,6 @@ const saveComment = function(position) {
       comment: commentText
     }
   ];
-  alert("postfunction " + JSON.stringify(coment));
+  sendComment(JSON.stringify(coment));
   location.reload();
 };
