@@ -87,12 +87,12 @@
 }
 
 .product-details-comment--new {
- margin: 20px 0 0 0;
+  margin: 20px 0 0 0;
 }
 
 .product-details-comment-save {
-  color:  #fff;
-  background-color: #FCA53C;
+  color: #fff;
+  background-color: #fca53c;
   width: 50px;
   text-align: center;
   margin: 20px 0 40px 0;
@@ -101,7 +101,7 @@
 }
 
 .product-details-comment-save:hover {
-  background-color: #3333FA;
+  background-color: #3333fa;
 }
 
 .product-details-comment-input--row {
@@ -129,12 +129,12 @@
 .product-details-comment--new p {
   padding: 10px 0;
   margin: 0px;
-  color: #3E3E3E;
+  color: #3e3e3e;
   font-weight: bold;
 }
 
 .product-details-comment--new p span {
-  color:  #888;
+  color: #888;
   font-weight: normal;
 }
 

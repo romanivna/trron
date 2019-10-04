@@ -1,24 +1,28 @@
-(function () {
+(function() {
   const product = location.search.substr(1).split("_");
   const productCategory = product[0];
   var productId = product[1];
 
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function () {
+  xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       var data = JSON.parse(this.responseText);
       for (var i = 0; i < data[productCategory].length; i++) {
         if (data["drinks"][i].id === productId) {
-          return productId = i;
+          return (productId = i);
         }
       }
       if (data[productCategory].length < productId) {
         eror404();
         return;
       }
-      changeUrl(data)
+      changeUrl(data);
 
-      breadcrumbs = [{ name: product[0], link: "#" }, { name: data["drinks"][productId].category, link: "#" }, { name: data["drinks"][productId].name, link: "" }];
+      breadcrumbs = [
+        { name: product[0], link: "#" },
+        { name: data["drinks"][productId].category, link: "#" },
+        { name: data["drinks"][productId].name, link: "" }
+      ];
       addPointTooBreadcrumbMap(breadcrumbs);
 
       buildProductPage(data);
@@ -30,7 +34,7 @@
   xmlhttp.open("GET", "../jsons/" + productCategory + ".json", true);
   xmlhttp.send();
 
-  const eror404 = function () {
+  const eror404 = function() {
     document.getElementsByClassName("product-page")[0].innerHTML =
       "Page not found";
     document
@@ -41,14 +45,14 @@
       .classList.add("product-page-warning");
   };
 
-  const changeUrl = function (data) {
+  const changeUrl = function(data) {
     let drinkName = data["drinks"][productId].name;
     drinkName = drinkName.replace(/ /g, "-");
     let newLocation = "?" + product[0] + "_" + product[1] + "_" + drinkName;
     window.history.pushState("object or string", "Page Title", newLocation);
-  }
+  };
 
-  const buildProductPage = function (data) {
+  const buildProductPage = function(data) {
     document.getElementsByClassName("product-page-img")[0].src =
       data["drinks"][productId].image;
     document.getElementsByClassName("product-page-img")[0].title =
@@ -79,33 +83,39 @@
       document.getElementsByClassName("product-page-stock-again")[0].innerHTML =
         "Preorder";
     }
-    document.getElementsByClassName("product-page-characteritics-text")[0].innerHTML = data["drinks"][productId].description;
+    document.getElementsByClassName(
+      "product-page-characteritics-text"
+    )[0].innerHTML = data["drinks"][productId].description;
 
     showcharacteristics(data);
   };
 
-  const showcharacteristics = function (data) {
+  const showcharacteristics = function(data) {
     productCharacteristics = data["drinks"][productId].characteristics;
     for (key in productCharacteristics) {
       if (productCharacteristics.hasOwnProperty(key)) {
-        let characteristicsConteiner = document.getElementsByClassName("product-page-characteristics")[0];
+        let characteristicsConteiner = document.getElementsByClassName(
+          "product-page-characteristics"
+        )[0];
         if (productCharacteristics[key].link === true) {
           let container = document.createElement("div");
           container.classList.add("characteritics-container");
           showCteristicName(productCharacteristics[key].name, container);
 
           if (Array.isArray(productCharacteristics[key].value)) {
-            productCharacteristics[key].value.forEach(function (element) {
+            productCharacteristics[key].value.forEach(function(element) {
               showCteristicValueBatton(element, container);
               showCteristicValueSeparator(container);
-            })
+            });
             characteristicsConteiner.appendChild(container);
           } else {
-            showCteristicValueBatton(productCharacteristics[key].value, container);
+            showCteristicValueBatton(
+              productCharacteristics[key].value,
+              container
+            );
             characteristicsConteiner.appendChild(container);
           }
-        }
-        else {
+        } else {
           let container = document.createElement("div");
           container.classList.add("characteritics-container");
           showCteristicName(productCharacteristics[key].name, container);
@@ -114,41 +124,29 @@
         }
       }
     }
-  }
-  const showCteristicName = function (name, container) {
+  };
+  const showCteristicName = function(name, container) {
     let characteriticsName = document.createElement("span");
     characteriticsName.innerHTML = name + ": ";
     characteriticsName.classList.add("product-characteritics");
     container.appendChild(characteriticsName);
-  }
-  const showCteristicValueBatton = function (value, container) {
+  };
+  const showCteristicValueBatton = function(value, container) {
     let characteristicValue = document.createElement("a");
     characteristicValue.innerHTML = value;
     characteristicValue.href = "#" + value;
     characteristicValue.classList.add("product-characteritics--valueLink");
     container.appendChild(characteristicValue);
-  }
-  const showCteristicValue = function (value, container) {
+  };
+  const showCteristicValue = function(value, container) {
     let characteristicValue = document.createElement("span");
     characteristicValue.innerHTML = value;
     characteristicValue.classList.add("product-characteritics--value");
     container.appendChild(characteristicValue);
-  }
-  const showCteristicValueSeparator = function (container) {
+  };
+  const showCteristicValueSeparator = function(container) {
     let separator = document.createElement("span");
     separator.innerHTML = ",";
     container.appendChild(separator);
-  }
+  };
 })();
-
-
-
-
-
-
-
-
-
-
-
-
