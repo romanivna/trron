@@ -5,6 +5,7 @@
 @import "css/articles.css";
 @import "css/header.css";
 @import "css/payment-deliver-guaranties.css";
+@import "css/product-details.css";
 
 @font-face {
   font-family: "OpenSans";
@@ -31,4 +32,25 @@ body {
   padding: 0 10px;
   margin: auto;
   box-sizing: border-box;
+}
+
+.breadcrumb--none {
+  display: none;
+}
+
+.breadcrumb {
+  padding: 20px 0;
+  cursor: default;
+}
+
+.breadcrumb span {
+  margin: 0 5px;
+}
+
+.breadcrumb a {
+  text-transform: capitalize;
+}
+
+.breadcrumb a:hover {
+  color: #fca53c;
 }

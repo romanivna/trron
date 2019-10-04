@@ -1,15 +1,22 @@
+(function() {
+  breadcrumbs = [{ name: "drinks", link: "#" }];
+  addPointTooBreadcrumbMap(breadcrumbs);
+  const HEIGHT_MENU = 100;
 
-
-const muve = function () {
-    let b = location.search.substr(1);
-    let a = document.getElementById(b);
-
-    for (let i = 0; i < a.offsetTop; i++) {
-        function myFunction() {
-            myVar = setTimeout(function () { window.scrollTo(0, i); i++ }, i * 3);
-        }
-
-        myFunction();
+  const muveToSection = function() {
+    const sectionName = location.search.substr(1);
+    const section = document.getElementById(sectionName);
+    console.log(section.offsetTop);
+    const muveTo = section.offsetTop - HEIGHT_MENU;
+    for (let i = 0; i < muveTo; i++) {
+      function muve() {
+        myVar = setTimeout(function() {
+          window.scrollTo(0, i);
+          i++;
+        }, i * 2);
+      }
+      muve();
     }
-}
-muve()
+  };
+  muveToSection();
+})();
