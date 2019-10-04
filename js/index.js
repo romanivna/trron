@@ -1,35 +1,30 @@
-let breadcrumbMap = {};
-
-const addPointTooBreadcrumbMap = function (point, link) {
-    breadcrumbMap[point] = link;
-}
-
-const breadcrumb = function (breadcrumbMap) {
+const addPointTooBreadcrumbMap = function (breadcrumbs) {
     document.getElementsByClassName("breadcrumb--wrapper")[0].classList.remove("breadcrumb--none");
-    const d = document.getElementsByClassName("breadcrumb")[0]
-    const c = document.createElement("span")
-    c.innerHTML = "»";
-    let a = document.createElement("a")
-    a.innerHTML = "Main";
+    const container = document.getElementsByClassName("breadcrumb")[0];
+    const separator = document.createElement("span");
+    separator.innerHTML = "»";
+    let breadcrumbButton = document.createElement("a");
+    breadcrumbButton.innerHTML = "Main";
+    breadcrumbButton.href = "/"
+    container.appendChild(breadcrumbButton);
+    container.appendChild(separator);
 
-    a.href = "/"
-    d.appendChild(a);
-    d.appendChild(c);
-    for (key in breadcrumbMap) {
-        if (breadcrumbMap.hasOwnProperty(key)) {
-            if (!breadcrumbMap[key]) {
-                a = document.createElement("span")
-                a.innerHTML = key;
-                d.appendChild(a);
-            } else {
-                a = document.createElement("a")
-                const c = document.createElement("span")
-                c.innerHTML = "»";
-                a.innerHTML = key;
-                a.href = "#"
-                d.appendChild(a);
-                d.appendChild(c);
-            }
+    breadcrumbs.forEach(function (element) {
+        if (element.link === "") {
+            breadcrumbButton = document.createElement("span");
+            breadcrumbButton.innerHTML = element.name;
+            container.appendChild(breadcrumbButton);
+        } else {
+            breadcrumbButton = document.createElement("a");
+            const separator = document.createElement("span");
+            separator.innerHTML = "»";
+            breadcrumbButton.innerHTML = element.name;
+            breadcrumbButton.href = element.link;
+            container.appendChild(breadcrumbButton);
+            container.appendChild(separator);
         }
-    }
+    })
 }
+let breadcrumbs = [{ name: "name", link: "#" }];
+
+const logInfo = [true, "userName"];

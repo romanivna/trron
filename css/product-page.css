@@ -121,38 +121,36 @@
   margin-bottom: 10px;
 }
 
-.product-page-description--bottom {
+.product-page-characteristics {
   display: flex;
   flex-flow: column;
 }
 
+.product-page-characteritics-text {
+  margin: 5px 0;
+}
+
 .product-page-stock-description,
-.product-page-description-text,
-.product-properties--utp,
-.product-properties--alcohol,
-.product-properties--volume {
+.product-page-characteritics-text,
+.product-characteritics--value {
   color: #838383;
 }
 
-.product-properties {
+.characteritics-container {
+  padding: 5px 0;
+}
+
+.product-characteritics {
   padding: 5px 0;
   margin: 0;
 }
 
-.product-properties--color,
-.product-properties--style,
-.product-properties--region,
-.product-properties--brand,
-.product-properties--manufacturer,
-.product-properties--sort {
+.product-characteritics--valueLink{
   color: #fca53c;
-  text-transform: capitalize;
   padding-left: 10px;
 }
 
-.product-properties--utp,
-.product-properties--alcohol,
-.product-properties--volume {
+.product-characteritics--value {
   padding-left: 5px;
 }
 
