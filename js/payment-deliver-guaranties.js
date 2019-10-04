@@ -6,7 +6,6 @@
   const muveToSection = function() {
     const sectionName = location.search.substr(1);
     const section = document.getElementById(sectionName);
-    console.log(section.offsetTop);
     const muveTo = section.offsetTop - HEIGHT_MENU;
     for (let i = 0; i < muveTo; i++) {
       function muve() {
