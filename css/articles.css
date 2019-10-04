@@ -19,8 +19,9 @@
   position: absolute;
   background-color: #bf2025;
   color: #fff;
+  font-size: 1.3rem;
   padding: 10px;
-  font-size: large;
+  font-weight: bold;
   top: 0;
 }
 
