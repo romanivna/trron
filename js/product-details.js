@@ -327,6 +327,6 @@ const saveComment = function(position) {
       comment: commentText
     }
   ];
-  sendComment(JSON.stringify(coment));
+  // TODO: make a function sendComment(JSON.stringify(coment));
   location.reload();
 };
