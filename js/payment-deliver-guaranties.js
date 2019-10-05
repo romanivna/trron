@@ -1,7 +1,7 @@
 (function() {
   breadcrumbs = [{ name: "drinks", link: "#" }];
   addPointTooBreadcrumbMap(breadcrumbs);
-  const HEIGHT_MENU = 100;
+  const HEIGHT_MENU = 110;
 
   const muveToSection = function() {
     const sectionName = location.search.substr(1);

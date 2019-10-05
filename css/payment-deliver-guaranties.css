@@ -9,8 +9,9 @@
   border-radius: 30px;
   border-width: 5px;
   position: relative;
-  margin: 50px 0 70px 0;
+  margin: 55px 0 80px 0;
   padding: 55px 20px 20px 20px;
+  cursor: default;
 }
 
 .PDG p {
