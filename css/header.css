@@ -501,6 +501,7 @@ body {
   }
 
   .header-nav-catalog-list li {
+    z-index: 1;
     margin: auto;
     width: auto;
     padding: 0;
@@ -529,6 +530,7 @@ body {
 
   .header-nav-catalog-list-list {
     z-index: 1;
+
     display: none;
     flex-direction: column;
     position: absolute;
