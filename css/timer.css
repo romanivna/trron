@@ -26,7 +26,7 @@
   align-items: center;
   width: 39px;
   height: 36px;
-  transition: ease-out 0.4s;
+  transition: ease-out .4s;
 }
 
 .timer-content-text {

@@ -2,7 +2,6 @@ const displaySeleTime = document.querySelectorAll(".timer-content-data");
 const timerDataWrapper = document.querySelectorAll(
   ".timer-content-data-wrapper"
 );
-
 (function seleTimer() {
   const nextFinDays = 2 - (~~(new Date().getTime() / 1000 / 60 / 60 / 24) % 3);
   const finDate = new Date();

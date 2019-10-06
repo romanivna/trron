@@ -38,12 +38,13 @@ function makeArticle() {
   articleContent.appendChild(image);
   articleContent.appendChild(title);
   articleContent.appendChild(text);
-  document.querySelector(".nav-links-add").innerHTML =
-    "» " +
-    '<a href="blog.html?' +
-    articleObj[0].categorie +
-    '" class="nav-links">' +
-    " " +
-    articleObj[0].categorie +
-    "</a>";
+  breadcrumbs = [{
+    name: "blog",
+    link: "blog.html"
+  }, {
+    name: articleObj[0].categorie,
+    link: "blog.html?" + articleObj[0].categorie
+  }];
+  addPointTooBreadcrumbMap(breadcrumbs);
+  
 }
