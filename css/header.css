@@ -65,7 +65,7 @@ body {
   box-shadow: 0 0 7px 0 #858585;
   opacity: 0;
   visibility: hidden;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .header-top-list li {
@@ -155,7 +155,7 @@ body {
 
 .header-mid-basket-quantity {
   position: absolute;
-  font-size: .8rem;
+  font-size: 0.8rem;
   top: 5px;
   width: 15px;
   height: 15px;
@@ -200,7 +200,7 @@ body {
   background-color: #fff;
   opacity: 0;
   visibility: hidden;
-  transition: .3s;
+  transition: 0.3s;
   cursor: default;
 }
 
@@ -208,7 +208,7 @@ body {
   opacity: 1;
   top: 50px;
   visibility: visible;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .header-wrapper--grey {
@@ -221,7 +221,6 @@ body {
   position: fixed;
   right: 0;
   left: 0;
-
 }
 
 .header-nav {
@@ -277,13 +276,13 @@ body {
   z-index: 1;
   opacity: 0;
   visibility: hidden;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .header-nav-menu:hover .header-nav-menu-list {
   opacity: 1;
   visibility: visible;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .header-nav-menu-list a:hover {
@@ -359,7 +358,7 @@ body {
   opacity: 0;
   top: 60px;
   visibility: hidden;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .header-nav-scroll-user-list a {
@@ -374,7 +373,7 @@ body {
   opacity: 1;
   top: 50px;
   visibility: visible;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .header-nav-scroll-search {
@@ -405,7 +404,7 @@ body {
   opacity: 0;
   top: 60px;
   visibility: hidden;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .header-nav-scroll-search:hover .header-nav-scroll-search-list {
@@ -415,7 +414,7 @@ body {
   opacity: 1;
   top: 50px;
   visibility: visible;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .header-nav-scroll-basket {
@@ -443,14 +442,14 @@ body {
   opacity: 1;
   top: 50px;
   visibility: visible;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .header-nav-scroll-user-list a:hover {
   color: #fca53c;
 }
 
-.header-wrapper--fixedMenu{
+.header-wrapper--fixedMenu {
   margin-bottom: 50px;
 }
 
@@ -543,7 +542,7 @@ body {
     box-shadow: 0 0 7px 0 #858585;
     opacity: 0;
     visibility: hidden;
-    transition: .3s;
+    transition: 0.3s;
   }
 
   .header-nav-catalog-list-list li {
@@ -560,7 +559,7 @@ body {
     box-shadow: 0 0 7px 0 #858585;
     opacity: 1;
     visibility: visible;
-    transition: .3s;
+    transition: 0.3s;
   }
 
   .header-top-button:hover .header-top-list,
@@ -568,9 +567,9 @@ body {
     opacity: 1;
     top: 50px;
     visibility: visible;
-    transition: .3s;
+    transition: 0.3s;
   }
-  
+
   .header-nav-scroll {
     box-sizing: border-box;
     display: flex;
@@ -582,17 +581,16 @@ body {
     opacity: 0;
     top: -50px;
     visibility: hidden;
-    transition: .3s;
+    transition: 0.3s;
   }
-  
+
   .header-nav-scroll--show {
     z-index: 1;
     opacity: 1;
     top: 0;
     visibility: visible;
-    transition: .3s;
+    transition: 0.3s;
   }
-  
 }
 
 @media screen and (max-width: 880px) {
@@ -609,7 +607,7 @@ body {
     opacity: 1;
     top: 50px;
     visibility: visible;
-    transition: .3s;
+    transition: 0.3s;
   }
 
   .header-mid-basket-sum {
@@ -668,7 +666,7 @@ body {
     overflow-x: scroll;
     opacity: 0;
     visibility: hidden;
-    transition: .3s;
+    transition: 0.3s;
     position: fixed;
   }
 
@@ -677,7 +675,7 @@ body {
     opacity: 1;
     z-index: 1;
     visibility: visible;
-    transition: .3s;
+    transition: 0.3s;
   }
 
   .header-nav-catalog-list-list {
@@ -768,10 +766,10 @@ body {
   }
 
   .header-nav-menu-list {
-    transition: .3s;
+    transition: 0.3s;
   }
 
   .header-nav-menu:hover .header-nav-menu-list {
-    transition: .3s;
+    transition: 0.3s;
   }
 }
