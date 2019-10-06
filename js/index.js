@@ -1,4 +1,4 @@
-const addPointTooBreadcrumbMap = function(breadcrumbs) {
+const addPointToBreadcrumbMap = function (breadcrumbs) {
   document
     .getElementsByClassName("breadcrumb--wrapper")[0]
     .classList.remove("breadcrumb--none");
@@ -11,7 +11,7 @@ const addPointTooBreadcrumbMap = function(breadcrumbs) {
   container.appendChild(breadcrumbButton);
   container.appendChild(separator);
 
-  breadcrumbs.forEach(function(element) {
+  breadcrumbs.forEach(function (element) {
     if (element.link === "") {
       breadcrumbButton = document.createElement("span");
       breadcrumbButton.innerHTML = element.name;

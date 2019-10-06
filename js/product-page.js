@@ -1,10 +1,10 @@
-(function() {
+(function () {
   const product = location.search.substr(1).split("_");
   const productCategory = product[0];
   var productId = product[1];
 
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
+  xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       var data = JSON.parse(this.responseText);
       for (var i = 0; i < data[productCategory].length; i++) {
@@ -23,7 +23,7 @@
         { name: data["drinks"][productId].category, link: "#" },
         { name: data["drinks"][productId].name, link: "" }
       ];
-      addPointTooBreadcrumbMap(breadcrumbs);
+      addPointToBreadcrumbMap(breadcrumbs);
 
       buildProductPage(data);
     } else if (this.status == 404) {
@@ -34,7 +34,7 @@
   xmlhttp.open("GET", "../jsons/" + productCategory + ".json", true);
   xmlhttp.send();
 
-  const eror404 = function() {
+  const eror404 = function () {
     document.getElementsByClassName("product-page")[0].innerHTML =
       "Page not found";
     document
@@ -45,14 +45,14 @@
       .classList.add("product-page-warning");
   };
 
-  const changeUrl = function(data) {
+  const changeUrl = function (data) {
     let drinkName = data["drinks"][productId].name;
     drinkName = drinkName.replace(/ /g, "-");
     let newLocation = "?" + product[0] + "_" + product[1] + "_" + drinkName;
     window.history.pushState("object or string", "Page Title", newLocation);
   };
 
-  const buildProductPage = function(data) {
+  const buildProductPage = function (data) {
     document.getElementsByClassName("product-page-img")[0].src =
       data["drinks"][productId].image;
     document.getElementsByClassName("product-page-img")[0].title =
@@ -90,7 +90,7 @@
     showCharacteristics(data);
   };
 
-  const showCharacteristics = function(data) {
+  const showCharacteristics = function (data) {
     productCharacteristics = data["drinks"][productId].characteristics;
     for (key in productCharacteristics) {
       if (productCharacteristics.hasOwnProperty(key)) {
@@ -103,7 +103,7 @@
           showPropertyName(productCharacteristics[key].name, container);
 
           if (Array.isArray(productCharacteristics[key].value)) {
-            productCharacteristics[key].value.forEach(function(element) {
+            productCharacteristics[key].value.forEach(function (element) {
               showPropertyValueButton(element, container);
               showPropertyValueSeparator(container);
             });
@@ -125,26 +125,26 @@
       }
     }
   };
-  const showPropertyName = function(name, container) {
+  const showPropertyName = function (name, container) {
     let characteriticsName = document.createElement("span");
     characteriticsName.innerHTML = name + ": ";
     characteriticsName.classList.add("product-characteritics");
     container.appendChild(characteriticsName);
   };
-  const showPropertyValueButton = function(value, container) {
+  const showPropertyValueButton = function (value, container) {
     let characteristicValue = document.createElement("a");
     characteristicValue.innerHTML = value;
     characteristicValue.href = "#" + value;
     characteristicValue.classList.add("product-characteritics--valueLink");
     container.appendChild(characteristicValue);
   };
-  const showPropertyValue = function(value, container) {
+  const showPropertyValue = function (value, container) {
     let characteristicValue = document.createElement("span");
     characteristicValue.innerHTML = value;
     characteristicValue.classList.add("product-characteritics--value");
     container.appendChild(characteristicValue);
   };
-  const showPropertyValueSeparator = function(container) {
+  const showPropertyValueSeparator = function (container) {
     let separator = document.createElement("span");
     separator.innerHTML = ",";
     container.appendChild(separator);
