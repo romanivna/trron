@@ -1,18 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    <link href="../styles.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <link href="../styles.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/4cce7a8c86.js"></script>
     <title>WineTime</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
         <div class="container-stop-link"></div>
         <section class="header-wrapper--orange">
@@ -35,13 +36,16 @@
                         </a>
                         <ul class="header-top-list">
                             <li>
-                                <a class="header-top-list-text" href="#payment">Payment</a>
+                                <a class="header-top-list-text"
+                                    href="payment-deliver-guaranties.html?payment">Payment</a>
                             </li>
                             <li>
-                                <a class="header-top-list-text" href="#deliver">Deliver</a>
+                                <a class="header-top-list-text"
+                                    href="payment-deliver-guaranties.html?deliver">Deliver</a>
                             </li>
                             <li>
-                                <a class="header-top-list-text" href="#guarantees">Guarantees</a>
+                                <a class="header-top-list-text"
+                                    href="payment-deliver-guaranties.html?guarantees">Guarantees</a>
                             </li>
                         </ul>
                     </div>
@@ -59,7 +63,7 @@
                     <div class="header-mid-search-icon"></div>
                     <div class="header-mid-search-list">
                         <input class="header-mid-search-input" type="text">
-                        <button class="header-mid-search-button"></button>
+                        <button class="header-mid-search-button" onclick="search()"></button>
                     </div>
                 </div>
                 <div class="header-mid-basket">
@@ -118,7 +122,7 @@
                             <a href="#wine">wine</a>
                         </li>
                         <li>
-                            <a href="#champagne">champagne</a>
+                            <a href="#chapagne">champagne</a>
                         </li>
                         <li>
                             <a href="#whiskey">whiskey</a>
@@ -231,47 +235,96 @@
         </section>
     </header>
     <div class="breadcrumb--wrapper breadcrumb--none">
-        <div class="content-width">
-            <div class="breadcrumb">
-            </div>
-        </div>
+      <div class="content-width">
+        <div class="breadcrumb"></div>
+      </div>
     </div>
     <section class="product-page--wrapper">
-        <div class="product-page content-width">
-            <div class="product-page-img-container">
-                <img class="product-page-img" src="" alt="">
-            </div>
-            <div class="product-page-description">
-                <div>
-                    <p class="product-page-name"></p>
-                </div>
-                <div class="product-page-order-inform">
-                    <p class="product-page-price"></p>
-                    <p class="product-page-stock"></p>
-                    <p class="product-page-stock-description"></p>
-                    <div class="product-page-order-container">
-                        <div class="product-page-button-container">
-                            <button class="product-page-button-cart" disabled="disabled">add to cart</button>
-                            <button class="product-page-button-wishlist" disabled="disabled"></button>
-                        </div>
-                        <span class="product-page-stock-again"></span>
-                    </div>
-                    <p class="product-page-warning">We do not sell alcoholic drinks for persons under 18 years</p>
-                </div>
-                <div class="product-page-characteristics">
-                    <p class="product-page-characteritics-text"></p>
-                </div>
-            </div>
+      <div class="product-page content-width">
+        <div class="product-page-img-container">
+          <img class="product-page-img" src="" alt="" />
         </div>
-        <div class="content-width">
-            <div class="product-details-container">
-                <div class="product-details">
+        <div class="product-page-description">
+          <div>
+            <p class="product-page-name"></p>
+          </div>
+          <div class="product-page-order-inform">
+            <p class="product-page-price"></p>
+            <p class="product-page-stock"></p>
+            <p class="product-page-stock-description"></p>
+            <div class="product-page-order-container">
+              <div class="product-page-button-container">
+                  <!-- TODO: function in buttons (add to cart) and (wishlist)-->
+                <button class="product-page-button-cart" >
+                  add to cart
+                </button>
+                <button
+                  class="product-page-button-wishlist"
+                ></button>
+              </div>
+              <span class="product-page-stock-again"></span>
+            </div>
+            <p class="product-page-warning">
+              We do not sell alcoholic drinks for persons under 18 years
+            </p>
+          </div>
+          <div class="product-page-characteristics">
+            <p class="product-page-characteritics-text"></p>
+          </div>
+        </div>
+      </div>
+      <div class="content-width">
+        <div class="product-details-container">
+          <div class="product-details"></div>
+          <div class="product-details-value"></div>
+        </div>
+      </div>
+    </section>
+    <section class="benefits--wrapper">
+        <div class="benefits content-width">
+            <div class="benefits-item">
+                <div class="benefits-item-img">
+                    <img src="../assets/img/benefits1.png">
                 </div>
-                <div class="product-details-value"></div>
+                <div class="benefits-item-text">
+                    <p class="benefits-item-title">
+                        quality assurance
+                    </p>
+                    <p class="benefits-item-subtitle">
+                        Only Original Drinks
+                    </p>
+                </div>
+            </div>
+
+            <div class="benefits-item">
+                <div class="benefits-item-img">
+                    <img src="../assets/img/benefits2.png">
+                </div>
+                <div class="benefits-item-text">
+                    <p class="benefits-item-title">
+                        24/7 support
+                    </p>
+                    <p class="benefits-item-subtitle">
+                        Sommelier Consultations
+                    </p>
+                </div>
+            </div>
+
+            <div class="benefits-item">
+                <div class="benefits-item-img">
+                    <img src="../assets/img/benefits3.png">
+                </div>
+                <div class="benefits-item-text">
+                    <p class="benefits-item-title">
+                        free shipping
+                    </p>
+                    <p class="benefits-item-subtitle">
+                        Orders from 1000 UAH
+                    </p>
+                </div>
             </div>
         </div>
     </section>
-
     <footer class="footer content-width">
         <h3 class="footer-title">
             Shop Wine Boutique
@@ -318,9 +371,10 @@
                 </div>
                 <nav class="footer-menu">
                     <p class="footer-menu-title">purchases</p>
-                    <a data-index="0" href="#" class="footer-menu-item">Payment</a>
-                    <a href="#" class="footer-menu-item">Delivery</a>
-                    <a href="#" class="footer-menu-item">Guarantees</a>
+                    <a data-index="0" href="/pages/payment-deliver-guaranties.html?payment"
+                        class="footer-menu-item">Payment</a>
+                    <a href="/pages/payment-deliver-guaranties.html?deliver" class="footer-menu-item">Delivery</a>
+                    <a href="/pages/payment-deliver-guaranties.html?guarantees" class="footer-menu-item">Guarantees</a>
                 </nav>
                 <nav class="footer-menu">
                     <p class="footer-menu-title">information</p>
@@ -362,9 +416,9 @@
     <script src="https://use.fontawesome.com/e6b01730e6.js"></script>
     <script src="../js/index.js"></script>
     <script src="../js/header.js"></script>
+    <script src="../js/benefits.js"></script>
     <script src="../js/product-page.js"></script>
     <script src="../js/product-details.js"></script>
-
-</body>
-
+    
+  </body>
 </html>

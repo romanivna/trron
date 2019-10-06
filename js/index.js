@@ -14,8 +14,11 @@ const addPointTooBreadcrumbMap = function(breadcrumbs) {
   breadcrumbs.forEach(function(element) {
     if (element.link === "") {
       breadcrumbButton = document.createElement("span");
+      const separator = document.createElement("span");
+      separator.innerHTML = "»";
       breadcrumbButton.innerHTML = element.name;
       container.appendChild(breadcrumbButton);
+      container.appendChild(separator);
     } else {
       breadcrumbButton = document.createElement("a");
       const separator = document.createElement("span");
@@ -26,6 +29,8 @@ const addPointTooBreadcrumbMap = function(breadcrumbs) {
       container.appendChild(separator);
     }
   });
+  let lastElement = container.childElementCount - 1;
+  container.removeChild(container.childNodes[lastElement]);
 };
 let breadcrumbs = [{ name: "name", link: "#" }];
 
