@@ -1,4 +1,4 @@
-const addPointTooBreadcrumbMap = function(breadcrumbs) {
+const addPointToBreadcrumbMap = function(breadcrumbs) {
   document
     .getElementsByClassName("breadcrumb--wrapper")[0]
     .classList.remove("breadcrumb--none");

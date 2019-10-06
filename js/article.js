@@ -38,13 +38,15 @@ function makeArticle() {
   articleContent.appendChild(image);
   articleContent.appendChild(title);
   articleContent.appendChild(text);
-  breadcrumbs = [{
-    name: "blog",
-    link: "blog.html"
-  }, {
-    name: articleObj[0].categorie,
-    link: "blog.html?" + articleObj[0].categorie
-  }];
-  addPointTooBreadcrumbMap(breadcrumbs);
-  
+  breadcrumbs = [
+    {
+      name: "blog",
+      link: "blog.html"
+    },
+    {
+      name: articleObj[0].categorie,
+      link: "blog.html?" + articleObj[0].categorie
+    }
+  ];
+  addPointToBreadcrumbMap(breadcrumbs);
 }
