@@ -6,7 +6,7 @@
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link href="../styles.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4cce7a8c86.js"></script>
     <title>WineTime</title>
@@ -239,39 +239,67 @@
             </div>
         </div>
     </div>
-    <div class="action-panel content-width">
-        <input type="radio" name="inset" value="" id="tab_1">
-        <label for="tab_1">Sign in</label>
+    <section class="content-width">
+        <div class="action-panel">
+            <input type="radio" name="inset" id="tab_1">
+            <label for="tab_1">Sign in</label>
 
-        <input type="radio" name="inset" value="" id="tab_2" checked>
-        <label for="tab_2">Log in</label>
+            <input type="radio" name="inset" id="tab_2" checked>
+            <label for="tab_2">Log in</label>
 
-        <input type="radio" name="inset" value="" id="tab_3">
-        <label for="tab_3">Forgot your password ?</label>
+            <input type="radio" name="inset" id="tab_3">
+            <label for="tab_3">Forgot your password ?</label>
 
-        <div id="txt_1">
-            <form>
-                <input type="text">
-                <br>
-                <input type="email">
-            </form>
+            <div id="txt_1">
+                <form name="signin">
+                    <div class="form-group">
+                        <label class="form-group-title" for="regname">Username *</label>
+                        <br>
+                        <input class="form-group-text" type="text" id="regname" name="name"
+                            placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-title" for="regemail">Your email *</label>
+                        <br>
+                        <input class="form-group-text" type="email" name="regemail" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <button class="form-group-submit" type="submit">Sign in</button>
+                    </div>
+                </form>
+            </div>
+            <div id="txt_2">
+                <form name="login">
+                    <div class="form-group">
+                        <label class="form-group-title" for="name">Username *</label>
+                        <br>
+                        <input class="form-group-text" type="text" id="name" name="name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-title" for="pass">Password *</label>
+                        <br>
+                        <input class="form-group-text" type="password" id="pass" name="pass"
+                            placeholder="Enter your password">
+                    </div>
+                    <div class="form-group">
+                        <button class="form-group-submit" type="submit">Log in</button>
+                    </div>
+                </form>
+            </div>
+            <div id="txt_3">
+                <form name="restore">
+                    <div class="form-group">
+                        <label class="form-group-title" for="email">Your email *</label>
+                        <br>
+                        <input class="form-group-text" type="email" name="email" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <button class="form-group-submit" type="submit">Send</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div id="txt_2">
-            <label for=""></label>
-            <input type="text">
-            <br>
-            <label for=""></label>
-            <input type="password" name="" id="">
-            <br>
-            <button type="submit"></button>
-
-        </div>
-        <div id="txt_3">
-            <label for=""></label>
-            <input type="email">
-        </div>
-    </div>
-
+    </section>
     <section class="benefits--wrapper">
         <div class="benefits content-width">
             <div class="benefits-item">
