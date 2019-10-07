@@ -254,13 +254,11 @@
                 <form name="signin">
                     <div class="form-group">
                         <label class="form-group-title" for="regname">Username *</label>
-                        <br>
                         <input class="form-group-text" type="text" id="regname" name="name"
                             placeholder="Enter your name">
                     </div>
                     <div class="form-group">
                         <label class="form-group-title" for="regemail">Your email *</label>
-                        <br>
                         <input class="form-group-text" type="email" name="regemail" placeholder="Enter your email">
                     </div>
                     <div class="form-group">
@@ -269,15 +267,13 @@
                 </form>
             </div>
             <div id="txt_2">
-                <form name="login">
+                <form name="login" onsubmit="logIn(event)">
                     <div class="form-group">
                         <label class="form-group-title" for="name">Username *</label>
-                        <br>
                         <input class="form-group-text" type="text" id="name" name="name" placeholder="Enter your name">
                     </div>
                     <div class="form-group">
                         <label class="form-group-title" for="pass">Password *</label>
-                        <br>
                         <input class="form-group-text" type="password" id="pass" name="pass"
                             placeholder="Enter your password">
                     </div>
@@ -290,7 +286,6 @@
                 <form name="restore">
                     <div class="form-group">
                         <label class="form-group-title" for="email">Your email *</label>
-                        <br>
                         <input class="form-group-text" type="email" name="email" placeholder="Enter your email">
                     </div>
                     <div class="form-group">
