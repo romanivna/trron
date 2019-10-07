@@ -1,0 +1,43 @@
+.action-panel {
+    width: 100%;
+    padding: 0px;
+    margin: 0 auto;
+}
+
+.action-panel>input {
+    display: none;
+}
+
+.action-panel>div {
+    display: none;
+    padding: 12px;
+    border: 1px solid #fca53c;
+    background: #fff;
+}
+
+.action-panel>label {
+    display: inline-block;
+    padding: 7px;
+    margin: 0 -5px -1px 0;
+    text-align: center;
+    color: #fff;
+    border: 1px solid #fca53c;
+    background: #fca53c;
+    cursor: pointer;
+}
+
+.action-panel>input:checked+label {
+    color: #000000;
+    border: 1px solid #fca53c;
+    border-bottom: 1px solid #fff;
+    background: #fff;
+}
+
+#tab_1:checked~#txt_1,
+#tab_2:checked~#txt_2,
+#tab_3:checked~#txt_3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
