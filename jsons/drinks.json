@@ -1,9 +1,9 @@
 {
   "drinks": [
     {
-      "category": "wine",
+      "category": "Wine",
       "name": "Muscat Massavra Tauride",
-      "litrage": 1,
+      "litrage": 0.75,
       "price": 75,
       "currency": "UAH",
       "description": "White semi-sweet Ukrainian wine Aquavintex Pin Blanc Del Mar from Pinot Blanc grapes",
@@ -29,7 +29,11 @@
         "region": {
           "link": true,
           "name": "Region",
-          "value": ["France", "Ukraine", "Gorod"]
+          "value": [
+            "France",
+            "Ukraine",
+            "Gorod"
+          ]
         },
         "sort": {
           "link": true,
@@ -111,7 +115,11 @@
         ],
         "producer": "",
         "notes": {
-          "coco": ["dgdhdjj", "sdadsddas", "sadsad"]
+          "coco": [
+            "dgdhdjj",
+            "sdadsddas",
+            "sadsad"
+          ]
         },
         "video": "",
         "сomments": "<a href='#login'>Login</a> or <a href='#registration'>register</a> to post comments"
@@ -146,7 +154,11 @@
         "region": {
           "link": true,
           "name": "Region",
-          "value": ["France", "Ukraine", "Gorod"]
+          "value": [
+            "France",
+            "Ukraine",
+            "Gorod"
+          ]
         },
         "sort": {
           "link": true,
@@ -181,14 +193,14 @@
     },
     {
       "category": "wine",
-      "name": "Muscat Massavra Tauride",
+      "name": "William Grant And Sons Monkey Shoulder",
       "litrage": 1,
       "price": 75,
       "currency": "UAH",
       "description": "White semi-sweet Ukrainian wine Aquavintex Pin Blanc Del Mar from Pinot Blanc grapes",
       "inStock": true,
       "image": "https://winebutik.com.ua/sites/default/files/styles/h560/public/massandra-pino-blanc-del-mar.jpg?itok=kgQWGT-container",
-      "id": 2,
+      "id": 4,
       "UTP": "UTP002250",
       "color": "red",
       "style": "semisweet",

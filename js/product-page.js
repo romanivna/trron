@@ -61,7 +61,7 @@
     document.getElementsByClassName("product-page-name")[0].innerHTML =
       data["drinks"][productId].category + " " + data["drinks"][productId].name;
     document.getElementsByClassName("product-page-price")[0].innerHTML =
-      data["drinks"][productId].price.toFixed(2) + " uan.";
+      data["drinks"][productId].price.toFixed(2) + " uan";
 
     const inStock = data["drinks"][productId].inStock;
     if (inStock == true) {

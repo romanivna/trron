@@ -59,7 +59,7 @@
                     <div class="header-mid-search-icon"></div>
                     <div class="header-mid-search-list">
                         <input class="header-mid-search-input" type="text">
-                        <button class="header-mid-search-button"></button>
+                        <button class="header-mid-search-button" onclick="search(0)"></button>
                     </div>
                 </div>
                 <div class="header-mid-basket">
@@ -218,7 +218,7 @@
                     <div class="header-nav-scroll-search">
                         <div class="header-nav-scroll-search-list">
                             <input class="header-mid-search-input" type="text">
-                            <button class="header-mid-search-button" onclick="search()"></button>
+                            <button class="header-mid-search-button" onclick="search(1)"></button>
                         </div>
                     </div>
                     <div class="header-nav-scroll-basket">
@@ -238,14 +238,17 @@
     </div>
     <section class="search--wrapper">
         <div class="content-width">
-            <div class="search-container--view"></div>
-            <div class="search-container--drinks">
-                <div class="drink">
-                    <div class="drink-img"></div>
-                    <div class="drink-info"></div>
-                </div>
+            <div class="search-container--view">
+                <div class="view-button-row view-button view-button--active" onclick="chengeView('row')"><i class="fas fa-th-list"></i></div>
+                <div class="view-button-table view-button" onclick="chengeView('table')"><i class="fas fa-th"></i></div>
             </div>
-            <div class="container--view"></div>
+            <div class="search-container--drinks">
+            </div>
+            <div class="search-container--view">
+                <div class="view-button-row view-button view-button--active" onclick="chengeView('row')"><i class="fas fa-th-list"></i></div>
+                <div class="view-button-table view-button" onclick="chengeView('table')"><i class="fas fa-th"></i></div>
+            </div>
+        </div>
         </div>
     </section>
     <section class="benefits--wrapper">

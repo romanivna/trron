@@ -1,0 +1,162 @@
+.search-container--drinks {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.drink {
+  margin: 10px 0;
+  width: 100%;
+  display: flex;
+  justify-items: center;
+}
+
+.drink-img {
+  box-sizing: border-box;
+  width: 31%;
+  border: solid;
+  border-color: #d4d4d4;
+  padding: 20px 30px;
+  border-width: 1px;
+  overflow: hidden;
+}
+
+.drink-img a {
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+}
+
+.drink-img img {
+  max-width: 100%;
+  width: 71px;
+  height: 250px;
+  transition: 0.5s;
+}
+
+.drink:hover .drink-img img {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+.drink-info {
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.drink-name {
+  color: #000;
+  font-size: 1.5rem;
+}
+
+.drink-name:hover {
+  color: #fca53c;
+}
+
+.drink-litrage {
+  color: #808080;
+  padding: 5px;
+  border: solid;
+  border-color: #fca53c;
+  border-width: 1px;
+  width: fit-content;
+  min-width: 20px;
+  text-align: center;
+  margin: 20px 0px 0px;
+}
+
+.drink-price {
+  font-size: 1.3rem;
+  color: #808080;
+  margin: 10px 0;
+}
+
+.drink-description {
+  color: #808080;
+  margin: 10px 0;
+}
+
+.drink-Stock {
+  font-size: 0.9rem;
+  color: #008812;
+  margin: 10px 0;
+}
+
+.buttons-container {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.button-cart {
+  box-sizing: border-box;
+  color: #808080;
+  padding: 5px 5px 5px 30px;
+  height: 35px;
+  width: 140px;
+  text-transform: uppercase;
+  background-color: #fff;
+  background-image: url(../img/btn-cart.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-position-x: 10px;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+}
+
+.button-wishlist {
+  margin-left: 10px;
+  box-sizing: border-box;
+  padding: 5px 5px 5px 5px;
+  height: 35px;
+  width: 35px;
+  background-color: #fff;
+  background-image: url(../img/btn-wishlist.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+}
+
+.button-cart:hover {
+  border: 0px;
+  color: #fff;
+  background-color: #fca53c;
+  background-image: url(../img/btn-cart-hover.png);
+}
+
+.button-wishlist:hover {
+  border: 0px;
+  background-color: #fca53c;
+  background-image: url(../img/btn-wishlist-hover.png);
+}
+
+.search-container--view {
+  display: flex;
+  padding: 10px 0;
+  margin: 10px 0;
+  border-width: 1px 0 1px 0;
+  border-style: solid;
+  border-color: #dfdfdf;
+}
+
+.view-button {
+  color: #808080;
+  background-color: #d4d4d4;
+  margin-right: 10px;
+  padding: 10px;
+}
+
+.view-button--active {
+  background-color: #fca53c;
+  color: #fff;
+}
+
+.view-button:hover {
+  background-color: #fca53c;
+  color: #fff;
+}

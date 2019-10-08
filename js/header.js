@@ -85,3 +85,7 @@
     document.getElementsByClassName("header-mid-search-input")[0].value = "";
     document.getElementsByClassName("header-mid-search-input")[1].value = "";
 })();
+const search = function (ButtonIndex) {
+    searchValue = document.getElementsByClassName("header-mid-search-input")[ButtonIndex].value;
+    location.href = ("/pages/search.html?" + searchValue);
+}
