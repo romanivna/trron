@@ -242,13 +242,13 @@
     <section class="content-width">
         <div class="action-panel">
             <input type="radio" name="inset" id="tab_1">
-            <label for="tab_1">Sign in</label>
+            <label for="tab_1" onclick="changeBreadcrumbs('Sign in')">Sign in</label>
 
             <input type="radio" name="inset" id="tab_2" checked>
-            <label for="tab_2">Log in</label>
+            <label for="tab_2" onclick="changeBreadcrumbs('Log in')">Log in</label>
 
             <input type="radio" name="inset" id="tab_3">
-            <label for="tab_3">Forgot your password ?</label>
+            <label for="tab_3" onclick="changeBreadcrumbs('Recover your password')">Forgot your password ?</label>
 
             <div id="txt_1">
                 <form name="signin">
@@ -267,7 +267,7 @@
                 </form>
             </div>
             <div id="txt_2">
-                <form name="login" onsubmit="logIn(event)">
+                <form name="login" onsubmit="logIn(this)">
                     <div class="form-group">
                         <label class="form-group-title" for="name">Username *</label>
                         <input class="form-group-text" type="text" id="name" name="name" placeholder="Enter your name">

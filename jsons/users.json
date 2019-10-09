@@ -15,9 +15,9 @@
   "wishList": [],
   "orders": []
 }, {
-  "name": "coolgirl",
-  "password": "cool_girl",
-  "avatarUrl": "../img/users/skotynyaka.jpg",
+  "name": "coolbaba",
+  "password": "cool_baba",
+  "avatarUrl": "../img/users/coolbaba.jpg",
   "subscribed": [{
     "categorie": "Wine Storage ",
     "url": "blog.html?Wine Storage"
@@ -31,9 +31,9 @@
   "wishList": [],
   "orders": []
 }, {
-  "name": "coolboy",
-  "password": "cool_boy",
-  "avatarUrl": "../img/users/skotynyaka.jpg",
+  "name": "coolskotynyaka",
+  "password": "coolskotynyaka",
+  "avatarUrl": "../img/users/coolskotynyaka.jpg",
   "subscribed": [{
     "categorie": "Wine Storage ",
     "url": "blog.html?Wine Storage"

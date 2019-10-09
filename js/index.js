@@ -1,4 +1,4 @@
-const addPointTooBreadcrumbMap = function(breadcrumbs) {
+const addPointToBreadcrumbMap = function (breadcrumbs) {
   document
     .getElementsByClassName("breadcrumb--wrapper")[0]
     .classList.remove("breadcrumb--none");
@@ -11,14 +11,11 @@ const addPointTooBreadcrumbMap = function(breadcrumbs) {
   container.appendChild(breadcrumbButton);
   container.appendChild(separator);
 
-  breadcrumbs.forEach(function(element) {
+  breadcrumbs.forEach(function (element) {
     if (element.link === "") {
       breadcrumbButton = document.createElement("span");
-      const separator = document.createElement("span");
-      separator.innerHTML = "»";
       breadcrumbButton.innerHTML = element.name;
       container.appendChild(breadcrumbButton);
-      container.appendChild(separator);
     } else {
       breadcrumbButton = document.createElement("a");
       const separator = document.createElement("span");
@@ -29,9 +26,10 @@ const addPointTooBreadcrumbMap = function(breadcrumbs) {
       container.appendChild(separator);
     }
   });
-  let lastElement = container.childElementCount - 1;
-  container.removeChild(container.childNodes[lastElement]);
 };
-let breadcrumbs = [{ name: "name", link: "#" }];
+let breadcrumbs = [{
+  name: "name",
+  link: "#"
+}];
 
 const logInfo = [true, "userName"];
