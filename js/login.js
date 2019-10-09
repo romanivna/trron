@@ -1,4 +1,3 @@
-let form = document.forms.login;
 let useresArrObj;
 (function () {
     const xhr = new XMLHttpRequest();
