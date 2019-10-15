@@ -49,32 +49,58 @@ form {
 }
 
 .form-group {
-    width: 85%;
+    max-width: 430px;
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 15px 0;
+    transition: .3s;
 }
 
-.form-group-title {
+.form-group-check {
     width: 100%;
-    height: 34px;
-    letter-spacing: 1.2px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
-.form-group-text {
+.form-group-msg {
+    max-width: 300px;
+    width: 100%;
+    color: #86181d;
+    border: 1px solid #86181d;
+    border-radius: 0;
+    background-color: #ffdce0;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: default;
+}
+
+.form-group-label {
+    max-width: 120px;
+    width: 100%;
+    height: 38px;
+    padding: 6px 12px;
+    letter-spacing: 1px;
+    box-sizing: border-box;
+}
+
+.form-group-input {
+    max-width: 300px;
+    width: 100%;
     font-size: 1rem;
     border: 1px solid #e3e3e3;
     border-radius: 0;
-    width: 100%;
-    height: 34px;
+    height: 38px;
     padding: 6px 12px;
     color: #555;
+    box-sizing: border-box;
 }
 
-.form-group-text:focus {
+.form-group-input:focus {
     border-color: #fca53c;
     outline: none;
 }
@@ -89,6 +115,7 @@ form {
     width: 90px;
     height: 39px;
     transition: .2s;
+    outline: none;
 }
 
 .form-group-submit:hover {
@@ -96,6 +123,13 @@ form {
     background-color: #fca53c;
     border-color: #e3e3e3;
     transition: .3s;
+}
+
+.form-group--invisible {
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
 }
 
 @media screen and (min-width: 581px) {
@@ -110,21 +144,24 @@ form {
     }
 
     .form-group {
-        width: 65%;
         flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .form-group-check {
         justify-content: flex-end;
-        align-items: center;
-        flex-wrap: nowrap;
     }
 
-    .form-group-title {
-        width: 30%;
+    .form-group-msg-wrapper {
+        width: 100%;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-end;
     }
 
-    .form-group-text {
-        width: 70%;
+    .form-group-submit-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
     }
 }

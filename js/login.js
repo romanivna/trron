@@ -5,7 +5,7 @@ let useresArrObj;
         if (xhr.readyState === 4 && xhr.status === 200) {
             useresArrObj = JSON.parse(xhr.response);
             changeBreadcrumbs('Log in');
-            goToUserPage()
+            //goToUserPage()
         }
     };
     xhr.open("GET", "../jsons/users.json", true);
@@ -39,9 +39,8 @@ function logIn(form) {
     function checkUserPassword(data) {
         return data.password === form[1].value
     }
-
-    if (form[0].value === '') {
-        return
+    form.oninput = function () {
+        whenFormIsWrongMsg('hide')
     }
 
     if (useresArrObj.some(checkUserName)) {
@@ -49,15 +48,35 @@ function logIn(form) {
         if (useresArrObj.some(checkUserPassword)) {
             form[1].style.borderColor = '#fca53c';
             localStorage.setItem('user', form[0].value)
+            document.location.replace("/");
 
         } else {
-            form[1].style.borderColor = '#ab2e46';
-            form[1].value = '';
-            form[1].placeholder = 'Incorrect password !';
+            whenFormIsWrongMsg('show')
         }
     } else {
-        form[0].style.borderColor = '#ab2e46';
-        form[0].value = '';
-        form[0].placeholder = 'User not found !';
+        whenFormIsWrongMsg('show')
+    }
+}
+
+function whenFormIsWrongMsg(value) {
+    const formMsg = document.querySelector('.form-group-msg');
+    if (value === 'show') {
+        formMsg.parentElement.parentElement.classList.remove('form-group--invisible');
+        formMsg.parentElement.classList.remove('form-group--invisible');
+        formMsg.classList.remove('form-group--invisible');
+    }
+    if (value === 'hide') {
+        formMsg.parentElement.parentElement.classList.add('form-group--invisible');
+        formMsg.parentElement.classList.add('form-group--invisible');
+        formMsg.classList.add('form-group--invisible');
+    }
+}
+
+function showPass(checkBoxValue) {
+    const passwordInput = document.getElementById("pass");
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+    } else {
+        passwordInput.type = "password";
     }
 }

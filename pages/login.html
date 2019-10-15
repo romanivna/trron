@@ -253,43 +253,60 @@
             <div id="txt_1">
                 <form name="signin">
                     <div class="form-group">
-                        <label class="form-group-title" for="regname">Username *</label>
-                        <input class="form-group-text" type="text" id="regname" name="name"
+                        <label class="form-group-label" for="regname">Username *</label>
+                        <input class="form-group-input" type="text" id="regname" name="name"
                             placeholder="Enter your name">
                     </div>
                     <div class="form-group">
-                        <label class="form-group-title" for="regemail">Your email *</label>
-                        <input class="form-group-text" type="email" name="regemail" placeholder="Enter your email">
+                        <label class="form-group-label" for="regemail">Your email *</label>
+                        <input class="form-group-input" type="email" name="regemail" placeholder="Enter your email">
                     </div>
                     <div class="form-group">
-                        <button class="form-group-submit" type="submit">Sign in</button>
+                        <div class="form-group-submit-wrapper">
+                            <button class="form-group-submit" type="submit">Sign in</button>
+                        </div>
                     </div>
                 </form>
             </div>
             <div id="txt_2">
                 <form name="login" onsubmit="logIn(this)">
                     <div class="form-group">
-                        <label class="form-group-title" for="name">Username *</label>
-                        <input class="form-group-text" type="text" id="name" name="name" placeholder="Enter your name">
+                        <label class="form-group-label" for="name">Username</label>
+                        <input class="form-group-input" type="text" id="name" name="name" placeholder="Enter your name">
                     </div>
                     <div class="form-group">
-                        <label class="form-group-title" for="pass">Password *</label>
-                        <input class="form-group-text" type="password" id="pass" name="pass"
+                        <label class="form-group-label" for="pass">Password</label>
+                        <input class="form-group-input" type="password" id="pass" name="pass"
                             placeholder="Enter your password">
+                        <div class="form-group-check">
+                            <label><input type="checkbox" onclick="showPass(this)">Show Password</label>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group form-group--invisible">
+                        <div class="form-group-msg-wrapper form-group--invisible">
+                            <div class="form-group-msg form-group--invisible">Incorrect username or password.
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <button class="form-group-submit" type="submit">Log in</button>
+                        <div class="form-group-submit-wrapper">
+                            <button class="form-group-submit" type="submit">Log in</button>
+                        </div>
                     </div>
                 </form>
             </div>
             <div id="txt_3">
                 <form name="restore">
                     <div class="form-group">
-                        <label class="form-group-title" for="email">Your email *</label>
-                        <input class="form-group-text" type="email" name="email" placeholder="Enter your email">
+                        <label class="form-group-label" for="email">Your email</label>
+                        <input class="form-group-input" type="email" name="email" placeholder="Enter your email">
                     </div>
                     <div class="form-group">
-                        <button class="form-group-submit" type="submit">Send</button>
+                        <div class="form-group-submit-wrapper">
+                            <button class="form-group-submit" type="submit">Send</button>
+                        </div>
                     </div>
                 </form>
             </div>
