@@ -4,7 +4,7 @@
   let searchName = searchinfo[0].split("-")[1].replace(/%20/g, " ");
   const pageNumber = Number(searchinfo[1].split("=")[1]);
   const NUMBER_OF_DRINKS_ON_THE_PAGE = 12;
-  const MINIMUM_NUMBER_OF_SYMBOLS_FOR_SEARCH = 0;
+  const MINIMUM_NUMBER_OF_SYMBOLS_FOR_SEARCH = 3;
   let foundDrinks = [];
   const drinksPosistion = document.getElementsByClassName(
     "search-container--drinks"
