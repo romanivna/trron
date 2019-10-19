@@ -6,8 +6,8 @@
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link href="styles.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link href="../styles.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4cce7a8c86.js"></script>
     <title>WineTime</title>
 </head>
@@ -36,15 +36,15 @@
                         <ul class="header-top-list">
                             <li>
                                 <a class="header-top-list-text"
-                                    href="/pages/payment-deliver-guaranties.html?payment">Payment</a>
+                                    href="payment-deliver-guaranties.html?payment">Payment</a>
                             </li>
                             <li>
                                 <a class="header-top-list-text"
-                                    href="/pages/payment-deliver-guaranties.html?deliver">Deliver</a>
+                                    href="payment-deliver-guaranties.html?deliver">Deliver</a>
                             </li>
                             <li>
                                 <a class="header-top-list-text"
-                                    href="/pages/payment-deliver-guaranties.html?guarantees">Guarantees</a>
+                                    href="payment-deliver-guaranties.html?guarantees">Guarantees</a>
                             </li>
                         </ul>
                     </div>
@@ -55,14 +55,14 @@
             <div class="header-mid content-width">
                 <div class="header-mid-logo">
                     <a href="/">
-                        <img src="img/wine-boutique-logo.png" alt="Logo" title="main">
+                        <img src="../img/wine-boutique-logo.png" alt="Logo" title="main">
                     </a>
                 </div>
                 <div class="header-mid-search">
                     <div class="header-mid-search-icon"></div>
                     <div class="header-mid-search-list">
                         <input class="header-mid-search-input" type="text">
-                        <button class="header-mid-search-button" onclick="search(0)"></button>
+                        <button class="header-mid-search-button"></button>
                     </div>
                 </div>
                 <div class="header-mid-basket">
@@ -221,7 +221,7 @@
                     <div class="header-nav-scroll-search">
                         <div class="header-nav-scroll-search-list">
                             <input class="header-mid-search-input" type="text">
-                            <button class="header-mid-search-button" onclick="search(1)"></button>
+                            <button class="header-mid-search-button" onclick="search()"></button>
                         </div>
                     </div>
                     <div class="header-nav-scroll-basket">
@@ -233,60 +233,35 @@
             </div>
         </section>
     </header>
-    <div class="breadcrumb--wrapper breadcrumb--none">
-        <div class="content-width">
-            <div class="breadcrumb">
-            </div>
-        </div>
-    </div>
-    <section class="slider-wrapper">
-        <div class="slider">
-            <div class="slider-buttons-wrapper slider-buttons-wrapper--left">
-                <button onclick="changSlide('left')" class="slider-buttons">&#10094</button>
-            </div>
-            <div class="slider-content-wrapper"></div>
-            <div class="slider-buttons-wrapper  slider-buttons-wrapper--right">
-                <button onclick="changSlide()" class="slider-buttons">&#10095</button>
-            </div>
-        </div>
-    </section>
-    <section class="content-width">
-        <div class="timer">
-            <div class="timer-content">
-                <div class="timer-content-data-wrapper">
-                    <p class="timer-content-data"></p>
-                </div>
-                <div class="timer-content-text">Days</div>
-            </div>
-            <div class="timer-content">
-                <div class="timer-content-data-wrapper">
-                    <p class="timer-content-data"></p>
-                </div>
-                <div class="timer-content-text">Hours</div>
-            </div>
-            <div class="timer-content">
-                <div class="timer-content-data-wrapper">
-                    <p class="timer-content-data"></p>
-                </div>
-                <div class="timer-content-text">Minutes</div>
-            </div>
-            <div class="timer-content">
-                <div class="timer-content-data-wrapper">
-                    <p class="timer-content-data"></p>
-                </div>
-                <div class="timer-content-text">Second</div>
-            </div>
-        </div>
-    </section>
-    <section class="articles--wrapper">
-        <div class="articles content-width">
+    <section class="PDG--wrapper">
+        <div class="PDG content-width">
+            <section id="payment">
+                <img src="../img/payment-icon.png" alt="payment">
+                <p>You can pay for the order in the store in any way convenient for you.</p>
+                <p>by credit card</p>
+                <p>in cash</p>
+                <p>via Google Pay and Apple Pay</p>
+                <p>No down payments.</p>
+            </section>
+            <section id="deliver">
+                <img src="../img/delivery-icon.png" alt="delivery">
+                <p>You can pick up the order yourself in the store or order delivery to the courier service.</p>
+                <p>Delivery cost 39 hryvnias. Orders over 999 hryvnia in Kiev are delivered free of charge.</p>
+                <p>The logistics partner of the Store is the Novaya Pochta enterprise.</p>
+            </section>
+            <section id="guarantees">
+                <img src="../img/guarantee-icon.png" alt="guarantee">
+                <p>All products are authentic and you can not worry about the quality of drinks or accessories.</p>
+                <p>We only sell original manufacturer's products.</p>
+                <p>We also draw your attention to the fact that upon receipt and payment of the order, the buyer in the presence of the courier is obliged to check the complete set and appearance of the product for the absence of physical defects (scratches, cracks, chips, etc.) and completeness of the complete set. Upon departure of the courier, claims on these issues are not accepted.</p>
+            </section>
         </div>
     </section>
     <section class="benefits--wrapper">
         <div class="benefits content-width">
             <div class="benefits-item">
                 <div class="benefits-item-img">
-                    <img src="assets/img/benefits1.png">
+                    <img src="../assets/img/benefits1.png">
                 </div>
                 <div class="benefits-item-text">
                     <p class="benefits-item-title">
@@ -300,7 +275,7 @@
 
             <div class="benefits-item">
                 <div class="benefits-item-img">
-                    <img src="assets/img/benefits2.png">
+                    <img src="../assets/img/benefits2.png">
                 </div>
                 <div class="benefits-item-text">
                     <p class="benefits-item-title">
@@ -314,7 +289,7 @@
 
             <div class="benefits-item">
                 <div class="benefits-item-img">
-                    <img src="assets/img/benefits3.png">
+                    <img src="../assets/img/benefits3.png">
                 </div>
                 <div class="benefits-item-text">
                     <p class="benefits-item-title">
@@ -415,13 +390,11 @@
         <div class="footer-copyright">Copyright © 2016-2019 All Rights Reserved.</div>
     </footer>
 
-    <script src="js/index.js"></script>
-    <script src="js/slider.js"></script>
-    <script src="js/benefits.js"></script>
-    <script src="js/articles.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/benefits.js"></script>
     <script src="https://use.fontawesome.com/e6b01730e6.js"></script>
-    <script src="js/header.js"></script>
-    <script src="js/timer.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/payment-deliver-guaranties.js"></script>
 
 </body>
 

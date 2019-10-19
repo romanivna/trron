@@ -9,10 +9,10 @@
       var data = JSON.parse(this.responseText);
       for (var i = 0; i < data[productCategory].length; i++) {
         if (data["drinks"][i].id === productId) {
-          return (productId = i);
+          drinkId = i;
         }
       }
-      var drink = data[productCategory][productId].additionalDescription;
+      var drink = data[productCategory][drinkId].additionalDescription;
       for (key in drink) {
         if (drink.hasOwnProperty(key)) {
           if (!drink[key]) {
