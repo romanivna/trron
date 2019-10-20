@@ -16,7 +16,7 @@ function changeBreadcrumbs(value) {
     document.querySelector('.breadcrumb').innerHTML = '';
     breadcrumbs = [{
         name: value,
-        link: "#"
+        link: "login.html"
     }]
     addPointToBreadcrumbMap(breadcrumbs)
 }
@@ -72,11 +72,25 @@ function whenFormIsWrongMsg(value) {
     }
 }
 
-function showPass(checkBoxValue) {
+function showPass(value) {
     const passwordInput = document.getElementById("pass");
-    if (passwordInput.type === "password") {
+    if (value.classList.contains("fa-eye-slash")) {
+        value.classList.remove("fa-eye-slash");
+        value.classList.add("fa-eye");
         passwordInput.type = "text";
     } else {
+        value.classList.remove("fa-eye");
+        value.classList.add("fa-eye-slash");
         passwordInput.type = "password";
     }
+
+}
+
+
+function changeForm(event, formHideFirst, formHideSecond, formTarget) {
+    event.preventDefault();
+    document.querySelector('.' + formHideFirst + '').style.display = 'none'
+    document.querySelector('.' + formHideSecond + '').style.display = 'none'
+    document.querySelector('.' + formTarget + '').style.display = 'flex'
+    console.log(event)
 }

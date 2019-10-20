@@ -240,18 +240,25 @@
         </div>
     </div>
     <section class="content-width">
-        <div class="action-panel">
-            <input type="radio" name="inset" id="tab_1">
-            <label for="tab_1" onclick="changeBreadcrumbs('Sign in')">Sign in</label>
-
-            <input type="radio" name="inset" id="tab_2" checked>
-            <label for="tab_2" onclick="changeBreadcrumbs('Log in')">Log in</label>
-
-            <input type="radio" name="inset" id="tab_3">
-            <label for="tab_3" onclick="changeBreadcrumbs('Recover your password')">Forgot your password ?</label>
-
-            <div id="txt_1">
-                <form name="signin">
+        <div class="forms">
+            <div class="forms-signup">
+                <div class="forms-switcherPanel">
+                    <div class="forms-switcherPanel-button forms-switcherPanel-button--on">
+                        <p onclick="changeForm(event, 'forms-login', 'forms-restore', 'forms-signup')">
+                            Sign in
+                        </p>
+                    </div>
+                    <div class="forms-switcherPanel-button">
+                        <p onclick="changeForm(event, 'forms-restore', 'forms-signup', 'forms-login')">Log in</p>
+                    </div>
+                    <div class="forms-switcherPanel-button">
+                        <p onclick="changeForm(event, 'forms-login', 'forms-signup', 'forms-restore')">
+                            Forgot your password?
+                        </p>
+                    </div>
+                </div>
+                <div class="forms-header">Sign up</div>
+                <form name="signup">
                     <div class="form-group">
                         <label class="form-group-label" for="regname">Username *</label>
                         <input class="form-group-input" type="text" id="regname" name="name"
@@ -262,13 +269,34 @@
                         <input class="form-group-input" type="email" name="regemail" placeholder="Enter your email">
                     </div>
                     <div class="form-group">
-                        <div class="form-group-submit-wrapper">
-                            <button class="form-group-submit" type="submit">Sign in</button>
+                        <div class="form-group-buttons-wrapper">
+                            <button class="form-group-button" type="submit">Sign up</button>
+                            <br>
+                            <a href="#" onclick="changeForm(event, 'forms-restore','forms-signup', 'forms-login')"
+                                class="form-group-links">
+                                Log in
+                            </a>
                         </div>
                     </div>
                 </form>
             </div>
-            <div id="txt_2">
+            <div class="forms-login">
+                <div class="forms-switcherPanel">
+                    <div class="forms-switcherPanel-button">
+                        <p onclick="changeForm(event, 'forms-login', 'forms-restore', 'forms-signup')">
+                            Sign in
+                        </p>
+                    </div>
+                    <div class="forms-switcherPanel-button forms-switcherPanel-button--on">
+                        <p onclick="changeForm(event, 'forms-restore', 'forms-signup', 'forms-login')">Log in</p>
+                    </div>
+                    <div class="forms-switcherPanel-button">
+                        <p onclick="changeForm(event, 'forms-login', 'forms-signup', 'forms-restore')">
+                            Forgot your password?
+                        </p>
+                    </div>
+                </div>
+                <div class="forms-header">Log in</div>
                 <form name="login" onsubmit="logIn(this)">
                     <div class="form-group">
                         <label class="form-group-label" for="name">Username</label>
@@ -276,36 +304,73 @@
                     </div>
                     <div class="form-group">
                         <label class="form-group-label" for="pass">Password</label>
-                        <input class="form-group-input" type="password" id="pass" name="pass"
-                            placeholder="Enter your password">
-                        <div class="form-group-check">
-                            <label><input type="checkbox" onclick="showPass(this)">Show Password</label>
+                        <div class="form-group-input-pass">
+                            <input class="form-group-input" type="password" id="pass" name="pass"
+                                placeholder="Enter your password">
+                            <span toggle="#password-field" class="fa fa-fw fa-eye-slash field-icon toggle-password"
+                                onclick="showPass(this)">
+
                         </div>
-
                     </div>
-
                     <div class="form-group form-group--invisible">
                         <div class="form-group-msg-wrapper form-group--invisible">
-                            <div class="form-group-msg form-group--invisible">Incorrect username or password.
+                            &nbsp
+                            <div class="form-group-msg form-group--invisible">
+                                Incorrect username or password.
                             </div>
                         </div>
                     </div>
+                    <div class="form-group form-group--withPadding">
+                        &nbsp <a href="#" onclick="changeForm(event, 'forms-login', 'forms-signup', 'forms-restore')"
+                            class="form-group-links">Forgot password?</a>
+                    </div>
+
                     <div class="form-group">
-                        <div class="form-group-submit-wrapper">
-                            <button class="form-group-submit" type="submit">Log in</button>
+                        <div class="form-group-buttons-wrapper">
+                            <button class="form-group-button" type="submit">Log in</button>
+                            <br>
+                            <p style="color: #6b6b6b">
+                                Don't have an account?
+                                <a href="#" onclick="changeForm(event, 'forms-restore', 'forms-login', 'forms-signup')"
+                                    class="form-group-links">
+                                    Sign up
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </form>
             </div>
-            <div id="txt_3">
+            <div class="forms-restore">
+                <div class="forms-switcherPanel">
+                    <div class="forms-switcherPanel-button">
+                        <p onclick="changeForm(event, 'forms-login', 'forms-restore', 'forms-signup')">
+                            Sign in
+                        </p>
+                    </div>
+                    <div class="forms-switcherPanel-button">
+                        <p onclick="changeForm(event, 'forms-restore', 'forms-signup', 'forms-login')">Log in</p>
+                    </div>
+                    <div class="forms-switcherPanel-button forms-switcherPanel-button--on">
+                        <p onclick="changeForm(event, 'forms-login', 'forms-signup', 'forms-restore')">
+                            Forgot your password?
+                        </p>
+                    </div>
+                </div>
+                <div class="forms-header">Restore your password</div>
                 <form name="restore">
                     <div class="form-group">
                         <label class="form-group-label" for="email">Your email</label>
                         <input class="form-group-input" type="email" name="email" placeholder="Enter your email">
                     </div>
                     <div class="form-group">
-                        <div class="form-group-submit-wrapper">
-                            <button class="form-group-submit" type="submit">Send</button>
+                        <div class="form-group-buttons-wrapper">
+                            <button class="form-group-button" type="submit">Send</button>
+                            <br>
+                            <a href="#" onclick="changeForm(event, 'forms-restore', 'forms-login', 'forms-signup')"
+                                class="form-group-links">
+                                Sign up
+                            </a>
+
                         </div>
                     </div>
                 </form>
