@@ -27,7 +27,8 @@
 
 }
 
-input::-ms-reveal {
+input::-ms-reveal,
+input::-ms-clear {
     display: none;
 }
 
@@ -199,13 +200,14 @@ form {
     }
 
     .forms-switcherPanel {
+        max-width: 350px;
+        width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         text-align: center;
         border: 1px solid #fca53c;
         border-bottom: none;
-        box-sizing: border-box;
     }
 
     /* form {
