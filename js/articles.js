@@ -16,7 +16,7 @@
         articlesContainer.classList.add("articles-container");
 
         let imgLink = document.createElement("a");
-        imgLink.href = "articles.html?" + data["articles"][articleIndex].id;
+        imgLink.href = "pages/article.html?" + data["articles"][articleIndex].id;
 
         let articlesImgContainer = document.createElement("div");
         articlesImgContainer.classList.add("articles-img-container");
@@ -52,7 +52,7 @@
         articlesDescriptionId.classList.add("articles-description-id");
         articlesDescriptionId.innerHTML = "more details";
         articlesDescriptionId.href =
-          "articles.html?" + data["articles"][articleIndex].id;
+          "pages/article.html?" + data["articles"][articleIndex].id;
         articlesDescription.appendChild(articlesDescriptionId);
         articlesContainer.appendChild(articlesDescription);
         articles.appendChild(articlesContainer);

@@ -26,22 +26,6 @@ const timerDataWrapper = document.querySelectorAll(
   if (days < 10) {
     days = "0" + days;
   }
-
-  if (displaySeleTime[0].innerText > hours) {
-    timerDataWrapper[0].style.transform =
-      "rotateX(" + rotationClockDays + "deg)";
-    displaySeleTime[0].style.transform =
-      "rotateX(" + rotationClockDays + "deg)";
-    timerDataWrapper[1].style.transform =
-      "rotateX(" + rotationClockHours + "deg)";
-    displaySeleTime[1].style.transform =
-      "rotateX(" + rotationClockHours + "deg)";
-    timerDataWrapper[2].style.transform =
-      "rotateX(" + rotationClockMinutes + "deg)";
-    displaySeleTime[2].style.transform =
-      "rotateX(" + rotationClockMinutes + "deg)";
-    rotationClockDays += 180;
-  }
   displaySeleTime[0].innerText = days;
   displaySeleTime[1].innerText = hours;
   displaySeleTime[2].innerText = minutes;
