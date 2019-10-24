@@ -1,5 +1,5 @@
 "use strict";
-(function() {
+(function () {
   const searchinfo = location.search.substr(1).split("_");
 
   if (
@@ -44,8 +44,8 @@
     breadcrumbs = [{ name: searchName, link: "" }];
     addPointToBreadcrumbMap(breadcrumbs);
 
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         const data = JSON.parse(this.responseText);
 
@@ -66,7 +66,7 @@
 
   function addValueForSerchInputs() {
     let elements = document.getElementsByClassName("header-mid-search-input");
-    elements = [].map.call(elements, function(item) {
+    elements = [].map.call(elements, function (item) {
       item.value = searchName;
     });
   }
@@ -95,7 +95,7 @@
   }
 
   function searchDrink(data) {
-    data.drinks.forEach(function(element) {
+    data.drinks.forEach(function (element) {
       const drinkName = element.name.toUpperCase();
       searchName = searchName.toUpperCase();
       if (drinkName.search(searchName) !== -1) {
@@ -144,19 +144,19 @@
   function activetCloseButton(elementPosition) {
     document
       .querySelector(".clouse-message")
-      .addEventListener("click", function() {
+      .addEventListener("click", function () {
         elementPosition.innerHTML = "";
       });
   }
 })();
 
-const addButtonsGroupDrinks = function(
+const addButtonsGroupDrinks = function (
   foundDrinks,
   position,
   NUMBER_OF_DRINKS_ON_THE_PAGE,
   pageNumber
 ) {
-  position = [].map.call(position, function(item) {
+  position = [].map.call(position, function (item) {
     const container = document.createElement("div");
     container.classList.add("conteiner--drinksGroups");
     const numberOfDrinks = foundDrinks.length;
@@ -233,7 +233,7 @@ function addButtonWhichShowsThePreviousGroupOfFoundDrinks(
   if (number < 1) {
     return;
   }
-  button.addEventListener("click", function() {
+  button.addEventListener("click", function () {
     location.href = location.search.split("=")[0] + "=" + number;
   });
   container.appendChild(button);
@@ -251,7 +251,7 @@ function addButtonWhichShowsNextGroupOfFoundDrinks(
   if (number > numberOfProductPages) {
     return;
   }
-  button.addEventListener("click", function() {
+  button.addEventListener("click", function () {
     location.href = location.search.split("=")[0] + "=" + number;
   });
   container.appendChild(button);
@@ -271,7 +271,7 @@ function AddButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
   button.classList.add("group-drink");
   button.innerHTML = number;
   button.title = "To page number " + number;
-  button.addEventListener("click", function() {
+  button.addEventListener("click", function () {
     location.href = location.search.split("=")[0] + "=" + number;
   });
   container.appendChild(button);
@@ -286,7 +286,7 @@ function buttonPage(container, value) {
 }
 
 function addButtonsView(elementPosition) {
-  elementPosition = [].map.call(elementPosition, function(element) {
+  elementPosition = [].map.call(elementPosition, function (element) {
     buildButtonsView(element);
   });
   addClickEventListenerToButtonsView();
@@ -299,17 +299,17 @@ function firstActivateButtonView() {
     view = "row";
   }
   let button = document.querySelectorAll(".view-button-" + view);
-  button = [].map.call(button, function(item) {
+  button = [].map.call(button, function (item) {
     item.classList.add("view-button--active");
   });
   if (view === "row") {
     let drinkContainers = document.getElementsByClassName("drink--wrapper");
-    drinkContainers = [].map.call(drinkContainers, function(item) {
+    drinkContainers = [].map.call(drinkContainers, function (item) {
       item.classList.remove("drink--table");
     });
   } else {
     let drinkContainers = document.getElementsByClassName("drink--wrapper");
-    drinkContainers = [].map.call(drinkContainers, function(item) {
+    drinkContainers = [].map.call(drinkContainers, function (item) {
       item.classList.add("drink--table");
     });
   }
@@ -337,14 +337,14 @@ function buildButtonsView(elementPosition) {
 function addClickEventListenerToButtonsView() {
   let buttonRow = document.getElementsByClassName("view-button-row");
   let buttonTable = document.getElementsByClassName("view-button-table");
-  buttonRow = [].map.call(buttonRow, function(item) {
-    item.addEventListener("click", function() {
+  buttonRow = [].map.call(buttonRow, function (item) {
+    item.addEventListener("click", function () {
       localStorage.setItem("view", "row");
       document.location.reload();
     });
   });
-  buttonTable = [].map.call(buttonTable, function(item) {
-    item.addEventListener("click", function() {
+  buttonTable = [].map.call(buttonTable, function (item) {
+    item.addEventListener("click", function () {
       localStorage.setItem("view", "table");
       document.location.reload();
     });

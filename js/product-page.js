@@ -1,14 +1,14 @@
-(function() {
+(function () {
   const product = location.search.substr(1).split("_");
   const productCategory = product[0];
   let productId = Number(product[1]);
   const productName = product[2];
 
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       const data = JSON.parse(this.responseText);
-      const drink = data["drinks"].filter(x => x.id === productId)[0];
+      const drink = data["drinks"].find(x => x.id === productId);
       if (drink == undefined) {
         error404();
         return;
@@ -40,14 +40,14 @@
     location.href = "/pages/error404.html";
   }
 
-  const changeUrl = function(drink) {
+  const changeUrl = function (drink) {
     const drinkName = drink.name;
     drinkName = drinkName.replace(/ /g, "-");
     const newLocation = "?" + product[0] + "_" + product[1] + "_" + drinkName;
     window.history.pushState("object or string", "Page Title", newLocation);
   };
 
-  const buildProductPage = function(drink) {
+  const buildProductPage = function (drink) {
     document.getElementsByClassName("product-page-img")[0].src = drink.image;
     document.getElementsByClassName("product-page-img")[0].title = drink.name;
 
@@ -83,7 +83,7 @@
     showCharacteristics(drink);
   };
 
-  const showCharacteristics = function(drink) {
+  const showCharacteristics = function (drink) {
     productCharacteristics = drink.characteristics;
     for (key in productCharacteristics) {
       if (productCharacteristics.hasOwnProperty(key)) {
@@ -96,7 +96,7 @@
           showPropertyName(productCharacteristics[key].name, container);
 
           if (Array.isArray(productCharacteristics[key].value)) {
-            productCharacteristics[key].value.forEach(function(element) {
+            productCharacteristics[key].value.forEach(function (element) {
               showPropertyValueButton(element, container);
               showPropertyValueSeparator(container);
             });
@@ -118,26 +118,26 @@
       }
     }
   };
-  const showPropertyName = function(name, container) {
+  const showPropertyName = function (name, container) {
     const characteriticsName = document.createElement("span");
     characteriticsName.innerHTML = name + ": ";
     characteriticsName.classList.add("product-characteritics");
     container.appendChild(characteriticsName);
   };
-  const showPropertyValueButton = function(value, container) {
+  const showPropertyValueButton = function (value, container) {
     const characteristicValue = document.createElement("a");
     characteristicValue.innerHTML = value;
     characteristicValue.href = "#" + value;
     characteristicValue.classList.add("product-characteritics--valueLink");
     container.appendChild(characteristicValue);
   };
-  const showPropertyValue = function(value, container) {
+  const showPropertyValue = function (value, container) {
     const characteristicValue = document.createElement("span");
     characteristicValue.innerHTML = value;
     characteristicValue.classList.add("product-characteritics--value");
     container.appendChild(characteristicValue);
   };
-  const showPropertyValueSeparator = function(container) {
+  const showPropertyValueSeparator = function (container) {
     const separator = document.createElement("span");
     separator.innerHTML = ",";
     container.appendChild(separator);

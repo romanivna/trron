@@ -1,15 +1,15 @@
-(function() {
+(function () {
   const product = location.search.substr(1).split("_");
   const productCategory = product[0];
   const productId = Number(product[1]);
 
   const xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
+  xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       const data = JSON.parse(this.responseText);
 
-      const drink = data["drinks"].filter(x => x.id === productId)[0];
-      var drinkAdditionalDescription = drink.additionalDescription;
+      const drink = data["drinks"].find(x => x.id === productId);
+      const drinkAdditionalDescription = drink.additionalDescription;
       for (key in drinkAdditionalDescription) {
         if (drinkAdditionalDescription.hasOwnProperty(key)) {
           if (!drinkAdditionalDescription[key]) {
@@ -27,7 +27,7 @@
   xmlhttp.open("GET", "../jsons/" + productCategory + ".json", true);
   xmlhttp.send();
 
-  const activateFirstButton = function() {
+  const activateFirstButton = function () {
     document
       .getElementsByClassName("details-description")[0]
       .classList.add("details-button-active--row");
@@ -36,8 +36,8 @@
       .classList.toggle("product-details-value--row--none");
   };
 
-  const buildDetailButton = function() {
-    var productDetails = document.getElementsByClassName("product-details")[0];
+  const buildDetailButton = function () {
+    const productDetails = document.getElementsByClassName("product-details")[0];
     let detailButton = document.createElement("div");
     detailButton.innerHTML = key;
     detailButton.classList.add("details-" + key);
@@ -45,12 +45,12 @@
     productDetails.appendChild(detailButton);
   };
 
-  const upgradeButtonComments = function() {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
+  const upgradeButtonComments = function () {
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
-        var data = JSON.parse(this.responseText);
-        var comments = document.getElementsByClassName("details-сomments")[0];
+        const data = JSON.parse(this.responseText);
+        let comments = document.getElementsByClassName("details-сomments")[0];
         if (data[productId] === undefined) {
           quantityComments = 0;
         } else {
@@ -68,9 +68,9 @@
         )[0];
         comments.classList.add(
           "product-details-value--column--" +
-            "comments(" +
-            quantityComments +
-            ")"
+          "comments(" +
+          quantityComments +
+          ")"
         );
         if (logInfo[0] === false) {
           return;
@@ -98,14 +98,14 @@
     xmlhttp.send();
   };
 
-  const showComments = function(data, containerRow, containerColumn) {
-    data[productId].forEach(function(element) {
+  const showComments = function (data, containerRow, containerColumn) {
+    data[productId].forEach(function (element) {
       buildComments(element, containerRow);
       buildComments(element, containerColumn);
     });
   };
 
-  const buildComments = function(element, container) {
+  const buildComments = function (element, container) {
     let comment = document.createElement("div");
     comment.classList.add("product-details-comment-container");
     let commentName = document.createElement("div");
@@ -123,7 +123,7 @@
     container.appendChild(comment);
   };
 
-  const addComments = function(container, position) {
+  const addComments = function (container, position) {
     let newCommentConteiner = document.createElement("div");
     newCommentConteiner.classList.add("product-details-comment--new");
 
@@ -152,9 +152,9 @@
     container.appendChild(newCommentConteiner);
   };
 
-  const buildDetailValueContainers = function(drinkAdditionalDescription) {
-    var containerColumn = document.getElementsByClassName("product-details")[0];
-    var containerRow = document.getElementsByClassName(
+  const buildDetailValueContainers = function (drinkAdditionalDescription) {
+    const containerColumn = document.getElementsByClassName("product-details")[0];
+    const containerRow = document.getElementsByClassName(
       "product-details-value"
     )[0];
     if (
@@ -183,7 +183,7 @@
     }
   };
 
-  const showObjectValue = function(value, containerColumn, containerRow) {
+  const showObjectValue = function (value, containerColumn, containerRow) {
     let drinkKey = value;
     let valuecontainerColumn = document.createElement("div");
     let valuecontainerRow = document.createElement("div");
@@ -212,7 +212,7 @@
     );
   };
 
-  const showArrayValue = function(value, containerColumn, containerRow) {
+  const showArrayValue = function (value, containerColumn, containerRow) {
     let valuecontainerColumn = document.createElement("div");
     let valuecontainerRow = document.createElement("div");
     showAllElements(value, valuecontainerColumn, valuecontainerRow);
@@ -224,23 +224,23 @@
     );
   };
 
-  const showAllElements = function(
+  const showAllElements = function (
     value,
     valuecontainerColumn,
     valuecontainerRow
   ) {
-    value.forEach(function(element) {
+    value.forEach(function (element) {
       showArrayElement(element, valuecontainerColumn);
       showArrayElement(element, valuecontainerRow);
     });
   };
 
-  const showStringValue = function(value, containerColumn, containerRow) {
+  const showStringValue = function (value, containerColumn, containerRow) {
     showValueInPosition(value, containerColumn, "column");
     showValueInPosition(value, containerRow, "row");
   };
 
-  const showValueInPosition = function(value, container, position) {
+  const showValueInPosition = function (value, container, position) {
     let valuecontainerRow = document.createElement("div");
     valuecontainerRow.innerHTML = value;
     container.appendChild(
@@ -248,31 +248,31 @@
     );
   };
 
-  const showKey = function(key, container) {
+  const showKey = function (key, container) {
     let specialistrow = document.createElement("div");
     specialistrow.innerHTML = key;
     specialistrow.classList.add("details-notes--italic");
     container.appendChild(specialistrow);
   };
 
-  const showArrayElement = function(value, container) {
+  const showArrayElement = function (value, container) {
     let textrow = document.createElement("div");
     textrow.innerHTML = value;
     textrow.classList.add("details-notes--margin");
     container.appendChild(textrow);
   };
 
-  const addPlacementClassesToElement = function(elem, placing) {
+  const addPlacementClassesToElement = function (elem, placing) {
     elem.classList.add("product-details-value--" + placing);
     elem.classList.add("product-details-value--" + placing + "--none");
     elem.classList.add("product-details-value--" + placing + "--" + key);
     return elem;
   };
 
-  const addClickEventListenerToButtons = function() {
+  const addClickEventListenerToButtons = function () {
     let productDetails = document.getElementsByClassName("details-button");
-    productDetails = [].map.call(productDetails, function(item) {
-      item.addEventListener("click", function() {
+    productDetails = [].map.call(productDetails, function (item) {
+      item.addEventListener("click", function () {
         const SIZE_FOR_PRODUCT_DETAILS_IN_COLUMN = 769;
         if (windowWidth() > SIZE_FOR_PRODUCT_DETAILS_IN_COLUMN) {
           toggleActiveTab();
@@ -294,7 +294,7 @@
     });
   };
 
-  const toggleActiveTab = function() {
+  const toggleActiveTab = function () {
     const productDetails = document.getElementsByClassName("product-details")[0]
       .children;
     for (i = 0; i < productDetails.length; i++) {
@@ -308,12 +308,12 @@
     }
   };
 
-  const windowWidth = function() {
+  const windowWidth = function () {
     return document.getElementsByClassName("content-width")[0].offsetWidth;
   };
 })();
 
-const saveComment = function(position) {
+const saveComment = function (position) {
   let commentText = document.getElementsByClassName(
     "product-details-comment-input--" + position
   )[0].value;

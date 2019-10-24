@@ -69,7 +69,6 @@
   height: 35px;
   width: 140px;
   text-transform: uppercase;
-
   background: #fff url(../img/btn-cart.png) no-repeat left 10px;
   background-position-x: 10px;
   border-width: 1px;
@@ -90,7 +89,6 @@
   padding: 5px 5px 5px 5px;
   height: 35px;
   width: 35px;
-
   background: #fff url(../img/btn-wishlist.png) no-repeat center;
   border-width: 1px;
   border-style: solid;

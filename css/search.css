@@ -35,13 +35,13 @@
 .drink-img img {
   max-width: 100%;
   height: 250px;
-  transition: 0.5s;
+  transition: .5s;
   pointer-events: none;
 }
 
 .drink:hover .drink-img img {
   transform: scale(1.1);
-  transition: 0.5s;
+  transition: .5s;
 }
 
 .drink-info {
@@ -85,7 +85,7 @@
 }
 
 .drink-Stock {
-  font-size: 0.9rem;
+  font-size: .9rem;
   color: #008812;
   margin: 10px 0;
 }
