@@ -19,8 +19,7 @@
 .drink-img {
   width: 30%;
   box-sizing: border-box;
-  border: solid;
-  border-color: #d4d4d4;
+  border: solid #d4d4d4;
   padding: 20px 30px;
   border-width: 1px;
   overflow: hidden;
@@ -36,13 +35,13 @@
 .drink-img img {
   max-width: 100%;
   height: 250px;
-  transition: .5s;
+  transition: 0.5s;
   pointer-events: none;
 }
 
 .drink:hover .drink-img img {
   transform: scale(1.1);
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .drink-info {
@@ -68,12 +67,10 @@
 .drink-litrage {
   color: #808080;
   padding: 5px;
-  border: solid;
-  border-color: #fca53c;
-  border-width: 1px;
+  border: #fca53c solid 1px;
   width: 40px;
   text-align: center;
-  margin: 20px 0px 0px;
+  margin: 20px 0 0;
 }
 
 .drink-price {
@@ -88,7 +85,7 @@
 }
 
 .drink-Stock {
-  font-size: .9rem;
+  font-size: 0.9rem;
   color: #008812;
   margin: 10px 0;
 }
@@ -106,13 +103,9 @@
   height: 35px;
   width: 140px;
   text-transform: uppercase;
-  background-color: #fff;
-  background-image: url(../img/btn-cart.png);
-  background-repeat: no-repeat;
-  background-position: left;
+  background: #fff url(../img/btn-cart.png) no-repeat left 10px;
   background-position-x: 10px;
-  border-width: 1px;
-  border-style: solid;
+  border: 1px solid #ddd;
   cursor: pointer;
 }
 
@@ -123,33 +116,28 @@
   padding: 5px 5px 5px 5px;
   height: 35px;
   width: 35px;
-  background-color: #fff;
-  background-image: url(../img/btn-wishlist.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  border-width: 1px;
-  border-style: solid;
+  background: #fff url(../img/btn-wishlist.png) no-repeat center;
+  border: 1px solid #ddd;
   cursor: pointer;
 }
 
 .button-cart:hover {
-  border: 0px;
+  border: 0;
   color: #fff;
   background-color: #fca53c;
   background-image: url(../img/btn-cart-hover.png);
 }
 
 .button-wishlist:hover {
-  border: 0px;
+  border: 0;
   background-color: #fca53c;
   background-image: url(../img/btn-wishlist-hover.png);
 }
 
 .search-container--view {
   display: flex;
+  border: solid #dfdfdf;
   border-width: 1px 0 1px 0;
-  border-style: solid;
-  border-color: #dfdfdf;
   margin: 10px 0;
 }
 
@@ -159,6 +147,7 @@
 }
 
 .view-button {
+  font-size: 1.5rem;
   color: #808080;
   background-color: #d4d4d4;
   margin-right: 10px;
@@ -192,9 +181,7 @@
   padding: 10px;
   margin: 10px 5px;
   width: 32px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #dfdfdf;
+  border: #dfdfdf solid 1px;
   color: #000;
   cursor: pointer;
 }
@@ -221,7 +208,7 @@
 
 .unfulfilled-condition-message {
   height: fit-content;
-  margin: auto 0px;
+  margin: auto 0;
 }
 
 .clouse-message {
@@ -260,9 +247,7 @@
   .drink--table .drink {
     display: block;
     box-sizing: border-box;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #dfdfdf;
+    border: 1px solid #dfdfdf;
     padding: 10px 15px;
     height: auto;
   }
@@ -315,9 +300,7 @@
   .drink {
     display: block;
     box-sizing: border-box;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #dfdfdf;
+    border: 1px solid #dfdfdf;
     padding: 10px 15px;
     height: auto;
   }

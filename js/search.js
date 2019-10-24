@@ -1,11 +1,30 @@
 "use strict";
 (function() {
-  let searchinfo = location.search.substr(1).split("_");
+  const searchinfo = location.search.substr(1).split("_");
+
+  if (
+    searchinfo[0].split("-")[0] !== "text" ||
+    searchinfo[1] === undefined ||
+    searchinfo[1].split("=")[1] === undefined
+  ) {
+    error404();
+  }
+
   let searchName = searchinfo[0].split("-")[1].replace(/%20/g, " ");
+
+  if (searchinfo[1].split("=")[0] !== "page") {
+    error404();
+  }
+
   const pageNumber = Number(searchinfo[1].split("=")[1]);
+
+  if (pageNumber === 0) {
+    error404();
+  }
+
   const NUMBER_OF_DRINKS_ON_THE_PAGE = 12;
-  const MINIMUM_NUMBER_OF_SYMBOLS_FOR_SEARCH = 3;
-  let foundDrinks = [];
+  const MINIMUM_NUMBER_OF_SYMBOLS_FOR_SEARCH = 0;
+  const foundDrinks = [];
   const drinksPosistion = document.getElementsByClassName(
     "search-container--drinks"
   )[0];
@@ -13,7 +32,7 @@
   const unfulfilledConditionMessagePosition = document.querySelector(
     ".search-container--unfulfilled-condition"
   );
-  addValueFoSerchInputs();
+  addValueForSerchInputs();
   if (searchName.length < MINIMUM_NUMBER_OF_SYMBOLS_FOR_SEARCH) {
     breadcrumbs = [];
     addPointToBreadcrumbMap(breadcrumbs);
@@ -45,7 +64,7 @@
     xmlhttp.send();
   }
 
-  function addValueFoSerchInputs() {
+  function addValueForSerchInputs() {
     let elements = document.getElementsByClassName("header-mid-search-input");
     elements = [].map.call(elements, function(item) {
       item.value = searchName;
@@ -54,13 +73,13 @@
 
   function checkSearchResult(foundDrinks) {
     if (foundDrinks.length < 1 && pageNumber > 1) {
-      eror404();
+      error404();
     } else if (foundDrinks.length < 1) {
       showNotMatchMessage();
     } else if (
       pageNumber > Math.ceil(foundDrinks.length / NUMBER_OF_DRINKS_ON_THE_PAGE)
     ) {
-      eror404();
+      error404();
     } else {
       for (
         let drinkNumber =
@@ -77,7 +96,7 @@
 
   function searchDrink(data) {
     data.drinks.forEach(function(element) {
-      let drinkName = element.name.toUpperCase();
+      const drinkName = element.name.toUpperCase();
       searchName = searchName.toUpperCase();
       if (drinkName.search(searchName) !== -1) {
         foundDrinks.push(element);
@@ -85,8 +104,8 @@
     });
   }
 
-  function eror404() {
-    location.href = "/pages/eror404.html";
+  function error404() {
+    location.href = "/pages/error404.html";
   }
 
   function showNotMatchMessage() {
@@ -98,11 +117,11 @@
   }
 
   function showUnfulfilledConditionMessage(elementPosition) {
-    bildUnfulfilledConditionMessage(elementPosition);
+    buildUnfulfilledConditionMessage(elementPosition);
     activetCloseButton(elementPosition);
   }
 
-  function bildUnfulfilledConditionMessage(elementPosition) {
+  function buildUnfulfilledConditionMessage(elementPosition) {
     const container = document.createElement("div");
     container.classList.add("unfulfilled-condition");
 
@@ -138,36 +157,40 @@ const addButtonsGroupDrinks = function(
   pageNumber
 ) {
   position = [].map.call(position, function(item) {
-    let container = document.createElement("div");
+    const container = document.createElement("div");
     container.classList.add("conteiner--drinksGroups");
-    let numberOfDrinks = foundDrinks.length;
-    let numberOfProductPages = Math.ceil(
+    const numberOfDrinks = foundDrinks.length;
+    const numberOfProductPages = Math.ceil(
       numberOfDrinks / NUMBER_OF_DRINKS_ON_THE_PAGE
     );
     if (pageNumber === 1) {
       buttonPage(container, pageNumber);
-      buttonWthTheSpecifiedNumber(
+      AddButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
         container,
         "+1",
         pageNumber,
         numberOfProductPages
       );
-      buttonWthTheSpecifiedNumber(
+      AddButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
         container,
         "+2",
         pageNumber,
         numberOfProductPages
       );
-      buttonNext(container, pageNumber, numberOfProductPages);
+      addButtonWhichShowsNextGroupOfFoundDrinks(
+        container,
+        pageNumber,
+        numberOfProductPages
+      );
     } else if (pageNumber === numberOfProductPages) {
-      buttonPrevious(container, pageNumber);
-      buttonWthTheSpecifiedNumber(
+      addButtonWhichShowsThePreviousGroupOfFoundDrinks(container, pageNumber);
+      AddButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
         container,
         "-2",
         pageNumber,
         numberOfProductPages
       );
-      buttonWthTheSpecifiedNumber(
+      AddButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
         container,
         "-1",
         pageNumber,
@@ -175,28 +198,35 @@ const addButtonsGroupDrinks = function(
       );
       buttonPage(container, pageNumber);
     } else {
-      buttonPrevious(container, pageNumber);
-      buttonWthTheSpecifiedNumber(
+      addButtonWhichShowsThePreviousGroupOfFoundDrinks(container, pageNumber);
+      AddButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
         container,
         "-1",
         pageNumber,
         numberOfProductPages
       );
       buttonPage(container, pageNumber);
-      buttonWthTheSpecifiedNumber(
+      AddButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
         container,
         "+1",
         pageNumber,
         numberOfProductPages
       );
-      buttonNext(container, pageNumber, numberOfProductPages);
+      addButtonWhichShowsNextGroupOfFoundDrinks(
+        container,
+        pageNumber,
+        numberOfProductPages
+      );
     }
     item.appendChild(container);
   });
 };
 
-function buttonPrevious(container, pageNumber) {
-  let button = document.createElement("div");
+function addButtonWhichShowsThePreviousGroupOfFoundDrinks(
+  container,
+  pageNumber
+) {
+  const button = document.createElement("div");
   button.classList.add("group-drink");
   button.innerHTML = "<";
   const number = pageNumber - 1;
@@ -209,8 +239,12 @@ function buttonPrevious(container, pageNumber) {
   container.appendChild(button);
 }
 
-function buttonNext(container, pageNumber, numberOfProductPages) {
-  let button = document.createElement("div");
+function addButtonWhichShowsNextGroupOfFoundDrinks(
+  container,
+  pageNumber,
+  numberOfProductPages
+) {
+  const button = document.createElement("div");
   button.classList.add("group-drink");
   button.innerHTML = ">";
   const number = pageNumber + 1;
@@ -223,17 +257,17 @@ function buttonNext(container, pageNumber, numberOfProductPages) {
   container.appendChild(button);
 }
 
-function buttonWthTheSpecifiedNumber(
+function AddButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
   container,
   addToNumber,
   pageNumber,
   numberOfProductPages
 ) {
-  let number = pageNumber + Number(addToNumber);
+  const number = pageNumber + Number(addToNumber);
   if (number < 1 || number > numberOfProductPages) {
     return;
   }
-  let button = document.createElement("div");
+  const button = document.createElement("div");
   button.classList.add("group-drink");
   button.innerHTML = number;
   button.title = "To page number " + number;
@@ -244,7 +278,7 @@ function buttonWthTheSpecifiedNumber(
 }
 
 function buttonPage(container, value) {
-  let button = document.createElement("div");
+  const button = document.createElement("div");
   button.classList.add("group-drink");
   button.classList.add("group-drink--active");
   button.innerHTML = value;
@@ -253,7 +287,7 @@ function buttonPage(container, value) {
 
 function addButtonsView(elementPosition) {
   elementPosition = [].map.call(elementPosition, function(element) {
-    bildButtonsView(element);
+    buildButtonsView(element);
   });
   addClickEventListenerToButtonsView();
   firstActivateButtonView();
@@ -281,7 +315,7 @@ function firstActivateButtonView() {
   }
 }
 
-function bildButtonsView(elementPosition) {
+function buildButtonsView(elementPosition) {
   const container = document.createElement("div");
   container.classList.add("container--view");
 
@@ -318,46 +352,46 @@ function addClickEventListenerToButtonsView() {
 }
 
 function buildDrink(element, drinksPosistion) {
-  let position = drinksPosistion;
-  let drinkName = element.name.replace(/ /g, "-");
-  let wrapper = document.createElement("div");
+  const position = drinksPosistion;
+  const drinkName = element.name.replace(/ /g, "-");
+  const wrapper = document.createElement("div");
   wrapper.classList.add("drink--wrapper");
-  let container = document.createElement("div");
+  const container = document.createElement("div");
   container.classList.add("drink");
-  let imgContainer = document.createElement("div");
+  const imgContainer = document.createElement("div");
   imgContainer.classList.add("drink-img");
-  let link = document.createElement("a");
-  let containerInfo = document.createElement("div");
+  const link = document.createElement("a");
+  const containerInfo = document.createElement("div");
   containerInfo.classList.add("drink-info");
-  let img = document.createElement("img");
+  const img = document.createElement("img");
   img.src = element.image;
   link.title = element.name;
   link.href = "/pages/drink.html?drinks_" + element.id + "_" + drinkName;
   link.appendChild(img);
   imgContainer.appendChild(link);
   container.appendChild(imgContainer);
-  let containerName = document.createElement("a");
+  const containerName = document.createElement("a");
   containerName.innerHTML = element.category + " " + element.name;
   containerName.classList.add("drink-name");
   containerName.href =
     "/pages/drink.html?drinks_" + element.id + "_" + drinkName;
   containerInfo.appendChild(containerName);
-  let containerLitrageAndPrise = document.createElement("div");
+  const containerLitrageAndPrise = document.createElement("div");
   containerLitrageAndPrise.classList.add("container-litrage-and-prise");
-  let containerLitrage = document.createElement("div");
+  const containerLitrage = document.createElement("div");
   containerLitrage.innerHTML = element.litrage;
   containerLitrage.classList.add("drink-litrage");
   containerLitrageAndPrise.appendChild(containerLitrage);
-  let containerPrice = document.createElement("div");
+  const containerPrice = document.createElement("div");
   containerPrice.innerHTML = element.price + ".00 uan";
   containerPrice.classList.add("drink-price");
   containerLitrageAndPrise.appendChild(containerPrice);
   containerInfo.appendChild(containerLitrageAndPrise);
-  let containerDescription = document.createElement("div");
+  const containerDescription = document.createElement("div");
   containerDescription.innerHTML = element.description;
   containerDescription.classList.add("drink-description");
   containerInfo.appendChild(containerDescription);
-  let containerInStock = document.createElement("div");
+  const containerInStock = document.createElement("div");
   const inStock = element.inStock;
   if (inStock == true) {
     containerInStock.innerHTML = "in stock";
@@ -366,12 +400,12 @@ function buildDrink(element, drinksPosistion) {
   }
   containerInStock.classList.add("drink-Stock");
   containerInfo.appendChild(containerInStock);
-  let containerButtons = document.createElement("div");
+  const containerButtons = document.createElement("div");
   containerButtons.classList.add("buttons-container");
-  let buttonCart = document.createElement("button");
+  const buttonCart = document.createElement("button");
   buttonCart.classList.add("button-cart");
   buttonCart.innerHTML = "add to cart";
-  let buttonWishlist = document.createElement("button");
+  const buttonWishlist = document.createElement("button");
   buttonWishlist.classList.add("button-wishlist");
   containerButtons.appendChild(buttonCart);
   containerButtons.appendChild(buttonWishlist);

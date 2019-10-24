@@ -69,10 +69,8 @@
   height: 35px;
   width: 140px;
   text-transform: uppercase;
-  background-color: #fff;
-  background-image: url(../img/btn-cart.png);
-  background-repeat: no-repeat;
-  background-position: left;
+
+  background: #fff url(../img/btn-cart.png) no-repeat left 10px;
   background-position-x: 10px;
   border-width: 1px;
   border-style: solid;
@@ -80,7 +78,7 @@
 }
 
 .product-page-button-cart:hover {
-  border: 0px;
+  border: 0;
   color: #fff;
   background-color: #fca53c;
   background-image: url(../img/btn-cart-hover.png);
@@ -92,17 +90,15 @@
   padding: 5px 5px 5px 5px;
   height: 35px;
   width: 35px;
-  background-color: #fff;
-  background-image: url(../img/btn-wishlist.png);
-  background-repeat: no-repeat;
-  background-position: center;
+
+  background: #fff url(../img/btn-wishlist.png) no-repeat center;
   border-width: 1px;
   border-style: solid;
   cursor: pointer;
 }
 
 .product-page-button-wishlist:hover {
-  border: 0px;
+  border: 0;
   background-color: #fca53c;
   background-image: url(../img/btn-wishlist-hover.png);
 }

@@ -1,24 +1,21 @@
 (function() {
   const product = location.search.substr(1).split("_");
   const productCategory = product[0];
-  var productId = product[1];
+  const productId = Number(product[1]);
 
-  var xmlhttp = new XMLHttpRequest();
+  const xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      var data = JSON.parse(this.responseText);
-      for (var i = 0; i < data[productCategory].length; i++) {
-        if (data["drinks"][i].id === productId) {
-          drinkId = i;
-        }
-      }
-      var drink = data[productCategory][drinkId].additionalDescription;
-      for (key in drink) {
-        if (drink.hasOwnProperty(key)) {
-          if (!drink[key]) {
+      const data = JSON.parse(this.responseText);
+
+      const drink = data["drinks"].filter(x => x.id === productId)[0];
+      var drinkAdditionalDescription = drink.additionalDescription;
+      for (key in drinkAdditionalDescription) {
+        if (drinkAdditionalDescription.hasOwnProperty(key)) {
+          if (!drinkAdditionalDescription[key]) {
           } else {
             buildDetailButton();
-            buildDetailValueContainers(drink);
+            buildDetailValueContainers(drinkAdditionalDescription);
           }
         }
       }
@@ -155,19 +152,34 @@
     container.appendChild(newCommentConteiner);
   };
 
-  const buildDetailValueContainers = function(drink) {
+  const buildDetailValueContainers = function(drinkAdditionalDescription) {
     var containerColumn = document.getElementsByClassName("product-details")[0];
     var containerRow = document.getElementsByClassName(
       "product-details-value"
     )[0];
-    if (typeof drink[key] == "object" && !Array.isArray(drink[key])) {
-      if (drink.hasOwnProperty(key)) {
-        showObjectValue(drink[key], containerColumn, containerRow);
+    if (
+      typeof drinkAdditionalDescription[key] == "object" &&
+      !Array.isArray(drinkAdditionalDescription[key])
+    ) {
+      if (drinkAdditionalDescription.hasOwnProperty(key)) {
+        showObjectValue(
+          drinkAdditionalDescription[key],
+          containerColumn,
+          containerRow
+        );
       }
-    } else if (Array.isArray(drink[key])) {
-      showArrayValue(drink[key], containerColumn, containerRow);
+    } else if (Array.isArray(drinkAdditionalDescription[key])) {
+      showArrayValue(
+        drinkAdditionalDescription[key],
+        containerColumn,
+        containerRow
+      );
     } else {
-      showStringValue(drink[key], containerColumn, containerRow);
+      showStringValue(
+        drinkAdditionalDescription[key],
+        containerColumn,
+        containerRow
+      );
     }
   };
 

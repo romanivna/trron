@@ -106,7 +106,7 @@
   pageScrolledOrChangedWidth();
   document
     .getElementsByClassName("header-nav-menu")[0]
-    .addEventListener("click", closelist);
+    .addEventListener("click", closeList);
   document
     .getElementsByClassName("header-mid-search-icon")[0]
     .addEventListener("click", function() {
@@ -117,22 +117,22 @@
         document
           .getElementsByClassName("header-mid-search-list")[0]
           .classList.add("header-mid-search-list--mobile");
-        closelist();
+        closeList();
       }
     });
   document
     .getElementsByClassName("header-nav-catalog")[0]
-    .addEventListener("click", closelist);
+    .addEventListener("click", closeList);
   document
     .getElementsByClassName("header-mid-basket")[0]
-    .addEventListener("click", closelist);
+    .addEventListener("click", closeList);
   document
     .getElementsByClassName("header-top-button")[0]
     .addEventListener("click", function() {
       document
         .getElementsByClassName("header-top-list")[0]
         .classList.toggle("header-top-list--click");
-      closelist();
+      closeList();
     });
   document
     .getElementsByClassName("container-stop-link")[0]
@@ -148,7 +148,7 @@
         .classList.remove("header-mid-search-list--mobile");
     });
   // function creates a container that prevents linking or button presses when closing drop down
-  function closelist() {
+  function closeList() {
     document
       .getElementsByClassName("container-stop-link")[0]
       .classList.toggle("container-stop-link--block");
