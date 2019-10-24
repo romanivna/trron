@@ -9,7 +9,7 @@
     if (this.readyState == 4 && this.status == 200) {
       const data = JSON.parse(this.responseText);
       const drink = data["drinks"].find(x => x.id === productId);
-      if (drink == undefined) {
+      if (!drink) {
         error404();
         return;
       }
@@ -22,11 +22,6 @@
       buildProductPage(drink);
       if (!productName) {
         changeUrl(drink);
-      }
-
-      if (drink == undefined) {
-        error404();
-        return;
       }
     } else if (this.status == 404) {
       error404();

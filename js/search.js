@@ -4,8 +4,8 @@
 
   if (
     searchinfo[0].split("-")[0] !== "text" ||
-    searchinfo[1] === undefined ||
-    searchinfo[1].split("=")[1] === undefined
+    !searchinfo[1] ||
+    !searchinfo[1].split("=")[1]
   ) {
     error404();
   }
@@ -18,7 +18,7 @@
 
   const pageNumber = Number(searchinfo[1].split("=")[1]);
 
-  if (pageNumber === 0) {
+  if (!pageNumber) {
     error404();
   }
 
@@ -165,13 +165,13 @@ const addButtonsGroupDrinks = function (
     );
     if (pageNumber === 1) {
       buttonPage(container, pageNumber);
-      AddButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
+      addButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
         container,
         "+1",
         pageNumber,
         numberOfProductPages
       );
-      AddButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
+      addButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
         container,
         "+2",
         pageNumber,
@@ -184,13 +184,13 @@ const addButtonsGroupDrinks = function (
       );
     } else if (pageNumber === numberOfProductPages) {
       addButtonWhichShowsThePreviousGroupOfFoundDrinks(container, pageNumber);
-      AddButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
+      addButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
         container,
         "-2",
         pageNumber,
         numberOfProductPages
       );
-      AddButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
+      addButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
         container,
         "-1",
         pageNumber,
@@ -199,14 +199,14 @@ const addButtonsGroupDrinks = function (
       buttonPage(container, pageNumber);
     } else {
       addButtonWhichShowsThePreviousGroupOfFoundDrinks(container, pageNumber);
-      AddButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
+      addButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
         container,
         "-1",
         pageNumber,
         numberOfProductPages
       );
       buttonPage(container, pageNumber);
-      AddButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
+      addButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
         container,
         "+1",
         pageNumber,
@@ -257,7 +257,7 @@ function addButtonWhichShowsNextGroupOfFoundDrinks(
   container.appendChild(button);
 }
 
-function AddButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
+function addButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
   container,
   addToNumber,
   pageNumber,
