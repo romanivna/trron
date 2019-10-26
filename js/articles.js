@@ -1,8 +1,8 @@
-(function() {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
+(function () {
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      var data = JSON.parse(this.responseText);
+      const data = JSON.parse(this.responseText);
       const articlesCounter = data["articles"].length;
       const firstArticle = Math.floor(Math.random() * articlesCounter);
       const secondArticle = Math.floor(Math.random() * articlesCounter);
