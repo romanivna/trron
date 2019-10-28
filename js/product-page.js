@@ -98,6 +98,8 @@
               showPropertyValueButton(element, container);
               showPropertyValueSeparator(container);
             });
+            let lastElement = container.childElementCount - 1;
+            container.removeChild(container.childNodes[lastElement]);
             characteristicsConteiner.appendChild(container);
           } else {
             showPropertyValueButton(
