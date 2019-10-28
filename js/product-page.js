@@ -8,7 +8,9 @@
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       const data = JSON.parse(this.responseText);
-      const drink = data["drinks"].find(x => x.id === productId);
+      const drink = data["drinks"].filter(function (x) {
+        return x.id === productId
+      })[0];
       if (!drink) {
         error404();
         return;
@@ -36,7 +38,7 @@
   }
 
   const changeUrl = function (drink) {
-    const drinkName = drink.name;
+    let drinkName = drink.name;
     drinkName = drinkName.replace(/ /g, "-");
     const newLocation = "?" + product[0] + "_" + product[1] + "_" + drinkName;
     window.history.pushState("object or string", "Page Title", newLocation);
