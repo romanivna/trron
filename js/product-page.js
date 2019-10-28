@@ -44,6 +44,7 @@
 
   const buildProductPage = function (drink) {
     document.getElementsByClassName("product-page-img")[0].src = drink.image;
+    document.getElementsByClassName("product-page-img--wrapper")[0].title = drink.name;
     document.getElementsByClassName("product-page-img")[0].title = drink.name;
 
     document.getElementsByClassName("product-page-name")[0].innerHTML =
@@ -134,6 +135,7 @@
   };
   const showPropertyValueSeparator = function (container) {
     const separator = document.createElement("span");
+    separator.classList.add("separator");
     separator.innerHTML = ",";
     container.appendChild(separator);
   };

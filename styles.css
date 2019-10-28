@@ -167,6 +167,7 @@ body {
   text-transform: uppercase;
   background: #fff url(../img/btn-cart.png) no-repeat left 10px;
   background-position-x: 10px;
+  background-position-y: center;
   border: 1px solid #ddd;
   cursor: pointer;
 }
