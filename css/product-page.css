@@ -119,17 +119,17 @@
   flex-flow: column;
 }
 
-.product-page-characteritics-text {
+.product-page-characteristics-text {
   margin: 5px 0;
 }
 
 .product-page-stock-description,
-.product-page-characteritics-text,
-.product-characteritics--value {
+.product-page-characteristics-text,
+.product-characteristics--value {
   color: #838383;
 }
 
-.characteritics-container {
+.characteristics-container {
   padding: 5px 0;
   display: flex;
   flex-wrap: wrap;
@@ -137,17 +137,17 @@
   align-items: center;
 }
 
-.product-characteritics {
+.product-characteristics {
   padding: 5px 0;
   margin: 0;
 }
 
-.product-characteritics--valueLink {
+.product-characteristics--valueLink {
   color: #fca53c;
   padding-left: 10px;
 }
 
-.product-characteritics--value {
+.product-characteristics--value {
   padding-left: 10px;
 }
 

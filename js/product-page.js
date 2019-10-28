@@ -73,7 +73,7 @@
         "Preorder";
     }
     document.getElementsByClassName(
-      "product-page-characteritics-text"
+      "product-page-characteristics-text"
     )[0].innerHTML = drink.description;
 
     showCharacteristics(drink);
@@ -88,7 +88,7 @@
         )[0];
         if (productCharacteristics[key].link === true) {
           const container = document.createElement("div");
-          container.classList.add("characteritics-container");
+          container.classList.add("characteristics-container");
           showPropertyName(productCharacteristics[key].name, container);
 
           if (Array.isArray(productCharacteristics[key].value)) {
@@ -106,7 +106,7 @@
           }
         } else {
           const container = document.createElement("div");
-          container.classList.add("characteritics-container");
+          container.classList.add("characteristics-container");
           showPropertyName(productCharacteristics[key].name, container);
           showPropertyValue(productCharacteristics[key].value, container);
           characteristicsConteiner.appendChild(container);
@@ -117,20 +117,20 @@
   const showPropertyName = function (name, container) {
     const characteriticsName = document.createElement("span");
     characteriticsName.innerHTML = name + ": ";
-    characteriticsName.classList.add("product-characteritics");
+    characteriticsName.classList.add("product-characteristics");
     container.appendChild(characteriticsName);
   };
   const showPropertyValueButton = function (value, container) {
     const characteristicValue = document.createElement("a");
     characteristicValue.innerHTML = value;
     characteristicValue.href = "#" + value;
-    characteristicValue.classList.add("product-characteritics--valueLink");
+    characteristicValue.classList.add("product-characteristics--valueLink");
     container.appendChild(characteristicValue);
   };
   const showPropertyValue = function (value, container) {
     const characteristicValue = document.createElement("span");
     characteristicValue.innerHTML = value;
-    characteristicValue.classList.add("product-characteritics--value");
+    characteristicValue.classList.add("product-characteristics--value");
     container.appendChild(characteristicValue);
   };
   const showPropertyValueSeparator = function (container) {
