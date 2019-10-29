@@ -7,13 +7,13 @@
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       const data = JSON.parse(this.responseText);
-
-      const drink = data["drinks"].find(x => x.id === productId);
+      const drink = data["drinks"].filter(function (x) {
+        return x.id === productId
+      })[0];
       const drinkAdditionalDescription = drink.additionalDescription;
       for (key in drinkAdditionalDescription) {
         if (drinkAdditionalDescription.hasOwnProperty(key)) {
-          if (!drinkAdditionalDescription[key]) {
-          } else {
+          if (!drinkAdditionalDescription[key]) {} else {
             buildDetailButton();
             buildDetailValueContainers(drinkAdditionalDescription);
           }
@@ -40,6 +40,7 @@
     const productDetails = document.getElementsByClassName("product-details")[0];
     let detailButton = document.createElement("div");
     detailButton.innerHTML = key;
+    detailButton.name = key;
     detailButton.classList.add("details-" + key);
     detailButton.classList.add("details-button");
     productDetails.appendChild(detailButton);
@@ -56,7 +57,7 @@
         } else {
           quantityComments = data[productId].length;
         }
-        comments.innerHTML = "comments(" + quantityComments + ")";
+        comments.innerHTML = "comments (" + quantityComments + ")";
         comments = document.getElementsByClassName(
           "product-details-value--row--сomments"
         )[0];
@@ -141,7 +142,7 @@
 
     let addcommentButton = document.createElement("div");
     addcommentButton.classList.add("product-details-comment-save");
-    addcommentButton.innerHTML = "✔ save";
+    addcommentButton.innerHTML = "✓ save";
     addcommentButton.setAttribute("onclick", "saveComment('" + position + "')");
     newCommentConteiner.appendChild(addcommentButton);
 
@@ -273,28 +274,45 @@
     let productDetails = document.getElementsByClassName("details-button");
     productDetails = [].map.call(productDetails, function (item) {
       item.addEventListener("click", function () {
-        const SIZE_FOR_PRODUCT_DETAILS_IN_COLUMN = 769;
+        const SIZE_FOR_PRODUCT_DETAILS_IN_COLUMN = 550;
         if (windowWidth() > SIZE_FOR_PRODUCT_DETAILS_IN_COLUMN) {
-          toggleActiveTab();
+          toggleActiveTabRow();
           this.classList.add("details-button-active--row");
-          let valuecontainer = document
+          document
             .getElementsByClassName(
-              "product-details-value--row--" + this.innerHTML
+              "product-details-value--row--" + this.name
             )[0]
             .classList.toggle("product-details-value--row--none");
         } else {
-          this.classList.toggle("details-button-active--column");
-          document
-            .getElementsByClassName(
-              "product-details-value--column--" + this.innerHTML
-            )[0]
-            .classList.toggle("product-details-value--column--none");
+          if (this.classList.contains("details-button-active--column")) {
+            this.classList.toggle("details-button-active--column");
+            document
+              .getElementsByClassName(
+                "product-details-value--column--" + this.name
+              )[0]
+              .classList.toggle("product-details-value--column--none");
+          } else {
+            let productDetails = document.getElementsByClassName("details-button");
+            productDetails = [].map.call(productDetails, function (item) {
+              item.classList.remove("details-button-active--column");
+            });
+            let productDetailsValue = document.getElementsByClassName("product-details-value--column");
+            productDetailsValue = [].map.call(productDetailsValue, function (item) {
+              item.classList.add("product-details-value--column--none");
+            })
+            this.classList.toggle("details-button-active--column");
+            document
+              .getElementsByClassName(
+                "product-details-value--column--" + this.name
+              )[0]
+              .classList.toggle("product-details-value--column--none");
+          }
         }
       });
     });
   };
 
-  const toggleActiveTab = function () {
+  const toggleActiveTabRow = function () {
     const productDetails = document.getElementsByClassName("product-details")[0]
       .children;
     for (i = 0; i < productDetails.length; i++) {
@@ -332,13 +350,11 @@ const saveComment = function (position) {
     ":" +
     time.getHours();
   let coment = {};
-  coment[productId] = [
-    {
-      name: logInfo[1],
-      time: time,
-      comment: commentText
-    }
-  ];
+  coment[productId] = [{
+    name: logInfo[1],
+    time: time,
+    comment: commentText
+  }];
   // TODO: make a function sendComment(JSON.stringify(coment));
   location.reload();
 };
