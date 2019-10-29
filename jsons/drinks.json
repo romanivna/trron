@@ -1,8 +1,7 @@
 {
-  "drinks": [
-    {
+  "drinks": [{
       "category": "Wine",
-      "name": "Muscat Massavra Tauride",
+      "name": "Massandra Pino Blanc Del Mar",
       "litrage": 0.75,
       "price": 75,
       "currency": "UAH",
@@ -51,10 +50,7 @@
         "description": "In the production of Chateau Lafite Rothschild wine, grapes of Cabernet Sauvignon (93%) and Merlot (7%) were used in the 2000 harvest. The relatively early growing season with temperatures above average and normal rainfall characterized the season this year.The rains in late May and early June made the vines vulnerable to mold, but the farm technicians carefully looked after the vines. July was successful, and the hot dry weeks in August and September resulted in the harvesting of very ripe grapes.",
         "producer": "Chateau Lafite Rothschild, a French winery, is located in Poyac, Medoc, Bordeaux. It belongs to the category First Crewe, that is, to the highest category in this classification and is among the five best producers of Bordeaux wines. The first mention of the farm dates from 1234, and is described as a medieval feudal estate of the early 13th century.",
         "notes": {
-          "Taster": [
-            "Very dark color with shades of purple. The aromas are luxurious and exciting, both powerful and extremely delicate, with a fine tannic texture and aftertaste.",
-            "Before tasting, it is desirable to decant the drink 2 -3 hours before serving. This process will help him to calm down a little and smooth the tannins slightly."
-          ],
+          "Taster": "Very dark color with shades of purple. The aromas are luxurious and exciting, both powerful and extremely delicate, with a fine tannic texture and aftertaste.",
           "Sommelier": "Before tasting, it is desirable to decant the drink 2 -3 hours before serving. This process will help him to calm down a little and smooth the tannins slightly.",
           "Restaurateur": "It is recommended to serve veal, beef, game under berry sauce and ripe cheeses. Flow temperature 16-18 ° C."
         },
@@ -64,7 +60,7 @@
     },
     {
       "category": "Wine",
-      "name": "Muscat Massavra Tauride",
+      "name": "Massandra Pino Blanc Del Mar",
       "litrage": 1,
       "price": 75,
       "currency": "UAH",
@@ -89,7 +85,7 @@
     },
     {
       "category": "Wine",
-      "name": "Muscat Massavra Tauride",
+      "name": "Massandra Pino Blanc Del Mar",
       "litrage": 1,
       "price": 75,
       "currency": "UAH",
