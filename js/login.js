@@ -1,62 +1,55 @@
-let useresArrObj;
-(function () {
-    const xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            useresArrObj = JSON.parse(xhr.response);
-            changeBreadcrumbs('Log in');
-            //goToUserPage()
-        }
-    };
-    xhr.open("GET", "../jsons/users.json", true);
-    xhr.send();
-})();
+auth.onAuthStateChanged(user => {
+    database.ref('users').child(user.uid)
+        .on('value', snap => window.objOfUserData = snap.val());
+    document.location.replace("user.html");
+    console.log('User logged in')
 
-function changeBreadcrumbs(value) {
-    document.querySelector('.breadcrumb').innerHTML = '';
-    breadcrumbs = [{
-        name: value,
-        link: "login.html"
-    }]
-    addPointToBreadcrumbMap(breadcrumbs)
-}
+});
 
-function goToUserPage() {
-    const user = localStorage.getItem('user')
-    if (user === null || user === '') {
-        return
-    }
-    document.location.replace("user.html?" + user);
-}
-
-function logIn(form) {
+async function logIn(form) {
     event.preventDefault();
+    try {
+        await auth.signInWithEmailAndPassword(form[0].value, form[1].value);
+    } catch {
+        whenFormIsWrongMsg('show')
+    };
 
-    function checkUserName(data) {
-        return data.name === form[0].value
-    }
-
-    function checkUserPassword(data) {
-        return data.password === form[1].value
-    }
     form.oninput = function () {
         whenFormIsWrongMsg('hide')
-    }
+    };
+};
 
-    if (useresArrObj.some(checkUserName)) {
-        form[0].style.borderColor = '#fca53c';
-        if (useresArrObj.some(checkUserPassword)) {
-            form[1].style.borderColor = '#fca53c';
-            localStorage.setItem('user', form[0].value)
-            document.location.replace("/");
-
-        } else {
-            whenFormIsWrongMsg('show')
-        }
-    } else {
+async function signUp(form) {
+    event.preventDefault();
+    try {
+        await auth.createUserWithEmailAndPassword(form[0].value, form[1].value);
+    } catch {
         whenFormIsWrongMsg('show')
-    }
-}
+    };
+    await auth.onAuthStateChanged(user => {
+        const date = new Date();
+        firebase.database().ref('users/' + user.uid).set({
+            firstName: user.email.slice(0, user.email.indexOf('@')),
+            avatarUrl: "empty",
+            subscribed: [{
+                "categorie": "Wine Storage ",
+                "url": "blog.html?Wine Storage"
+            }],
+            registered: {
+                year: date.getFullYear(),
+                month: date.getMonth() + 1,
+                day: date.getDate()
+            },
+            story: ["empty"],
+            wishList: ["empty"],
+            orders: ["empty"]
+        })
+    })
+    form.oninput = function () {
+        whenFormIsWrongMsg('hide')
+    };
+};
+
 
 function whenFormIsWrongMsg(value) {
     const formMsg = document.querySelector('.form-group-msg');
@@ -73,24 +66,40 @@ function whenFormIsWrongMsg(value) {
 }
 
 function showPass(value) {
-    const passwordInput = document.getElementById("pass");
     if (value.classList.contains("fa-eye-slash")) {
         value.classList.remove("fa-eye-slash");
         value.classList.add("fa-eye");
-        passwordInput.type = "text";
+        value.parentElement.firstElementChild.type = "text";
     } else {
         value.classList.remove("fa-eye");
         value.classList.add("fa-eye-slash");
-        passwordInput.type = "password";
+        value.parentElement.firstElementChild.type = "password";
     }
 
 }
-
 
 function changeForm(event, formHideFirst, formHideSecond, formTarget) {
     event.preventDefault();
     document.querySelector('.' + formHideFirst + '').style.display = 'none'
     document.querySelector('.' + formHideSecond + '').style.display = 'none'
     document.querySelector('.' + formTarget + '').style.display = 'flex'
-    console.log(event)
 }
+
+function changeBreadcrumbs(value) {
+    document.querySelector('.breadcrumb').innerHTML = '';
+    breadcrumbs = [{
+        name: value,
+        link: "login.html"
+    }]
+    addPointToBreadcrumbMap(breadcrumbs)
+}
+changeBreadcrumbs('Log in');
+// rules_version = '2';
+// service cloud.firestore {
+//   match /databases/{database}/documents {
+//     match /{document=**} {
+//       allow read, write: if
+//           request.time < timestamp.date(2019, 12, 9);
+//     }
+//   }
+// }

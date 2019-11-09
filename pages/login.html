@@ -258,15 +258,21 @@
                     </div>
                 </div>
                 <div class="forms-header">Sign up</div>
-                <form name="signup">
+                <form name="signup" onsubmit="signUp(this)">
                     <div class="form-group">
-                        <label class="form-group-label" for="regname">Username *</label>
-                        <input class="form-group-input" type="text" id="regname" name="name"
+                        <label class="form-group-label" for="regname">Your email *</label>
+                        <input class="form-group-input" type="email" id="regname" name="name"
                             placeholder="Enter your name">
                     </div>
                     <div class="form-group">
-                        <label class="form-group-label" for="regemail">Your email *</label>
-                        <input class="form-group-input" type="email" name="regemail" placeholder="Enter your email">
+                        <label class="form-group-label" for="regpassword">Your password *</label>
+                        <div class="form-group-input-pass">
+                            <input class="form-group-input" type="password" name="regpassword"
+                                placeholder="Enter your password">
+                            <span toggle="#password-field" class="fa fa-fw fa-eye-slash field-icon toggle-password"
+                                onclick="showPass(this)">
+                        </div>
+
                     </div>
                     <div class="form-group">
                         <div class="form-group-buttons-wrapper">
@@ -299,17 +305,17 @@
                 <div class="forms-header">Log in</div>
                 <form name="login" onsubmit="logIn(this)">
                     <div class="form-group">
-                        <label class="form-group-label" for="name">Username</label>
-                        <input class="form-group-input" type="text" id="name" name="name" placeholder="Enter your name">
+                        <label class="form-group-label" for="name">Your email</label>
+                        <input class="form-group-input" type="email" id="inname" name="inname"
+                            placeholder="Enter your email">
                     </div>
                     <div class="form-group">
-                        <label class="form-group-label" for="pass">Password</label>
+                        <label class="form-group-label" for="pass">Your Password</label>
                         <div class="form-group-input-pass">
                             <input class="form-group-input" type="password" id="pass" name="pass"
                                 placeholder="Enter your password">
                             <span toggle="#password-field" class="fa fa-fw fa-eye-slash field-icon toggle-password"
                                 onclick="showPass(this)">
-
                         </div>
                     </div>
                     <div class="form-group form-group--invisible">
@@ -509,6 +515,25 @@
         </div>
         <div class="footer-copyright">Copyright © 2016-2019 All Rights Reserved.</div>
     </footer>
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyAbzOX9z3iiXRiXKYfYLeuzCfXKLkpUe9s",
+            authDomain: "winetime-46811.firebaseapp.com",
+            databaseURL: "https://winetime-46811.firebaseio.com",
+            projectId: "winetime-46811",
+            storageBucket: "winetime-46811.appspot.com",
+            messagingSenderId: "56118914678",
+            appId: "1:56118914678:web:91e122334fe0dd01f2b957"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const database = firebase.database();
+    </script>
 
     <script src="../js/header.js"></script>
     <script src="../js/index.js"></script>
