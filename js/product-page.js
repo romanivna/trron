@@ -1,69 +1,60 @@
-(function() {
+(function () {
   const product = location.search.substr(1).split("_");
   const productCategory = product[0];
-  var productId = product[1];
+  let productId = Number(product[1]);
+  const productName = product[2];
 
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      var data = JSON.parse(this.responseText);
-      for (var i = 0; i < data[productCategory].length; i++) {
-        if (data["drinks"][i].id === productId) {
-          return (productId = i);
-        }
-      }
-      if (data[productCategory].length < productId) {
-        eror404();
+      const data = JSON.parse(this.responseText);
+      const drink = data["drinks"].filter(function (x) {
+        return x.id === productId
+      })[0];
+      if (!drink) {
+        error404();
         return;
       }
-      changeUrl(data);
-
       breadcrumbs = [
         { name: product[0], link: "#" },
-        { name: data["drinks"][productId].category, link: "#" },
-        { name: data["drinks"][productId].name, link: "" }
+        { name: drink.category, link: "#" },
+        { name: drink.name, link: "" }
       ];
-      addPointTooBreadcrumbMap(breadcrumbs);
-
-      buildProductPage(data);
+      addPointToBreadcrumbMap(breadcrumbs);
+      buildProductPage(drink);
+      if (!productName) {
+        changeUrl(drink);
+      }
     } else if (this.status == 404) {
-      eror404();
+      error404();
       return;
     }
   };
   xmlhttp.open("GET", "../jsons/" + productCategory + ".json", true);
   xmlhttp.send();
 
-  const eror404 = function() {
-    document.getElementsByClassName("product-page")[0].innerHTML =
-      "Page not found";
-    document
-      .getElementsByClassName("product-page")[0]
-      .classList.add("product-page-name");
-    document
-      .getElementsByClassName("product-page")[0]
-      .classList.add("product-page-warning");
-  };
+  function error404() {
+    location.href = "/pages/error404.html";
+  }
 
-  const changeUrl = function(data) {
-    let drinkName = data["drinks"][productId].name;
+  const changeUrl = function (drink) {
+    let drinkName = drink.name;
     drinkName = drinkName.replace(/ /g, "-");
-    let newLocation = "?" + product[0] + "_" + product[1] + "_" + drinkName;
+    const newLocation = "?" + product[0] + "_" + product[1] + "_" + drinkName;
     window.history.pushState("object or string", "Page Title", newLocation);
   };
 
-  const buildProductPage = function(data) {
-    document.getElementsByClassName("product-page-img")[0].src =
-      data["drinks"][productId].image;
-    document.getElementsByClassName("product-page-img")[0].title =
-      data["drinks"][productId].name;
+  const buildProductPage = function (drink) {
+    document.getElementsByClassName("product-page-img")[0].src = drink.image;
+    document.getElementsByClassName("product-page-img--wrapper")[0].title = drink.name;
+    document.getElementsByClassName("product-page-img")[0].title = drink.name;
 
     document.getElementsByClassName("product-page-name")[0].innerHTML =
-      data["drinks"][productId].category + " " + data["drinks"][productId].name;
+      drink.category + " " + drink.name;
     document.getElementsByClassName("product-page-price")[0].innerHTML =
-      data["drinks"][productId].price.toFixed(2) + " uan.";
+      drink.price.toFixed(2) + " uan";
 
-    const inStock = data["drinks"][productId].inStock;
+    const inStock = drink.inStock;
     if (inStock == true) {
       document.getElementsByClassName("product-page-stock")[0].innerHTML =
         "on the shelf";
@@ -84,29 +75,31 @@
         "Preorder";
     }
     document.getElementsByClassName(
-      "product-page-characteritics-text"
-    )[0].innerHTML = data["drinks"][productId].description;
+      "product-page-characteristics-text"
+    )[0].innerHTML = drink.description;
 
-    showCharacteristics(data);
+    showCharacteristics(drink);
   };
 
-  const showCharacteristics = function(data) {
-    productCharacteristics = data["drinks"][productId].characteristics;
+  const showCharacteristics = function (drink) {
+    productCharacteristics = drink.characteristics;
     for (key in productCharacteristics) {
       if (productCharacteristics.hasOwnProperty(key)) {
-        let characteristicsConteiner = document.getElementsByClassName(
+        const characteristicsConteiner = document.getElementsByClassName(
           "product-page-characteristics"
         )[0];
         if (productCharacteristics[key].link === true) {
-          let container = document.createElement("div");
-          container.classList.add("characteritics-container");
+          const container = document.createElement("div");
+          container.classList.add("characteristics-container");
           showPropertyName(productCharacteristics[key].name, container);
 
           if (Array.isArray(productCharacteristics[key].value)) {
-            productCharacteristics[key].value.forEach(function(element) {
+            productCharacteristics[key].value.forEach(function (element) {
               showPropertyValueButton(element, container);
               showPropertyValueSeparator(container);
             });
+            let lastElement = container.childElementCount - 1;
+            container.removeChild(container.childNodes[lastElement]);
             characteristicsConteiner.appendChild(container);
           } else {
             showPropertyValueButton(
@@ -116,8 +109,8 @@
             characteristicsConteiner.appendChild(container);
           }
         } else {
-          let container = document.createElement("div");
-          container.classList.add("characteritics-container");
+          const container = document.createElement("div");
+          container.classList.add("characteristics-container");
           showPropertyName(productCharacteristics[key].name, container);
           showPropertyValue(productCharacteristics[key].value, container);
           characteristicsConteiner.appendChild(container);
@@ -125,27 +118,28 @@
       }
     }
   };
-  const showPropertyName = function(name, container) {
-    let characteriticsName = document.createElement("span");
+  const showPropertyName = function (name, container) {
+    const characteriticsName = document.createElement("span");
     characteriticsName.innerHTML = name + ": ";
-    characteriticsName.classList.add("product-characteritics");
+    characteriticsName.classList.add("product-characteristics");
     container.appendChild(characteriticsName);
   };
-  const showPropertyValueButton = function(value, container) {
-    let characteristicValue = document.createElement("a");
+  const showPropertyValueButton = function (value, container) {
+    const characteristicValue = document.createElement("a");
     characteristicValue.innerHTML = value;
     characteristicValue.href = "#" + value;
-    characteristicValue.classList.add("product-characteritics--valueLink");
+    characteristicValue.classList.add("product-characteristics--valueLink");
     container.appendChild(characteristicValue);
   };
-  const showPropertyValue = function(value, container) {
-    let characteristicValue = document.createElement("span");
+  const showPropertyValue = function (value, container) {
+    const characteristicValue = document.createElement("span");
     characteristicValue.innerHTML = value;
-    characteristicValue.classList.add("product-characteritics--value");
+    characteristicValue.classList.add("product-characteristics--value");
     container.appendChild(characteristicValue);
   };
-  const showPropertyValueSeparator = function(container) {
-    let separator = document.createElement("span");
+  const showPropertyValueSeparator = function (container) {
+    const separator = document.createElement("span");
+    separator.classList.add("separator");
     separator.innerHTML = ",";
     container.appendChild(separator);
   };

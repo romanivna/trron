@@ -1,15 +1,18 @@
+.PDG--wrapper {
+  padding: 1px;
+}
+
 #payment,
 #deliver,
 #guarantees {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  box-sizing: border-box;
+  text-align: center;
   border-style: solid;
   border-color: #fca53c;
   border-radius: 30px;
   border-width: 5px;
   position: relative;
-  margin: 55px 0 80px 0;
+  margin: 80px 0 80px 0;
   padding: 55px 20px 20px;
   cursor: default;
 }
@@ -17,6 +20,8 @@
 .PDG p {
   margin: auto;
   padding: 10px;
+  font-size: 1rem;
+  max-width: 600px;
 }
 
 .PDG img {

@@ -1,8 +1,8 @@
-(function() {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
+(function () {
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      var data = JSON.parse(this.responseText);
+      const data = JSON.parse(this.responseText);
       const articlesCounter = data["articles"].length;
       const firstArticle = Math.floor(Math.random() * articlesCounter);
       const secondArticle = Math.floor(Math.random() * articlesCounter);
@@ -16,7 +16,7 @@
         articlesContainer.classList.add("articles-container");
 
         let imgLink = document.createElement("a");
-        imgLink.href = "articles.html?" + data["articles"][articleIndex].id;
+        imgLink.href = "pages/article.html?" + data["articles"][articleIndex].id;
 
         let articlesImgContainer = document.createElement("div");
         articlesImgContainer.classList.add("articles-img-container");
@@ -52,7 +52,7 @@
         articlesDescriptionId.classList.add("articles-description-id");
         articlesDescriptionId.innerHTML = "more details";
         articlesDescriptionId.href =
-          "articles.html?" + data["articles"][articleIndex].id;
+          "pages/article.html?" + data["articles"][articleIndex].id;
         articlesDescription.appendChild(articlesDescriptionId);
         articlesContainer.appendChild(articlesDescription);
         articles.appendChild(articlesContainer);

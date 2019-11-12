@@ -1,0 +1,43 @@
+.search-container--drinks {
+  display: flex;
+  flex-wrap: wrap;
+  cursor: default;
+  margin: 0 -15px;
+}
+
+.search-container--view {
+  display: flex;
+  border: solid #dfdfdf;
+  border-width: 1px 0 1px 0;
+  margin: 10px 0;
+}
+
+.unfulfilled-condition {
+  display: flex;
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  justify-content: space-between;
+  background-color: #ffced4;
+  color: #d04a5b;
+  cursor: default;
+}
+
+.unfulfilled-condition-message {
+  height: fit-content;
+  margin: auto 0;
+}
+
+.clouse-message {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.clouse-message:hover {
+  color: #808080;
+}
+
+.not-match-any {
+  padding: 30px 0 15px;
+  margin: 0 15px;
+}

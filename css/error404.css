@@ -1,0 +1,28 @@
+.error404--wrapper {
+  padding-bottom: 40px;
+}
+
+@media screen and (max-width: 880px) {
+  .error404 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 880px) {
+  .error404 h1 {
+    font-size: 3rem;
+  }
+
+  .error404 h2 {
+    font-size: 2rem;
+  }
+
+  .error404 p {
+    font-size: 1.5rem;
+  }
+  .error404 li {
+    font-size: 1.5rem;
+  }
+}
