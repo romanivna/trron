@@ -1,0 +1,211 @@
+.drinks {
+    display: flex;
+    cursor: default;
+}
+
+.drinks-container--filters::-webkit-scrollbar {
+    width: 5px;
+}
+
+.drinks-container--filters::-webkit-scrollbar-track {
+    background: #dfdfdf;
+}
+
+
+.drinks-container--filters::-webkit-scrollbar-thumb {
+    background: #fca53c;
+}
+
+
+.drinks-container--filters {
+    width: 200px;
+    min-height: 400px;
+    margin: 0 20px 20px 0;
+    padding: 0 20px;
+    border: solid #dfdfdf;
+    border-width: 1px;
+    height: fit-content;
+}
+
+.filter-name {
+    text-transform: uppercase;
+    font-weight: bold;
+    border: solid #dfdfdf;
+    border-width: 0 0 1px 0;
+    padding-bottom: 5px;
+    margin: 20px 0 10px;
+}
+
+.filter-value-container {
+    padding-bottom: 20px;
+    border: dashed #dfdfdf;
+    border-width: 0 0 1px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-value {
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.filter-value--active {
+    cursor: default;
+    text-transform: capitalize;
+}
+
+.drinks-container--filtered-drinks {
+    width: 100%;
+}
+
+.drinks-container--drinks {
+    display: flex;
+    flex-wrap: wrap;
+    cursor: default;
+    margin: 0 -15px;
+}
+
+.drinks-container--view {
+    justify-content: space-between;
+    display: flex;
+    border: solid #dfdfdf;
+    border-width: 1px 0 1px 0;
+    margin: 10px 0;
+}
+
+.drinks-container--category-str {
+    text-transform: capitalize;
+    font-size: 3rem;
+}
+
+.drinksViewFilters {
+    font-size: 1rem;
+    align-self: center;
+    display: flex;
+    padding: 10px;
+    cursor: default;
+}
+
+.drinksViewFilters select {
+    margin: 0 10px;
+    font-size: 1rem;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: #dfdfdf solid 1px;
+}
+
+.filters-select {
+    display: flex;
+    align-items: center;
+}
+
+.active-filter-wrapper {
+    display: flex;
+}
+
+.close-filter-button {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.close-filter-button:hover {
+    color: #ffb65e;
+}
+
+.drinks-button--filters {
+    display: none;
+}
+
+.drink--table--md {
+    width: 50% !important;
+}
+
+.button-filters-list--close {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .drinks {
+        flex-direction: column;
+        position: relative;
+    }
+
+    .drinks-button--filters {
+        display: block;
+        margin: auto 0;
+        height: 19px;
+        top: 100px;
+        background-color: #fca53c;
+        color: #fff;
+        padding: 15px 10px;
+        cursor: pointer;
+    }
+
+    .button-filters-list--close {
+        display: block;
+        margin: auto 0;
+        background-color: 3fff;
+        color: #fca53c;
+        width: fit-content;
+        padding: 5px;
+        position: absolute;
+        right: 15px;
+        font-weight: bold;
+    }
+
+    .button-filters-list--close:hover {
+        color: #ffb65e;
+    }
+
+    .drinks-button--filters--Fixed {
+        position: fixed;
+        top: 60px;
+    }
+
+    .drinks-button--filters:hover {
+        background-color: #ffb65e;
+    }
+
+    .drinks-container--filters {
+        box-sizing: border-box;
+        position: fixed;
+        background-color: #fff;
+        display: none;
+        top: 0px;
+        left: 0px;
+        overflow-y: scroll;
+        height: 100%;
+        padding-bottom: 50px;
+        z-index: 1;
+    }
+
+    .drinks-container--filters--show {
+        display: block;
+    }
+
+    .block-scroll {
+        overflow: hidden;
+    }
+
+    .container--view--none {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .filter-value-container {
+        display: none;
+    }
+
+    .filter-value-container--show {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .filters-number-of-drinks {
+        display: none;
+    }
+}

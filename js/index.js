@@ -32,7 +32,10 @@ const addPointToBreadcrumbMap = function (breadcrumbs) {
   let lastElement = container.childElementCount - 1;
   container.removeChild(container.childNodes[lastElement]);
 };
-let breadcrumbs = [{ name: "name", link: "#" }];
+let breadcrumbs = [{
+  name: "name",
+  link: "#"
+}];
 
 const logInfo = [true, "userName"];
 
@@ -49,7 +52,9 @@ const addButtonsGroupDrinks = function (
     const numberOfProductPages = Math.ceil(
       numberOfDrinks / NUMBER_OF_DRINKS_ON_THE_PAGE
     );
-    if (pageNumber === 1) {
+    if (NUMBER_OF_DRINKS_ON_THE_PAGE > foundDrinks.length) {
+      item.appendChild(container);
+    } else if (pageNumber === 1) {
       addButtonsWhitchShowActiveGroupOfFoundDrinks(container, pageNumber);
       addButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
         container,
@@ -120,7 +125,7 @@ function addButtonWhichShowsThePreviousGroupOfFoundDrinks(
     return;
   }
   button.addEventListener("click", function () {
-    location.href = location.search.split("=")[0] + "=" + number;
+    location.href = location.search.split("$_")[0] + "$_page=" + number;
   });
   container.appendChild(button);
 }
@@ -138,7 +143,7 @@ function addButtonWhichShowsNextGroupOfFoundDrinks(
     return;
   }
   button.addEventListener("click", function () {
-    location.href = location.search.split("=")[0] + "=" + number;
+    location.href = location.search.split("$_")[0] + "$_page=" + number;
   });
   container.appendChild(button);
 }
@@ -158,7 +163,7 @@ function addButtonsWhitchShowSpecifiedGroupOfFoundDrinks(
   button.innerHTML = number;
   button.title = "To page number " + number;
   button.addEventListener("click", function () {
-    location.href = location.search.split("=")[0] + "=" + number;
+    location.href = location.search.split("$_")[0] + "$_page=" + number;
   });
   container.appendChild(button);
 }

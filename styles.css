@@ -10,6 +10,7 @@
 @import "css/product-details.css";
 @import "css/search.css";
 @import "css/error404.css";
+@import "css/drinks.css";
 
 @font-face {
   font-family: "OpenSans";
@@ -95,6 +96,7 @@ body {
 }
 
 .drink-img img {
+  z-index: -1;
   max-width: 100%;
   height: 250px;
   transition: .5s;
@@ -219,7 +221,6 @@ body {
 }
 
 .conteiner--drinksGroups {
-  margin-left: auto;
   display: flex;
   text-align: center;
 }
@@ -244,6 +245,11 @@ body {
 
 .group-drink:hover {
   color: #fca53c;
+}
+
+.element--none {
+
+  display: none;
 }
 
 @media (min-width: 480px) {
@@ -342,4 +348,5 @@ body {
     align-items: baseline;
   }
 }
+
 /* ---- and CSS For buttom change viwe, buttom group drinks, show found drinks  ---- */

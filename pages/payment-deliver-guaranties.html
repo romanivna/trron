@@ -62,7 +62,7 @@
                     <div class="header-mid-search-icon"></div>
                     <div class="header-mid-search-list">
                         <input class="header-mid-search-input" type="text">
-                        <button class="header-mid-search-button"></button>
+                        <button class="header-mid-search-button" onclick="search(0)"></button>
                     </div>
                 </div>
                 <div class="header-mid-basket">
@@ -85,7 +85,7 @@
                     <div class="header-nav-menu-list">
                         <ul>
                             <li>
-                                <a href="#theDrinks">the drinks</a>
+                                <a href="/pages/drinks.html?Category=drinks">the drinks</a>
                             </li>
                             <li>
                                 <a href="#accessories">accessories</a>
@@ -118,84 +118,84 @@
                     </div>
                     <ul class="header-nav-catalog-list">
                         <li>
-                            <a href="#wine">wine</a>
+                            <a href="/pages/drinks.html?Category=Wines">wine</a>
                         </li>
                         <li>
-                            <a href="#champagne">champagne</a>
+                            <a href="/pages/drinks.html?Category=Champagne">champagne</a>
                         </li>
                         <li>
-                            <a href="#whiskey">whiskey</a>
+                            <a href="/pages/drinks.html?Category=Whiskey">whiskey</a>
                         </li>
                         <li>
-                            <a href="#cognac">cognac</a>
+                            <a href="/pages/drinks.html?Category=Cognac">cognac</a>
                         </li>
                         <li class="header-nav-catalog-list-list-button">
-                            <a href="#1">all drinks
+                            <a href="#">all drinks
                                 <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </a>
                             <ul class="header-nav-catalog-list-list">
                                 <li>
-                                    <a href="#222">armagnac</a>
+                                    <a href="/pages/drinks.html?Category=Armagnac">armagnac</a>
                                 </li>
                                 <li>
-                                    <a href="#222">brandy</a>
+                                    <a href="/pages/drinks.html?Category=Brandy">brandy</a>
                                 </li>
                                 <li>
-                                    <a href="#222">vermouth</a>
+                                    <a href="pages/drinks.html?Category=Vermouth">vermouth</a>
                                 </li>
                                 <li>
-                                    <a href="#222">wine</a>
+                                    <a href="/pages/drinks.html?Category=Wine">wine</a>
                                 </li>
                                 <li>
-                                    <a href="#222">whiskey</a>
+                                    <a href="/pages/drinks.html?Category=Whiskey">whiskey</a>
                                 </li>
                                 <li>
-                                    <a href="#222">vodka</a>
+                                    <a href="/pages/drinks.html?Category=Vodka">vodka</a>
                                 </li>
                                 <li>
-                                    <a href="#222">grappa</a>
+                                    <a href="/pages/drinks.html?Category=Grappa">grappa</a>
                                 </li>
                                 <li>
-                                    <a href="#222">dessert wine</a>
+                                    <a href="/pages/drinks.html?Category=Dessert-wine">dessert wine</a>
                                 </li>
                                 <li>
-                                    <a href="#222">a sparkling wine</a>
+                                    <a href="/pages/drinks.html?Category=A-sparkling-wine">a sparkling wine</a>
                                 </li>
                                 <li>
-                                    <a href="#222">cahors wine</a>
+                                    <a href="/pages/drinks.html?Category=Cahors-wine">cahors wine</a>
                                 </li>
                                 <li>
-                                    <a href="#222">calvados</a>
+                                    <a href="/pages/drinks.html?Category=Calvados">calvados</a>
                                 </li>
                                 <li>
-                                    <a href="#222">cognac</a>
+                                    <a href="/pages/drinks.html?Category=Cognac">cognac</a>
                                 </li>
                                 <li>
-                                    <a href="#222">liquor</a>
+                                    <a href="/pages/drinks.html?Category=Liquor">liquor</a>
                                 </li>
                                 <li>
-                                    <a href="#222">madeira</a>
+                                    <a href="/pages/drinks.html?Category=Madeira">madeira</a>
                                 </li>
                                 <li>
-                                    <a href="#222">netmeg</a>
+                                    <a href="/pages/drinks.html?Category=Netmeg">netmeg</a>
                                 </li>
                                 <li>
-                                    <a href="#222">fruit wine</a>
+                                    <a href="/pages/drinks.html?Category=Fruit-wine">fruit wine</a>
                                 </li>
                                 <li>
-                                    <a href="#222">port wine</a>
+                                    <a href="/pages/drinks.html?Category=Port-wine">port wine</a>
                                 </li>
                                 <li>
-                                    <a href="#222">rum</a>
+                                    <a href="/pages/drinks.html?Category=Rum">rum</a>
                                 </li>
                                 <li>
-                                    <a href="#222">tequila</a>
+                                    <a href="/pages/drinks.html?Category=Tequila">tequila</a>
                                 </li>
                                 <li>
-                                    <a href="#222">sherry</a>
+                                    <a href="/pages/drinks.html?Category=Sherry">sherry</a>
                                 </li>
                                 <li>
-                                    <a href="#222">champagne</a>
+                                    <a href="/pages/drinks.html?Category=Champagne">champagne</a>
                                 </li>
                             </ul>
                         </li>
@@ -221,7 +221,7 @@
                     <div class="header-nav-scroll-search">
                         <div class="header-nav-scroll-search-list">
                             <input class="header-mid-search-input" type="text">
-                            <button class="header-mid-search-button" onclick="search()"></button>
+                            <button class="header-mid-search-button" onclick="search(1)"></button>
                         </div>
                     </div>
                     <div class="header-nav-scroll-basket">
@@ -253,7 +253,10 @@
                 <img src="../img/guarantee-icon.png" alt="guarantee">
                 <p>All products are authentic and you can not worry about the quality of drinks or accessories.</p>
                 <p>We only sell original manufacturer's products.</p>
-                <p>We also draw your attention to the fact that upon receipt and payment of the order, the buyer in the presence of the courier is obliged to check the complete set and appearance of the product for the absence of physical defects (scratches, cracks, chips, etc.) and completeness of the complete set. Upon departure of the courier, claims on these issues are not accepted.</p>
+                <p>We also draw your attention to the fact that upon receipt and payment of the order, the buyer in the
+                    presence of the courier is obliged to check the complete set and appearance of the product for the
+                    absence of physical defects (scratches, cracks, chips, etc.) and completeness of the complete set.
+                    Upon departure of the courier, claims on these issues are not accepted.</p>
             </section>
         </div>
     </section>
