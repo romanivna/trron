@@ -1,10 +1,10 @@
 {
     "drinks": {
-        "category": ["Wine", "Muscat", "Champagne"],
+        "category": ["Wine", "Muscat", "Champagne", "Fruit Wine"],
         "filters": {
             "category": {
                 "name": "Category",
-                "value": ["Wine", "Muscat", "Champagne"]
+                "value": ["Wine", "Muscat", "Champagne", "Fruit Wine"]
             },
             "color": {
                 "name": "Color",
@@ -41,11 +41,11 @@
         }
     },
     "wines": {
-        "category": ["Wine", "Muscat"],
+        "category": ["Wine", "Muscat", "Fruit Wine"],
         "filters": {
             "category": {
                 "name": "Category",
-                "value": ["Wine", "Muscat"]
+                "value": ["Wine", "Muscat", "Fruit Wine"]
             },
             "color": {
                 "name": "Color",
@@ -170,6 +170,32 @@
                 "name": "Brand Name",
                 "value": ["Mumm", "Moet & chandon"]
             }
+        }
+    },
+    "fruit%20wine": {
+        "category": ["Fruit Wine"],
+        "filters": {
+            "category": {
+                "name": "Category",
+                "value": ["Fruit Wine"]
+            },
+            "color": {
+                "name": "Color",
+                "value": ["White"]
+            },
+            "style": {
+                "name": "Style",
+                "value": ["Sweet"]
+            },
+            "country": {
+                "name": "Country",
+                "value": ["Japan"]
+            },
+            "manufacturer": {
+                "name": "Manufacturer",
+                "value": ["Choya"]
+            }
+
         }
     }
 }

@@ -23,7 +23,7 @@
             sortByPrice = element.split("=")[1];
             return
         } else if (element.split("=")[0] === "Category") {
-            category = element.split("=")[1];
+            category = element.split("=")[1].replace(/%20/g, " ");
             activeFilters.push(element);
             breadcrumbs.push({
                 name: category,
@@ -190,7 +190,7 @@
 
     function filterDrinks(data, activeFilters, filters) {
         let filteredDrinks = [];
-        let filterCategory = activeFilters[0].split("=")[1];
+        let filterCategory = activeFilters[0].split("=")[1].replace(/%20/g, " ");
         showCategoryStr(filterCategory)
 
         if (filterCategory.toUpperCase() === "DRINKS") {
