@@ -11,11 +11,9 @@
     background: #dfdfdf;
 }
 
-
 .drinks-container--filters::-webkit-scrollbar-thumb {
     background: #fca53c;
 }
-
 
 .drinks-container--filters {
     width: 200px;
