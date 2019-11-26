@@ -1,0 +1,58 @@
+.user-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.user-info-profile-name {
+    text-align: center;
+}
+
+.user-info-bookmarks {
+    display: flex;
+    flex-wrap: wrap;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-info-bookmarks-orders,
+.user-info-bookmarks-wishList,
+.user-info-bookmarks-subscribed,
+.user-info-bookmarks-setings {
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888A93;
+    border: 1px solid #888A93;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+.user-info-bookmarks a:hover {
+    color: #fff;
+    background-color: #FCA53C;
+    transition: .3s;
+}
+
+.active {
+    color: #fff;
+    background-color: #FCA53C;
+    transition: .3s;
+}
+
+.user-content-settings {
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 600px) {
+    .user-info {
+        padding: 20px 0;
+        flex-direction: row;
+        align-items: flex-end;
+    }
+}

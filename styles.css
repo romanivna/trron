@@ -10,6 +10,7 @@
 @import "css/product-details.css";
 @import "css/search.css";
 @import "css/error404.css";
+@import "css/user.css";
 
 @font-face {
   font-family: "OpenSans";
@@ -342,4 +343,5 @@ body {
     align-items: baseline;
   }
 }
+
 /* ---- and CSS For buttom change viwe, buttom group drinks, show found drinks  ---- */

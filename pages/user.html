@@ -241,7 +241,33 @@
     </div>
 
     <section class="content-width">
+        <div class="user">
+            <div class="user-info">
+                <div class="user-info-profile">
+                    <div class="user-info-profile-photo"></div>
+                    <div class="user-info-profile-name"></div>
+                </div>
+                <div class="user-info-bookmarks">
+                    <a href="user.html?=orders" class="user-info-bookmarks-orders">orders</a>
+                    <a href="user.html?=wishList" class="user-info-bookmarks-wishList">wish list</a>
+                    <a href="user.html?=subscribed" class="user-info-bookmarks-subscribed">subscribed</a>
+                    <a href="user.html?=settings" class="user-info-bookmarks-setings"
+                        onclick="bookmark(this)">settings</a>
+                </div>
+            </div>
 
+            <div class="user-content">
+                <div class="user-content-orders"></div>
+                <div class="user-content-wishList"></div>
+                <div class="user-content-subscribed"></div>
+                <div class="user-content-settings" style="display: none;">
+                    <input type="text" id="newUserName" placeholder="Enter your name :">
+                    <input type="file" name="" id="photoFile" accept="image/jpeg">
+                    <button onclick="update()">update</button>
+                </div>
+
+            </div>
+        </div>
 
     </section>
 
