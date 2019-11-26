@@ -1,3 +1,11 @@
+let serchLine = window.location.search;
+if (serchLine.indexOf('=') !== serchLine.lastIndexOf('=')) {
+    const selectedBookmark = serchLine.slice(serchLine.indexOf('=') + 1, serchLine.lastIndexOf('=') - 1);
+    document.querySelector(`.user-info-bookmarks-${selectedBookmark}`).classList.add('active')
+} else {
+    document.querySelector(`.user-info-bookmarks-${serchLine.slice(serchLine.indexOf('=')+1)}`).classList.add('active')
+}
+
 if (window.location.search === '?=settings') {
     document.querySelector(`.user-content-${window.location.search.slice(2)}`).style.display = 'flex'
 }
@@ -36,7 +44,20 @@ function update() {
 }
 
 
-
+//       window.serchLine = window.location.search.slice(1).replace(/%20/g, " ");
+//       window.indexOfStartArticles = 1;
+//       if (serchLine.indexOf("=") !== -1) {
+//         const serchLineIndex = serchLine.slice(serchLine.indexOf("="));
+//         serchLine = serchLine.replace(serchLineIndex, "");
+//         indexOfStartArticles = +serchLineIndex.slice(1);
+//       }
+//       if (serchLine) {
+//         arrayOfAllArticles = JSON.parse(xhr.response).articles.filter(function (
+//           item
+//         ) {
+//           return item.categorie === serchLine;
+//         });
+//       }
 // function hide(element) {
 //     event.preventDefault()
 //     console.log(element.classList.add('active'))
