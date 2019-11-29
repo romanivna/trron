@@ -1,0 +1,37 @@
+.scroll-to--top {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    height: 50px;
+    width: 50px;
+    padding: 0px;
+    border: solid #fca53c;
+    border-radius: 50%;
+    background-color: #ffffff00;
+    color: #fff;
+    opacity: 1;
+    box-shadow: #fff;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.scroll-to--top i {
+    background-color: #fca53c;
+    border-radius: 50%;
+    padding: 5px 10px;
+}
+
+.scroll-to--top:focus {
+    outline: 0;
+}
+
+
+.scroll-to--top--none {
+    opacity: 0;
+    transition: .3s;
+}
+
+.scroll-to--top:hover {
+    background-color: #fca53c;
+    transition: .3s;
+}
