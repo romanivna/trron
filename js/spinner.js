@@ -6,7 +6,7 @@
     let spinner = document.createElement("div");
     spinner.classList.add("spinner");
     conteiner.appendChild(spinner);
-    let position = document.getElementsByTagName("body")[0];
+    let position = document.body;
     position.insertAdjacentElement('afterbegin', conteiner);
     position.classList.add("body--block");
     window.addEventListener("load", function () {
