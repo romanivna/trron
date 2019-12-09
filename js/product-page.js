@@ -15,10 +15,18 @@
         error404();
         return;
       }
-      breadcrumbs = [
-        { name: product[0], link: "#" },
-        { name: drink.category, link: "#" },
-        { name: drink.name, link: "" }
+      breadcrumbs = [{
+          name: product[0],
+          link: "/pages/drinks.html?Category=" + product[0]
+        },
+        {
+          name: drink.category,
+          link: "/pages/drinks.html?Category=" + drink.category
+        },
+        {
+          name: drink.name,
+          link: ""
+        }
       ];
       addPointToBreadcrumbMap(breadcrumbs);
       buildProductPage(drink);
@@ -59,8 +67,8 @@
       document.getElementsByClassName("product-page-stock")[0].innerHTML =
         "on the shelf";
       document.getElementsByClassName(
-        "product-page-stock-description"
-      )[0].innerHTML =
+          "product-page-stock-description"
+        )[0].innerHTML =
         "The goods are in the store. You can pick it up now (until 21:00) or place a reservation for tomorrow.";
       document.getElementsByClassName("product-page-stock-again")[0].innerHTML =
         "In stock";
@@ -68,8 +76,8 @@
       document.getElementsByClassName("product-page-stock")[0].innerHTML =
         "on order";
       document.getElementsByClassName(
-        "product-page-stock-description"
-      )[0].innerHTML =
+          "product-page-stock-description"
+        )[0].innerHTML =
         "Make a reservation and the product will be available within 48 hours.";
       document.getElementsByClassName("product-page-stock-again")[0].innerHTML =
         "Preorder";
@@ -90,12 +98,13 @@
         )[0];
         if (productCharacteristics[key].link === true) {
           const container = document.createElement("div");
+          const category = drink.category;
           container.classList.add("characteristics-container");
           showPropertyName(productCharacteristics[key].name, container);
 
           if (Array.isArray(productCharacteristics[key].value)) {
             productCharacteristics[key].value.forEach(function (element) {
-              showPropertyValueButton(element, container);
+              showPropertyValueButton(element, container, productCharacteristics[key].name, category);
               showPropertyValueSeparator(container);
             });
             let lastElement = container.childElementCount - 1;
@@ -103,8 +112,7 @@
             characteristicsConteiner.appendChild(container);
           } else {
             showPropertyValueButton(
-              productCharacteristics[key].value,
-              container
+              productCharacteristics[key].value, container, productCharacteristics[key].name, category
             );
             characteristicsConteiner.appendChild(container);
           }
@@ -124,10 +132,10 @@
     characteriticsName.classList.add("product-characteristics");
     container.appendChild(characteriticsName);
   };
-  const showPropertyValueButton = function (value, container) {
+  const showPropertyValueButton = function (value, container, characteristicName, category) {
     const characteristicValue = document.createElement("a");
     characteristicValue.innerHTML = value;
-    characteristicValue.href = "#" + value;
+    characteristicValue.href = "/pages/drinks.html?Category=" + category + "$" + characteristicName + "=" + value + "$_page=1";
     characteristicValue.classList.add("product-characteristics--valueLink");
     container.appendChild(characteristicValue);
   };

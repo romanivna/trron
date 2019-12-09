@@ -18,22 +18,27 @@
         "color": {
           "link": true,
           "name": "Color",
-          "value": "Red"
+          "value": ["Red"]
         },
         "style": {
           "link": true,
           "name": "Style",
-          "value": "Semisweet"
+          "value": ["Semisweet"]
+        },
+        "country": {
+          "link": true,
+          "name": "Country",
+          "value": ["Ukraine"]
         },
         "region": {
           "link": true,
           "name": "Region",
-          "value": ["France", "Ukraine", "Gorod"]
+          "value": ["Gorod"]
         },
-        "grape_sort": {
+        "grape-sort": {
           "link": true,
           "name": "Grape sort",
-          "value": "Pinot blanc"
+          "value": ["Pinot blanc"]
         },
         "alcohol": {
           "link": false,
@@ -59,105 +64,50 @@
       }
     },
     {
-      "category": "Wine",
-      "name": "Massandra Pino Blanc Del Mar",
+      "category": "Fruit Wine",
+      "name": "Choya Original",
       "litrage": 1,
-      "price": 75,
+      "price": 400,
       "currency": "UAH",
-      "description": "White semi-sweet Ukrainian wine Aquavintex Pin Blanc Del Mar from Pinot Blanc grapes",
-      "inStock": false,
-      "image": "https://winebutik.com.ua/sites/default/files/styles/h250/public/massandra-pino-blanc-del-mar.jpg?itok=V_PCFOjA",
-      "id": 1001,
-      "UTP": "UTP002250",
-      "color": "red",
-      "style": "semisweet",
-      "region": "France",
-      "sort": "Pinot blanc",
-      "alcohol": "9.0-13.0%",
-      "volume": "0.75",
-      "additionalDescription": {
-        "description": "The description is being prepared for publication",
-        "producer": "",
-        "notes": "",
-        "video": "",
-        "сomments": "<a href='#login'>Login</a> or <a href='#registration'>register</a> to post comments"
-      }
-    },
-    {
-      "category": "Wine",
-      "name": "Massandra Pino Blanc Del Mar",
-      "litrage": 1,
-      "price": 75,
-      "currency": "UAH",
-      "description": "White semi-sweet Ukrainian wine Aquavintex Pin Blanc Del Mar from Pinot Blanc grapes",
+      "description": "Choi Original White Sweet Japanese Fruit Wine",
       "inStock": true,
-      "image": "https://winebutik.com.ua/sites/default/files/styles/h250/public/massandra-pino-blanc-del-mar.jpg?itok=V_PCFOjA",
-      "id": 1000,
-      "UTP": "UTP002250",
-      "color": "red",
-      "style": "semisweet",
-      "region": "France",
-      "sort": "Pinot blanc",
-      "alcohol": "9.0-13.0%",
-      "volume": "0.75",
-      "additionalDescription": {
-        "description": [
-          "Серия рождена в процессе сотрудничества винокурни Макаллан с ювелирным домом Лалик, основным еще в конце 19 века. Творческая составляющая и стремление к прекрасному переданы в каждом изделии Lalique.",
-          "The Macallan in Lalique является одной из самых дорогих серий виски в мире. Эту коллекцию можно по истине считать произведением искусства. В линейку вошли экземпляры 50, 55, 57, 60, 62 и 65-летней выдержки. Дегустировать любой напиток из вышеуказанной линейки - настоящее наслаждение."
-        ],
-        "producer": "",
-        "notes": {
-          "coco": ["dgdhdjj", "sdadsddas", "sadsad"]
-        },
-        "video": "",
-        "сomments": "<a href='#login'>Login</a> or <a href='#registration'>register</a> to post comments"
-      }
-    },
-    {
-      "category": "Wine",
-      "name": "Massandra Pino Blanc Del Mar",
-      "litrage": 0.75,
-      "price": 75,
-      "currency": "UAH",
-      "description": "White semi-sweet Ukrainian wine Aquavintex Pin Blanc Del Mar from Pinot Blanc grapes",
-      "inStock": true,
-      "image": "https://winebutik.com.ua/sites/default/files/styles/h250/public/massandra-pino-blanc-del-mar.jpg?itok=V_PCFOjA",
+      "image": "https://winebutik.com.ua/sites/default/files/styles/h560/public/choya-original.jpg?itok=RV9c5AFM",
       "id": 1,
       "characteristics": {
         "UTP": {
           "link": false,
           "name": "UTP",
-          "value": "UTP002250"
+          "value": ["UTP003011"]
         },
         "color": {
           "link": true,
           "name": "Color",
-          "value": "White"
+          "value": ["White"]
         },
         "style": {
           "link": true,
           "name": "Style",
-          "value": "Semisweet"
+          "value": ["Sweet"]
         },
-        "region": {
+        "country": {
           "link": true,
-          "name": "Region",
-          "value": ["Ukraine", "Odessa"]
+          "name": "Country",
+          "value": ["Japan"]
         },
-        "grape-sort": {
+        "manufacturer": {
           "link": true,
-          "name": "Grape sort",
-          "value": "Pinot blanc"
+          "name": "Manufacturer",
+          "value": ["Choya"]
         },
         "alcohol": {
           "link": false,
           "name": "Alcohol",
-          "value": "9.0-13.0%"
+          "value": "10.0%"
         },
         "volume": {
           "link": false,
           "name": "Volume",
-          "value": "0.75"
+          "value": "1"
         }
       },
       "additionalDescription": {
@@ -169,8 +119,8 @@
       }
     },
     {
-      "category": "Wine",
-      "name": "Muscat Massandra Tauride",
+      "category": "Muscat",
+      "name": "Massandra Tauride",
       "litrage": 0.75,
       "price": 93,
       "currency": "UAH",
@@ -187,22 +137,27 @@
         "color": {
           "link": true,
           "name": "Color",
-          "value": "White"
+          "value": ["White"]
         },
         "style": {
           "link": true,
           "name": "Style",
-          "value": "Fortified"
+          "value": ["Fortified"]
+        },
+        "country": {
+          "link": true,
+          "name": "Country",
+          "value": ["Ukraine"]
         },
         "region": {
           "link": true,
           "name": "Region",
-          "value": ["Ukraine", "Odessa"]
+          "value": ["Odessa"]
         },
         "grape-sort": {
           "link": true,
           "name": "Grape sort",
-          "value": "Nutmeg"
+          "value": ["Nutmeg"]
         },
         "alcohol": {
           "link": false,
@@ -242,27 +197,27 @@
         "color": {
           "link": true,
           "name": "Color",
-          "value": "White"
+          "value": ["White"]
         },
         "style": {
           "link": true,
           "name": "Style",
-          "value": "Dry"
+          "value": ["Dry"]
         },
-        "region": {
+        "country": {
           "link": true,
-          "name": "Region",
+          "name": "Country",
           "value": ["Ukraine"]
         },
-        "grape-sort:": {
+        "grape-sort": {
           "link": true,
           "name": "Grape sort",
-          "value": "Aligote"
+          "value": ["Aligote"]
         },
         "vintage": {
           "link": true,
           "name": "Vintage",
-          "value": "2011"
+          "value": ["2011"]
         },
         "alcohol": {
           "link": false,
@@ -302,27 +257,27 @@
         "color": {
           "link": true,
           "name": "Color",
-          "value": "White"
+          "value": ["White"]
         },
         "style": {
           "link": true,
           "name": "Style",
-          "value": "Dry"
+          "value": ["Dry"]
         },
-        "region": {
+        "country": {
           "link": true,
-          "name": "Region",
+          "name": "Country",
           "value": ["Ukraine"]
         },
-        "grape-sort:": {
+        "grape-sort": {
           "link": true,
           "name": "Grape sort",
-          "value": "Chardonnay"
+          "value": ["Chardonnay"]
         },
         "vintage": {
           "link": true,
           "name": "Vintage",
-          "value": "2011"
+          "value": ["2011"]
         },
         "alcohol": {
           "link": false,
@@ -362,22 +317,27 @@
         "color": {
           "link": true,
           "name": "Color",
-          "value": "White"
+          "value": ["White"]
         },
         "style": {
           "link": true,
           "name": "Style",
-          "value": "Dry"
+          "value": ["Dry"]
+        },
+        "country": {
+          "link": true,
+          "name": "Country",
+          "value": ["Italy"]
         },
         "region": {
           "link": true,
           "name": "Region",
-          "value": ["Italy", "Sardinia"]
+          "value": ["Sardinia"]
         },
-        "grape-sort:": {
+        "grape-sort": {
           "link": true,
           "name": "Grape sort",
-          "value": "Grollo"
+          "value": ["Grollo"]
         },
         "alcohol": {
           "link": false,
@@ -417,19 +377,24 @@
         "color": {
           "link": true,
           "name": "Color",
-          "value": "White"
+          "value": ["White"]
         },
         "style": {
           "link": true,
           "name": "Style",
-          "value": "Dry"
+          "value": ["Dry"]
+        },
+        "country": {
+          "link": true,
+          "name": "Country",
+          "value": ["Spain"]
         },
         "region": {
           "link": true,
           "name": "Region",
-          "value": ["Spain", "Galicia"]
+          "value": ["Galicia"]
         },
-        "grape-sort:": {
+        "grape-sort": {
           "link": true,
           "name": "Grape sort",
           "value": ["Airen", "Sauvignon Blanc"]
@@ -472,24 +437,29 @@
         "color": {
           "link": true,
           "name": "Color",
-          "value": "White"
+          "value": ["White"]
         },
         "style": {
           "link": true,
           "name": "Style",
-          "value": "Brut"
+          "value": ["Brut"]
+        },
+        "country": {
+          "link": true,
+          "name": "Country",
+          "value": ["France"]
         },
         "region": {
           "link": true,
           "name": "Region",
-          "value": ["France", "Champagne"]
+          "value": ["Champagne"]
         },
         "manufacturer": {
           "link": true,
           "name": "Manufacturer",
           "value": ["Louis roederer"]
         },
-        "grape-sort:": {
+        "grape-sort": {
           "link": true,
           "name": "Grape sort",
           "value": ["Pinot Noir", "Chardonnay", "Pinot Meunier"]
@@ -532,24 +502,29 @@
         "color": {
           "link": true,
           "name": "Color",
-          "value": "White"
+          "value": ["White"]
         },
         "style": {
           "link": true,
           "name": "Style",
-          "value": "Brut"
+          "value": ["Brut"]
+        },
+        "country": {
+          "link": true,
+          "name": "Country",
+          "value": ["France"]
         },
         "region": {
           "link": true,
           "name": "Region",
-          "value": ["France", "Champagne"]
+          "value": ["Champagne"]
         },
         "manufacturer": {
           "link": true,
           "name": "Manufacturer",
           "value": ["Taittinger"]
         },
-        "grape-sort:": {
+        "grape-sort": {
           "link": true,
           "name": "Grape sort",
           "value": ["Pinot Noir", "Pinot Meunier"]
@@ -592,24 +567,29 @@
         "color": {
           "link": true,
           "name": "Color",
-          "value": "White"
+          "value": ["White"]
         },
         "style": {
           "link": true,
           "name": "Style",
-          "value": "Brut"
+          "value": ["Brut"]
+        },
+        "country": {
+          "link": true,
+          "name": "Country",
+          "value": ["France"]
         },
         "region": {
           "link": true,
           "name": "Region",
-          "value": ["France", "Champagne"]
+          "value": ["Champagne"]
         },
         "manufacturer": {
           "link": true,
           "name": "Manufacturer",
           "value": ["Mumm"]
         },
-        "brand-Name:": {
+        "brand-Name": {
           "link": true,
           "name": "Brand Name",
           "value": ["Mumm"]
@@ -652,17 +632,22 @@
         "color": {
           "link": true,
           "name": "Color",
-          "value": "White"
+          "value": ["White"]
         },
         "style": {
           "link": true,
           "name": "Style",
-          "value": "Brut"
+          "value": ["Brut"]
+        },
+        "country": {
+          "link": true,
+          "name": "Country",
+          "value": ["France"]
         },
         "region": {
           "link": true,
           "name": "Region",
-          "value": ["France", "Champagne"]
+          "value": ["Champagne"]
         },
         "grape-sort": {
           "link": true,
@@ -707,17 +692,22 @@
         "color": {
           "link": true,
           "name": "Color",
-          "value": "White"
+          "value": ["White"]
         },
         "style": {
           "link": true,
           "name": "Style",
-          "value": "Brut"
+          "value": ["Brut"]
+        },
+        "country": {
+          "link": true,
+          "name": "Country",
+          "value": ["France"]
         },
         "region": {
           "link": true,
           "name": "Region",
-          "value": ["France", "Champagne"]
+          "value": ["Champagne"]
         },
         "brand-Name": {
           "link": true,
@@ -729,7 +719,7 @@
           "name": "Manufacturer",
           "value": ["Moet & chandon"]
         },
-        "grape-sort:": {
+        "grape-sort": {
           "link": true,
           "name": "Grape sort",
           "value": ["Chardonnay", "Pinot Noir", "Pinot Meunier"]
@@ -783,24 +773,29 @@
         "color": {
           "link": true,
           "name": "Color",
-          "value": "White"
+          "value": ["White"]
         },
         "style": {
           "link": true,
           "name": "Style",
-          "value": "Brut"
+          "value": ["Brut"]
+        },
+        "country": {
+          "link": true,
+          "name": "Country",
+          "value": ["France"]
         },
         "region": {
           "link": true,
           "name": "Region",
-          "value": ["France", "Champagne"]
+          "value": ["Champagne"]
         },
         "manufacturer": {
           "link": true,
           "name": "Manufacturer",
           "value": ["Laurent-perrier"]
         },
-        "grape-sort:": {
+        "grape-sort": {
           "link": true,
           "name": "Grape sort",
           "value": ["Pinot Noir", "Chardonnay", "Pinot Meunier"]

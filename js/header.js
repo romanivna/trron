@@ -1,18 +1,18 @@
-(function() {
-  window.addEventListener("resize", function() {
+(function () {
+  window.addEventListener("resize", function () {
     pageScrolledOrChangedWidth();
   });
-  window.addEventListener("scroll", function() {
+  window.addEventListener("scroll", function () {
     pageScrolledOrChangedWidth();
   });
 
-  const fixMenuAppearsWhenThePageIsReduced = function() {
+  const fixMenuAppearsWhenThePageIsReduced = function () {
     let menu = document.getElementsByClassName("header-nav-catalog-list")[0];
     let menuConteiner = menu.parentElement;
     menuConteiner.removeChild(menu);
     menuConteiner.appendChild(menu);
   };
-  const pageScrolledOrChangedWidth = function() {
+  const pageScrolledOrChangedWidth = function () {
     const scroll = pageYOffset;
     const width = document.getElementsByClassName("header-wrapper--grey")[0]
       .offsetWidth;
@@ -109,7 +109,7 @@
     .addEventListener("click", closeList);
   document
     .getElementsByClassName("header-mid-search-icon")[0]
-    .addEventListener("click", function() {
+    .addEventListener("click", function () {
       const width = document.getElementsByClassName("header-wrapper--grey")[0]
         .offsetWidth;
       const MAXIMUM_WIDTH_FOR_MOBILE_VERSIONS = 450;
@@ -128,7 +128,7 @@
     .addEventListener("click", closeList);
   document
     .getElementsByClassName("header-top-button")[0]
-    .addEventListener("click", function() {
+    .addEventListener("click", function () {
       document
         .getElementsByClassName("header-top-list")[0]
         .classList.toggle("header-top-list--click");
@@ -136,7 +136,7 @@
     });
   document
     .getElementsByClassName("container-stop-link")[0]
-    .addEventListener("click", function() {
+    .addEventListener("click", function () {
       document
         .getElementsByClassName("container-stop-link")[0]
         .classList.remove("container-stop-link--block");
@@ -158,9 +158,9 @@
   document.getElementsByClassName("header-mid-search-input")[0].value = "";
   document.getElementsByClassName("header-mid-search-input")[1].value = "";
 })();
-const search = function(ButtonIndex) {
+const search = function (ButtonIndex) {
   searchValue = document.getElementsByClassName("header-mid-search-input")[
     ButtonIndex
   ].value;
-  location.href = "/pages/search.html?text-" + searchValue + "_page=1";
+  location.href = "/pages/search.html?text-" + searchValue + "$_page=1";
 };

@@ -1,0 +1,201 @@
+{
+    "drinks": {
+        "category": ["Wine", "Muscat", "Champagne", "Fruit Wine"],
+        "filters": {
+            "category": {
+                "name": "Category",
+                "value": ["Wine", "Muscat", "Champagne", "Fruit Wine"]
+            },
+            "color": {
+                "name": "Color",
+                "value": ["Red", "White"]
+            },
+            "style": {
+                "name": "Style",
+                "value": ["Semisweet", "Fortified", "Dry", "Brut"]
+            },
+            "country": {
+                "name": "Country",
+                "value": ["Ukraine", "Italy", "Spain", "France"]
+            },
+            "region": {
+                "name": "Region",
+                "value": ["Gorod", "Odessa", "Sardinia", "Galicia", "Champagne"]
+            },
+            "grape-sort": {
+                "name": "Grape sort",
+                "value": ["Pinot blanc", "Nutmeg", "Aligote", "Chardonnay", "Grollo", "Airen", "Sauvignon Blanc", "Pinot Noir", "Pinot Meunier"]
+            },
+            "vintage": {
+                "name": "Vintage",
+                "value": ["2011"]
+            },
+            "manufacturer": {
+                "name": "Manufacturer",
+                "value": ["Louis roederer", "Taittinger", "Mumm", "Moet & chandon", "Laurent-perrier"]
+            },
+            "brand-Name": {
+                "name": "Brand Name",
+                "value": ["Mumm", "Moet & chandon"]
+            }
+        }
+    },
+    "wines": {
+        "category": ["Wine", "Muscat", "Fruit Wine"],
+        "filters": {
+            "category": {
+                "name": "Category",
+                "value": ["Wine", "Muscat", "Fruit Wine"]
+            },
+            "color": {
+                "name": "Color",
+                "value": ["Red", "White"]
+            },
+            "style": {
+                "name": "Style",
+                "value": ["Semisweet", "Dry", "Fortified"]
+            },
+            "country": {
+                "name": "Country",
+                "value": ["Ukraine", "Italy", "Spain"]
+            },
+            "region": {
+                "name": "Region",
+                "value": ["Gorod", "Odessa", "Sardinia", "Galicia"]
+            },
+            "grape-sort": {
+                "name": "Grape sort",
+                "value": ["Pinot blanc", "Aligote", "Chardonnay", "Grollo", "Airen", "Sauvignon Blanc", "Nutmeg"]
+            },
+            "vintage": {
+                "name": "Vintage",
+                "value": ["2011"]
+            }
+        }
+    },
+    "wine": {
+        "category": ["Wine"],
+        "filters": {
+            "category": {
+                "name": "Category",
+                "value": ["Wine"]
+            },
+            "color": {
+                "name": "Color",
+                "value": ["Red", "White"]
+            },
+            "style": {
+                "name": "Style",
+                "value": ["Semisweet", "Dry"]
+            },
+            "country": {
+                "name": "Country",
+                "value": ["Ukraine", "Italy", "Spain"]
+            },
+            "region": {
+                "name": "Region",
+                "value": ["Gorod", "Odessa", "Sardinia", "Galicia"]
+            },
+            "grape-sort": {
+                "name": "Grape sort",
+                "value": ["Pinot blanc", "Aligote", "Chardonnay", "Grollo", "Airen", "Sauvignon Blanc"]
+            },
+            "vintage": {
+                "name": "Vintage",
+                "value": ["2011"]
+            }
+        }
+    },
+    "muscat": {
+        "category": ["Muscat"],
+        "filters": {
+            "category": {
+                "name": "Category",
+                "value": ["Muscat"]
+            },
+            "color": {
+                "name": "Color",
+                "value": ["White"]
+            },
+            "style": {
+                "name": "Style",
+                "value": ["Fortified"]
+            },
+            "country": {
+                "name": "Country",
+                "value": ["Ukraine"]
+            },
+            "region": {
+                "name": "Region",
+                "value": ["Odessa"]
+            },
+            "grape-sort": {
+                "name": "Grape sort",
+                "value": ["Nutmeg"]
+            }
+        }
+    },
+    "champagne": {
+        "category": ["Champagne"],
+        "filters": {
+            "category": {
+                "name": "Category",
+                "value": ["Champagne"]
+            },
+            "color": {
+                "name": "Color",
+                "value": ["White"]
+            },
+            "style": {
+                "name": "Style",
+                "value": ["Brut"]
+            },
+            "country": {
+                "name": "Country",
+                "value": ["France"]
+            },
+            "region": {
+                "name": "Region",
+                "value": ["Champagne"]
+            },
+            "manufacturer": {
+                "name": "Manufacturer",
+                "value": ["Louis roederer", "Taittinger", "Mumm", "Moet & chandon", "Laurent-perrier"]
+            },
+            "grape-sort": {
+                "name": "Grape sort",
+                "value": ["Pinot Noir", "Chardonnay", "Pinot Meunier"]
+            },
+            "brand-Name": {
+                "name": "Brand Name",
+                "value": ["Mumm", "Moet & chandon"]
+            }
+        }
+    },
+    "fruit%20wine": {
+        "category": ["Fruit Wine"],
+        "filters": {
+            "category": {
+                "name": "Category",
+                "value": ["Fruit Wine"]
+            },
+            "color": {
+                "name": "Color",
+                "value": ["White"]
+            },
+            "style": {
+                "name": "Style",
+                "value": ["Sweet"]
+            },
+            "country": {
+                "name": "Country",
+                "value": ["Japan"]
+            },
+            "manufacturer": {
+                "name": "Manufacturer",
+                "value": ["Choya"]
+            }
+
+        }
+    }
+}
