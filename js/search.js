@@ -1,6 +1,6 @@
 "use strict";
 (function () {
-  const searchinfo = location.search.substr(1).split("_");
+  const searchinfo = location.search.substr(1).split("$");
 
   if (
     searchinfo[0].split("-")[0] !== "text" ||
@@ -12,7 +12,7 @@
 
   let searchName = searchinfo[0].split("-")[1].replace(/%20/g, " ");
 
-  if (searchinfo[1].split("=")[0] !== "page") {
+  if (searchinfo[1].split("=")[0] !== "_page") {
     error404();
   }
 
@@ -41,7 +41,10 @@
     showNotMatchMessage();
     return;
   } else {
-    breadcrumbs = [{ name: searchName, link: "" }];
+    breadcrumbs = [{
+      name: searchName,
+      link: ""
+    }];
     addPointToBreadcrumbMap(breadcrumbs);
 
     const xmlhttp = new XMLHttpRequest();
@@ -86,8 +89,7 @@
           pageNumber * NUMBER_OF_DRINKS_ON_THE_PAGE -
           NUMBER_OF_DRINKS_ON_THE_PAGE;
         (drinkNumber < NUMBER_OF_DRINKS_ON_THE_PAGE * pageNumber) &
-        (drinkNumber < foundDrinks.length);
-        drinkNumber++
+        (drinkNumber < foundDrinks.length); drinkNumber++
       ) {
         buildDrink(foundDrinks[drinkNumber], drinksPosistion);
       }
