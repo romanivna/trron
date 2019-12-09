@@ -8,10 +8,7 @@
     for (let i = 0; i < moveTo; i++) {
       function move() {
         moveSpeed = setTimeout(function () {
-          console.log(section.offsetTop)
           window.scrollTo(0, i);
-
-          console.log(i)
         }, i);
       }
       move();
